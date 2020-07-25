@@ -1,5 +1,9 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => __('Login Page'), 'contentClass' => 'login-page'])
-
+@if(Session::has('error'))
+<div class="alert alert-danger">
+    {{ Session::get('error') }}
+</div>
+@enderror
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
         <h3 class="mb-5">Login to Your Account</h3>
