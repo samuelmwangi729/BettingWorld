@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\League;
 use Illuminate\Http\Request;
-
+use App\Game;
+use Str;
+use Session;
 class GamesController extends Controller
 {
     /**
@@ -14,7 +16,14 @@ class GamesController extends Controller
     public function index()
     {
         $leagues=League::all();
-        return view('Games.Index')->with('leagues',$leagues);
+        $todays=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+        ])->get();
+        $games=Game::where('Outcome','!=',null)->get();
+        return view('Games.Index')
+        ->with('games',$games)
+        ->with('todays',$todays)
+        ->with('leagues',$leagues);
     }
 
     /**
@@ -35,7 +44,30 @@ class GamesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    //run the validation rules  
+    $rules=[
+        'HomeTeam'=>'required',
+        'AwayTeam'=>'required',
+        'KickOff'=>'required',
+        'Pick'=>'required',
+        'League'=>'required',
+        'Type'=>'required',
+    ];
+    $this->validate($request,$rules);
+    $gameId=Str::random(7);
+    //it the request is valid, then insert into the database
+    Game::create([
+        'GameId'=>$gameId,
+        'HomeTeam'=>$request->HomeTeam,
+        'AwayTeam'=>$request->AwayTeam,
+        'KickOff'=>$request->KickOff,
+        'Pick'=>$request->Pick,
+        'League'=>$request->League,
+        'Type'=>$request->Type,
+        'DatePosted'=>date('Y-m-d')
+    ]);
+    Session::flash('success','The Match BK'.$gameId.' has Been Posted.');
+    return back();
     }
 
     /**
@@ -46,7 +78,31 @@ class GamesController extends Controller
      */
     public function show($id)
     {
-        //
+        $game=Game::find($id);
+       if($game){
+           $game->OutCome=1;
+           $game->save();
+           Session::flash('success','game successfully Updated');
+           return back();
+       }
+       return back();
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function lost($id)
+    {
+        $game=Game::find($id);
+       if($game){
+           $game->OutCome=2;
+           $game->save();
+           Session::flash('success','game successfully Updated');
+           return back();
+       }
+       return back();
     }
 
     /**
@@ -69,7 +125,8 @@ class GamesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $game=Game::find($id);
+        dd($game);
     }
 
     /**

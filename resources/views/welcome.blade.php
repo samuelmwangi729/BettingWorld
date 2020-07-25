@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app',['pageSlug'=>'index'])
 
 @section('content')
 <!--Start Today Games Table-->
@@ -8,12 +8,15 @@
         <h4 class="card-title text-center" style="font-weight:bold"> Today Free Games</h4>
       </div>
       <div class="card-body">
-        <div class="table-responsive">
+        <div class="container">
           <table class="table tablesorter table-bordered table-codensed">
             <thead class=" text-primary">
               <tr>
                 <th>
-                  Game
+                  GameId
+                </th>
+                <th>
+                  Match
                 </th>
                 <th>
                     League
@@ -24,31 +27,40 @@
                 <th>
                   Pick 
                 </th>
-                <th class="text-center">
-                  Outcome
-                </th>
               </tr>
             </thead>
             <!--End Thead-->
             <!--Start Body-->
             <tbody>
-              <tr>
+                @if($todays->count()==0)
+                    <tr>
+                          <td colspan="5">
+                            <div class="alert alert-danger">
+                              Todays Free  Games Are Yet to be posted. Please Check Later
+                            </div>
+                          </td>
+                  </tr>
+                @else
+                @foreach ($todays  as $todays)
+                <tr>
                 <td>
-                  Kenya V.s Nigeria
+                  {{ $todays->GameId }}
                 </td>
                 <td>
-                   Africa Championship
+                  {{ $todays->HomeTeam }} Vs   {{ $todays->AwayTeam }}
+                </td>
+                <td>
+                   {{ $todays->League }}
                   </td>
                 <td>
-                  12:40 GMT
+                  {{ $todays->KickOff }}
                 </td>
                 <td style="font-weight:bold;color:yellow !important">
-                  Pick HT/FT Nigeria
+                  {{ $todays->Pick }}
                 </td>
-                <td class="text-center">
-                 <i class="fa fa-check" style="color:greenyellow"></i>
-                </td>
-              </tr>
+                </tr>
+                @endforeach
+                @endif
             </tbody>
             <!--End Body-->
           </table>
@@ -64,7 +76,7 @@
         <h4 class="card-title text-center" style="font-weight:bold">Past Games And Predictions</h4>
       </div>
       <div class="card-body">
-        <div class="table-responsive">
+        <div class="container">
           <table class="table tablesorter table-bordered table-codensed">
             <thead class=" text-primary">
               <tr>
@@ -88,23 +100,30 @@
             <!--End Thead-->
             <!--Start Body-->
             <tbody>
-              <tr>
-                <td>
-                  Arsenal Vs QPR
+            @foreach($games as $game)
+            <tr>
+              <td>
+                {{ $game->HomeTeam }} Vs   {{ $game->AwayTeam }}
+              </td>
+              <td>
+              {{$game->League}}
                 </td>
-                <td>
-                   Capitol 1
-                  </td>
-                <td>
-                  Niger
-                </td>
-                <td style="font-weight:bold;color:yellow !important">
-                  Pick : GG
-                </td>
-                <td class="text-center">
-                  <i class="fa fa-times" style="color:red"></i>
-                </td>
-              </tr>
+              <td>
+              {{$game->KickOff}}
+              </td>
+              <td style="font-weight:bold;color:yellow !important">
+              {{$game->Pick}}
+              </td>
+              <td class="text-center">
+                @if($game->OutCome==1)
+                <i class="fa fa-check" style="color:greenyellow"></i>
+                @endif
+                @if($game->OutCome==2)
+              <div  style="color:red;font-weight:bolder;font-size:20px">&times;</div>
+                @endif
+              </td>
+            </tr>
+            @endforeach
             </tbody>
             <!--End Body-->
           </table>

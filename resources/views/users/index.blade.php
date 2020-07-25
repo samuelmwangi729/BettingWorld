@@ -1,6 +1,18 @@
 @extends('layouts.app',['pageSlug'=>'user'])
 @section('content')
 <div class="content">
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {{ Session::get('success') }}
+    </div>
+    @endif
+    @if(Session::has('error'))
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        {{ Session::get('error') }}
+    </div>
+    @endif
     <div class="row">
 <div class="col-md-12">
 <div class="card ">
@@ -35,15 +47,25 @@
             <td>{{ ($user->created_at)->toFormattedDateString() }}</td>
             <td><a href="javascript:void(0)">Active</a></td>
             <td>
-                <button type="button" rel="tooltip" class="btn btn-info btn-sm btn-round btn-icon"  titlle="Suspend User">
-                    <i class="tim-icons icon-single-02"></i>
-                </button>
-                <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-round btn-icon"  titlle="Edit User">
-                    <i class="tim-icons icon-settings"></i>
-                </button>
-                <button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-round btn-icon" titlle="Delete User">
-                    <i class="tim-icons icon-simple-remove"></i>
-                </button>
+                {{-- <button type="button" rel="tooltip" class="btn btn-success btn-sm "  titlle="Edit User" onclick="document.getElementById('suspend').submit()">
+                  <i class="fa fa-times"></i>
+                </button> --}}
+                <form action="{{ route('user.update',[$user->id]) }}" method="POST" id="suspend">
+                    @method('PATCH')
+                    @csrf
+                </form>
+               @if($user->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
+               <button class="btn btn-primary btn-sm">Admin</button>
+               @else
+               <button type="button" rel="tooltip" class="btn btn-sm btn-primary" titlle="Delete User" onclick="document.getElementById('delete').submit()">
+                <i class="fa fa-trash"></i>
+            </button>
+            <a href="{{ route('reset',[$user->id]) }}" class="btn btn-danger btn-sm">Reset Password</a>
+            <form action="{{ route('user.delete',[$user->id]) }}" method="post" id="delete">
+                @method('DELETE')
+                @csrf
+            </form>
+               @endif    
             </td>
         </tr>
         @endforeach
@@ -51,4 +73,5 @@
 </table>
 </div>
 </div>
+
 @endsection

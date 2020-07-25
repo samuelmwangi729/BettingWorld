@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-10 text-center ml-auto mr-auto">
-        <h3 class="mb-5">Log in to see how you can speed up your web development with out of the box CRUD for #User Management and more.</h3>
+        <h3 class="mb-5">Login to Your Account</h3>
     </div>
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <form class="form" method="post" action="{{ route('login') }}">
@@ -14,7 +14,7 @@
                     <h1 class="card-title">{{ __('Log in') }}</h1>
                 </div>
                 <div class="card-body">
-                    <p class="text-dark mb-2">Sign in with <strong>admin@black.com</strong> and the password <strong>secret</strong></p>
+                    <p class="text-dark mb-2">Sign in  To <strong>{{ config('app.name') }}</strong></p>
                     <div class="input-group{{ $errors->has('number') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="pull-right">
                         <h6>
-                            <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Forgot password?') }}</a>
+                            {{-- <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Forgot password?') }}</a> --}}
                         </h6>
                     </div>
                 </div>
