@@ -8,7 +8,7 @@
         <h4 class="card-title text-center" style="font-weight:bold"> Today Free Games</h4>
       </div>
       <div class="card-body">
-        <div class="container">
+        <div class="row">
           <table class="table tablesorter table-bordered table-codensed">
             <thead class=" text-primary">
               <tr>
@@ -76,24 +76,24 @@
         <h4 class="card-title text-center" style="font-weight:bold">Past Games And Predictions</h4>
       </div>
       <div class="card-body">
-        <div class="container">
+        <div class="row">
           <table class="table tablesorter table-bordered table-codensed">
             <thead class=" text-primary">
               <tr>
-                <th>
+                <th  style="font-size:10px !important">
                   Game
                 </th>
-                <th>
+                <th  style="font-size:10px !important">
                     League
                 </th>
-                <th>
+                <th style="font-size:10px !important">
                   Kick Off
                 </th>
-                <th>
+                <th  style="font-size:10px !important">
                   Pick 
                 </th>
-                <th class="text-center">
-                  Outcome
+                <th class="text-center"  style="font-size:10px !important">
+                  Result
                 </th>
               </tr>
             </thead>
