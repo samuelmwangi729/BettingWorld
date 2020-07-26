@@ -32,7 +32,7 @@
 <table class="table tablesorter " id="">
     <thead class=" text-primary">
         <tr><th scope="col">Name</th>
-        <th scope="col">Phone Number</th>
+        <th scope="col">Email Address</th>
         <th scope="col">Creation Date</th>
         <th scope="col">Status</th>
         <th scope="col">Actions</th>
@@ -42,7 +42,7 @@
         <tr>
             <td>{{ $user->name }}</td>
             <td>
-            <a href="javascript::void(0)">{{ $user->number }}</a>
+            <a href="javascript::void(0)">{{ $user->email }}</a>
             </td>
             <td>{{ ($user->created_at)->toFormattedDateString() }}</td>
             <td><a href="javascript:void(0)">Active</a></td>

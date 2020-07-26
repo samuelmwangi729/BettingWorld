@@ -105,12 +105,6 @@
                 <p>{{ __('Manage Subscriptions') }}</p>
             </a>
         </li>
-        <li class="nav-link @if($pageSlug== 'profile') active @endif">
-            <a href="/profile">
-                <i class="fa fa-user-cog"></i>
-                <p>{{ __('My Account') }}</p>
-            </a>
-        </li>
     @else
         <li class="nav-link @if($pageSlug== 'subs') active @endif">
             <a href="{{ route('subscribers.index') }}">
@@ -119,6 +113,12 @@
             </a>
         </li>
     @endif
+    <li class="nav-link @if($pageSlug== 'profile') active @endif">
+      <a href="/profile">
+          <i class="fa fa-user-cog"></i>
+          <p>{{ __('My Account') }}</p>
+      </a>
+  </li>
     <li class="nav-link">
         <a  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -150,7 +150,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/home">Home</a></li>
-              <li class="breadcrumb-item"><a href="/profile">{{ Auth::user()->number }}</a></li>
+              <li class="breadcrumb-item"><a href="/profile">{{ Auth::user()->name }}</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
