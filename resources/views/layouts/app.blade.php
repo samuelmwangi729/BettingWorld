@@ -6,7 +6,13 @@
     <meta name="description" content="{{ config('app.name') }} Games, football, prediction">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="keywords" content="BettingWorld, sure prediction site, best football prediction site in the world, best soccer prediction site, best 1x2, bet prediction site">
+    <meta name="description" content="BettingWorld is the world's best prediction site with sure, secure and guaranteed sports betting tips. Trust our 100% free betting tips and predictions.">
+    <meta name="author" content="BettingWorld">
+    <meta property="og:url"content="https://www.bettingworld.co.ke" />
+    <meta property="og:type"  content="Website" />
+    <meta property="og:title"content="BettingWorld" />
+    <meta property="og:description"   content="BettingWorld is the world's best prediction site with sure, secure and guaranteed sports betting tips. Trust our 100% free betting tips and predictions.">
     <title>{{ config('app.name') }} Is a Sports games prediction website aimed into helping individuals maximize their earning from the world of sports betting. With our \\
         complex machine learning Algorithms, we are able to predict matches outcomes with an overall 99% accuracy rate. Be one of Us and get to join the team. 
     </title>
