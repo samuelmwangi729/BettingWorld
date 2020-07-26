@@ -214,8 +214,12 @@
     </div>
   {{-- End Col-sm-9 --}}
     <div class="col-sm-3">
-      <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld">
+      <div class="card">
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+            <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;float:center">
+          </div>
+        </div>
         <div class="card-body">
           <p class="card-text">We offer the 
             most well known football wagering tips day by day  giving you motivation to come back 
@@ -280,15 +284,17 @@
         </table>
       </div>
     {{-- End Col-sm-9 --}}
-    <div class="col-sm-3">
-      <div class="card" style="width: 100%;">
-        <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="Daily recovery tips to make you get back on track">
-        <div class="card-body">
-          <p class="card-text">We offer the 
-            most well known football wagering tips day by day  giving you motivation to come back 
-           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
-        </div>
-      </div>
+    <div class="col-sm-3" style="padding-top:30px">
+      <h6 class="text-center">We Give Premium Tips In</h6>
+      <ul class="list-group">
+        <li class="list-group-item">Sure Bets</li>
+        <li class="list-group-item">HT/FT</li>
+        <li class="list-group-item">Correct Score</li>
+        <li class="list-group-item">Combos</li>
+        <li class="list-group-item">Jackpots 
+        <sup>  <div class="badge badge-success">New</div></sup>
+        </li>
+      </ul>
     </div>
     </div>
   <!--End  Container-->
