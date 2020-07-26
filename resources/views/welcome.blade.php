@@ -72,9 +72,6 @@
         <thead class=" text-primary">
           <tr>
             <th  style="font-size:10px !important">
-              GameId
-            </th>
-            <th  style="font-size:10px !important">
               Match
             </th>
             <th  style="font-size:10px !important">
@@ -102,9 +99,6 @@
             @else
             @foreach ($todays  as $todays)
             <tr>
-            <td>
-              {{ $todays->GameId }}
-            </td>
             <td>
               {{ $todays->HomeTeam }} Vs   {{ $todays->AwayTeam }}
             </td>
