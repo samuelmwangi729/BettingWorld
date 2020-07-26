@@ -50,17 +50,17 @@
             <ul class="navbar-nav .d-none .d-sm-block">
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="fa fa-envelope" style="color:red"></i>Email: &nbsp;dominicmainaw@gmail.com
+                        <i class="fa fa-envelope" style="color:red"></i>&nbsp;dominicmainaw@gmail.com
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="fa fa-phone-alt" style="color:royalblue"></i>Phone: &nbsp;0792209882
+                        <i class="fa fa-phone-alt" style="color:royalblue"></i>&nbsp;0792209882
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-whatsapp" style="color:green"></i>Whatsapp: &nbsp;0705033943
+                        <i class="fab fa-whatsapp" style="color:green"></i>&nbsp;0705033943
                     </a>
                 </li>
                 <li class="nav-item">
