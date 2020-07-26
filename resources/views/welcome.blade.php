@@ -65,84 +65,86 @@
       <cite class="blockquote-footer">Bet Responsibly</cite>
     </blockquote>
   </div>
-  <div class="row">
-    <div class="col-sm-9">
-<h1 class="text-center" style="color:red; font-family:'Times New Roman'">Today Free Games</h1>
-      <table class="table table-bordered table-condensed table-striped">
-        <thead class=" text-primary">
-          <tr>
-            <th  style="font-size:10px !important">
-              Match
-            </th>
-            <th  style="font-size:10px !important">
-                League
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+      <h1 class="text-center" style="color:red; font-family:'Times New Roman'">Today Free Games</h1>
+        <table class="table table-condensed table-bordered">
+          <thead class=" text-primary">
+            <tr>
+              <th  style="font-size:10px !important">
+                Match
               </th>
               <th  style="font-size:10px !important">
-              Kick Off
-            </th>
-            <th  style="font-size:10px !important">
-              Pick 
-            </th>
-          </tr>
-        </thead>
-        <!--End Thead-->
-        <!--Start Body-->
-        <tbody>
-            @if($todays->count()==0)
-                <tr>
-                      <td colspan="5">
-                        <div class="alert alert-danger">
-                          Todays Free  Games Are Yet to be posted. Please Check Later
-                        </div>
-                      </td>
-              </tr>
-            @else
-            @foreach ($todays  as $todays)
-            <tr>
-            <td>
-              {{ $todays->HomeTeam }} Vs   {{ $todays->AwayTeam }}
-            </td>
-            <td>
-               {{ $todays->League }}
-              </td>
-            <td>
-              {{ $todays->KickOff }}
-            </td>
-            <td style="font-weight:bold;color:blue !important">
-              <div class="badge badge-danger">{{$todays->Pick}}</div>
-            </td>
+                  League
+                </th>
+                <th  style="font-size:10px !important">
+                Kick Off
+              </th>
+              <th  style="font-size:10px !important">
+                Pick 
+              </th>
             </tr>
-            @endforeach
-            @endif
-        </tbody>
-        <!--End Body-->
-      </table>
-    </div>
-    <div class="col-sm-3">
-      <h6 class="text-center" style="box-shadow: 1px 1px red;font-weight:bold">Premium Tips Today</h6>
-      <table class="table table-condensed table-bordered table-striped">
-        <thead>
+          </thead>
+          <!--End Thead-->
+          <!--Start Body-->
+          <tbody>
+              @if($todays->count()==0)
+                  <tr>
+                        <td colspan="5">
+                          <div class="alert alert-danger">
+                            Todays Free  Games Are Yet to be posted. Please Check Later
+                          </div>
+                        </td>
+                </tr>
+              @else
+              @foreach ($todays  as $todays)
+              <tr>
+              <td>
+                {{ $todays->HomeTeam }} Vs   {{ $todays->AwayTeam }}
+              </td>
+              <td>
+                 {{ $todays->League }}
+                </td>
+              <td>
+                {{ $todays->KickOff }}
+              </td>
+              <td style="font-weight:bold;color:blue !important">
+                <div class="badge badge-danger">{{$todays->Pick}}</div>
+              </td>
+              </tr>
+              @endforeach
+              @endif
+          </tbody>
+          <!--End Body-->
+        </table>
+      </div>
+      <div class="col-sm-3">
+        <h6 class="text-center" style="box-shadow: 1px 1px red;font-weight:bold">Premium Tips Today</h6>
+        <table class="table table-condensed table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>League</th>
+              <th>Tip</th>
+            </tr>
+          </thead>
+          <tbody>
+          @foreach($premium as $premium)
           <tr>
-            <th>Time</th>
-            <th>League</th>
-            <th>Tip</th>
+            <td>{{ $premium->KickOff }}</td>
+            <td>{{ $premium->League }}</td>
+            <td>&block;&block;&block;&block;</td>
           </tr>
-        </thead>
-        <tbody>
-        @foreach($premium as $premium)
-        <tr>
-          <td>{{ $premium->KickOff }}</td>
-          <td>{{ $premium->League }}</td>
-          <td>&block;&block;&block;&block;</td>
-        </tr>
-        @endforeach
-        </tbody>
-      </table>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <!--End  Container-->
   <!--Start Yesterday Games Table-->
-  <div class="row">
+  {{-- <div class="row">
     <div class="col-sm-9">
       <h1 class="text-center" style="color:red;font-family:'Times New Roman'">Yesterday Games</h1>
       <table class="table  table-bordered table-condensed table-striped">
@@ -205,22 +207,8 @@
         </tbody>
         <!--End Body-->
       </table>
-    </div>
+    </div> --}}
   {{-- End Col-sm-9 --}}
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="row">
-          <div class="col-sm-6 offset-sm-3">
-            <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;float:center">
-          </div>
-        </div>
-        <div class="card-body">
-          <p class="card-text">We offer the 
-            most well known football wagering tips day by day  giving you motivation to come back 
-           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
-        </div>
-      </div>
-    </div>
   </div>
   <!--Start Other Games Table-->
   <div class="row">
@@ -279,6 +267,18 @@
       </div>
     {{-- End Col-sm-9 --}}
     <div class="col-sm-3" style="padding-top:30px">
+      <div class="card">
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+            <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;float:center">
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">We offer the 
+            most well known football wagering tips day by day  giving you motivation to come back 
+           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
+        </div>
+      </div>
       <h6 class="text-center">We Give Premium Tips In</h6>
       <ul class="list-group">
         <li class="list-group-item">Sure Bets</li>
