@@ -20,7 +20,7 @@
     <h3 class="text-center">Manage Subscribers</h3>
     <table class="table table-striped table-condensed">
         <thead>
-            <th>Phone Number</th>
+            <th>Email</th>
             <th>Amount Paid</th>
             <th>Expiry Date</th>
             <th>Status</th>

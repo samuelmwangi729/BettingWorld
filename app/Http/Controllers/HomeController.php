@@ -33,7 +33,14 @@ class HomeController extends Controller
       if(is_null($isActive)){
           //then the user have not subscribed
           $subscribed=0;
-      }else{
+      }
+      elseif($isActive->Expiry>=date('Y-m-d')){
+        $isActive->Status=1;
+        $isActive->save();
+        $subscribed=0;
+        // dd($isActive>date('Y-m-d'));
+    }
+      else{
           if($isActive->Status==0){
               //subscription is active 
               $active=true;

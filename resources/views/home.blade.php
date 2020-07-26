@@ -43,8 +43,8 @@
         <td>
             {{ $free->GameId }}
           </td>
-          <td>
-            {{ $free->HomeTeam }}<br> Vs <br>  {{ $free->AwayTeam }}
+          <td style="font-size:13px;font-family:'Courier New', Courier, monospace'">
+            {{ $free->HomeTeam }} Vs   {{ $free->AwayTeam }}
           </td>
           <td>
              {{ $free->League }}
@@ -59,9 +59,11 @@
          <td>
            @if($free->OutCome)
                   @if($free->OutCome==1)
-                    <td><button class="btn btn-primary btn-sm">Won</button></td>
+                  <div class="badge badge-success">&check; &nbsp;Won</div>
+
                   @else
-                  <td><button class="btn btn-danger btn-sm">Lost</button></td>
+                  <div class="badge badge-danger">&times; &nbsp;Lost</div>
+
                   @endif
            @else
            <a href="{{ route('games.update',$free->id) }}" class="btn btn-sm btn-primary">Won</a>
@@ -155,7 +157,7 @@
                <th>
                  Pick 
                </th>
-               <th colspan="2">
+               <th>
                  Actions
                </th>
              </tr>
@@ -166,7 +168,7 @@
           <td>
               {{ $game->GameId }}
             </td>
-            <td>
+            <td style="font-size:13px;font-family:'Courier New', Courier, monospace'">
               {{ $game->HomeTeam }} Vs   {{ $game->AwayTeam }}
             </td>
             <td>
@@ -182,10 +184,10 @@
             <td>
               @if($game->OutCome)
                      @if($game->OutCome==1)
-                       <td><button class="btn btn-success btn-sm btn-block">Won</button></td>
+                     <div class="badge badge-success">&check; &nbsp;Won</div>
                      @endif
                      @if($game->OutCome==2)
-                     <td><button class="btn btn-danger btn-sm btn-block">Lost</button></td>
+                     <div class="badge badge-danger">&times; &nbsp;Lost</div>
                      @endif
               @else
               <a href="{{ route('games.update',$game->id) }}" class="btn btn-sm btn-primary">Won</a>

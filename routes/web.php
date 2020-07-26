@@ -51,13 +51,17 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses'=>'SubscribersController@manage',
 		'as'=>'subscribers.manage'
 	]);
-	Route::post('Subscribers/Renew/{id}',[
+	Route::post('Subscribers/Suspend/{id}',[
 		'uses'=>'SubscribersController@suspend',
 		'as'=>'subscribers.suspend'
 	]);
 	Route::post('Subscribers/Approve/{id}',[
 		'uses'=>'SubscribersController@approve',
 		'as'=>'subscribers.approve'
+	]);
+	Route::post('Subscribers/Approve/{id}',[
+		'uses'=>'SubscribersController@approve',
+		'as'=>'subscribers.renew'
 	]);
 	Route::resource('subscribers','SubscribersController');
 	Route::post('/Leagues/Update/{id}',[

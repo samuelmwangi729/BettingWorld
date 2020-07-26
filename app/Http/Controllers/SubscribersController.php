@@ -15,7 +15,7 @@ class SubscribersController extends Controller
      */
     public function index()
     {
-        $mySubs=Subscriber::where('UserId','=',Auth::user()->number)->get();
+        $mySubs=Subscriber::where('UserId','=',Auth::user()->email)->get();
         return view('Subscribers.Index')->with('subs',$mySubs);
     }
 

@@ -1,6 +1,18 @@
 @extends('layouts.user',['pageSlug'=>'subs'])
 @section('content')
 <div class="container">
+  <div class="container">
+    <span>
+      <u>Steps to Subscribe to our VIP Games</u>
+      <ul>
+        <li>Go to your M-Pesa</li>
+        <li>Select Send Money</li>
+        <li>Enter the Phone Number <span style="color:red;font-weight:bold">0792209882</span></li>
+        <li>Enter Amount <span style="color:red;font-weight:bold">Ksh. 2000</span> </li>
+        <li>Hit Send. Then after you receive a confirmation text,Post the transaction Code to us through the form below. It will take at least 5 minutes for us to verify the transaction</li>
+      </ul>
+    </span>
+  </div>
 <h1 class="text-center">My Subscriptions</h1>
 @if(Session::has('success'))
 <div class="alert alert-success">
@@ -47,7 +59,7 @@
                 </div>
                 @else
                 <div class="badge badge-danger">
-                  Pending Approval
+                  Expired
                 </div>
                 @endif
               </td>
