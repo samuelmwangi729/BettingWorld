@@ -38,10 +38,10 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="TransactionId" class="label-control">
-                            User Number
+                            User Email
                         </label>
-                        <input type="number" class="form-control {{ $errors->has('UserNumber') ? ' is-invalid' : '' }}" placeholder="Eg. 0704922042 " name="UserNumber">
-                        @include('alerts.feedback', ['field' => 'UserNumber'])
+                        <input type="email" class="form-control {{ $errors->has('UserEmail') ? ' is-invalid' : '' }}" placeholder="Eg. 0704922042 " name="UserEmail">
+                        @include('alerts.feedback', ['field' => 'UserEmail'])
                     </div>
                 </div>
                 {{-- End the column --}}
@@ -61,7 +61,7 @@
             <tr class="text-center">
                 <td>TransactionId</td>
                 <td>Amount</td>
-                <td>Phone Number</td>
+                <td>User Email</td>
                 <td>Actions</td>
             </tr>
             @foreach($payments as $payment)

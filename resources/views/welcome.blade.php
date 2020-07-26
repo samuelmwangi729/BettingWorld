@@ -52,7 +52,7 @@
             {{ $todays->KickOff }}
           </td>
           <td style="font-weight:bold;color:blue !important">
-            <div class="badge badge-danger">{{$game->Pick}}</div>
+            <div class="badge badge-danger">{{$todays->Pick}}</div>
           </td>
           </tr>
           @endforeach

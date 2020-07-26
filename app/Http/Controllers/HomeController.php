@@ -26,8 +26,8 @@ class HomeController extends Controller
     public function index()
     {
       //check if the last subscription is active or not 
-      $userNumber=Auth::user()->number;
-      $isActive=Subscriber::where('UserId','=',$userNumber)->get()->last();
+      $userEmail=Auth::user()->email;
+      $isActive=Subscriber::where('UserId','=',$userEmail)->get()->last();
       $subscribed=true;
       $active='';
       if(is_null($isActive)){

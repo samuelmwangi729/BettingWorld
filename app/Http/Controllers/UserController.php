@@ -41,10 +41,10 @@ class UserController extends Controller
         protected function reset($id){
             $user=User::findOrFail($id);
             // dd($user->number);
-            $newPass=bcrypt($user->number);
+            $newPass=bcrypt($user->email);
             $user->password=$newPass;
             $user->save();
-            Session::flash('success','We have reset Users password to their Phone Number');
+            Session::flash('success','We have reset Users password to their Email Address');
             return back();
         }
 }

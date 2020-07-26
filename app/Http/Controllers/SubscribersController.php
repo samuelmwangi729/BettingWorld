@@ -44,7 +44,7 @@ class SubscribersController extends Controller
         $endDate = date('Y-m-d', strtotime($today . '+7 days'));
         $sub=Subscriber::create([
             'TransactionId'=>$request->TransactionId,
-            'UserId'=>Auth::user()->number,
+            'UserId'=>Auth::user()->email,
             'Expiry'=>$endDate,
             'Status'=>'3',
         ]);

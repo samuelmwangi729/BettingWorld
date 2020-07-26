@@ -40,7 +40,7 @@ class PaymentsController extends Controller
         $rules=[
             'TransactionId'=>'required|unique:payments',
             'Amount'=>'required',
-            'UserNumber'=>'required'
+            'UserEmail'=>'required'
         ];
         $this->validate($request,$rules);
         //confirm if the user has a subscription of the transactionId
@@ -53,7 +53,7 @@ class PaymentsController extends Controller
         //if the form is valid, we save everything to the database
         $payment=Payment::create([
             'TransactionId'=>$request->TransactionId,
-            'UserId'=>$request->UserNumber,
+            'UserId'=>$request->UserEmail,
             'Amount'=>$request->Amount,
             'Status'=>'0',
         ]);
@@ -107,7 +107,7 @@ class PaymentsController extends Controller
         $rules=[
             'TransactionId'=>'required',
             'Amount'=>'required',
-            'UserNumber'=>'required'
+            'UserEmail'=>'required'
         ];
         $this->validate($request,$rules);
         //confirm if the user has a subscription of the transactionId
@@ -120,7 +120,7 @@ class PaymentsController extends Controller
         //if the payment record exist, then update it 
         $payment->TransactionId=$request->TransactionId;
         $payment->Amount=$request->Amount;
-        $payment->UserId=$request->UserNumber;
+        $payment->UserId=$request->UserEmail;
         $payment->save();
         Session::flash('success','Payments Details Successfully Updated');
         $payments=Payment::all();
