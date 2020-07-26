@@ -23,6 +23,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="{{ asset('dist/img/logo.jpg') }}" rel="icon">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('dist/img/logo.jpg') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
