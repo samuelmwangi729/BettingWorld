@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.user', ['pageSlug' => 'dashboard'])
 
 @section('content')
 <div class="row">
@@ -7,9 +7,9 @@
             <h4 class="card-title text-center">Todays  Games</h4>
         </div>
         <div class="card-body">
-            <div class="container">
-                <table class="table tablesorter" id="">
-                    <thead class=" text-primary">
+            <div class="row col-sm-12">
+                <table class="table table-striped table-bordered table-condensed" id="">
+                    <thead>
                         <tr class="text-center">
                             <th>
                               GameId
@@ -36,7 +36,7 @@
                     <tbody>
                        @if($isSubscribed==0)
                        @if(is_null($free))
-                      <tr>
+                      <tr class="text-center">
                           <td colspan="5">
                               <div class="alert alert-danger">
                                   Free Games not Yet Posted! Kindly Pay Subscription Fees to get Access to Paid Matches
@@ -44,7 +44,7 @@
                           </td>
                       </tr>
                        @else
-                       <tr>
+                       <tr class="text-center">
                         <td>
                             {{ $free->GameId }}
                           </td>
@@ -57,7 +57,7 @@
                           <td>
                             {{ $free->KickOff }}
                           </td>
-                          <td style="font-weight:bold;color:yellow !important">
+                          <td style="font-weight:bold;color:red !important">
                             {{ $free->Pick }}
                           </td>
                           @if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
@@ -82,7 +82,7 @@
                         --}}
                                 @if($isActive==1)
                                 @foreach ($games as $game)
-                                <tr>
+                                <tr class="text-center">
                                     <td>
                                         {{ $game->GameId }}
                                       </td>
@@ -95,13 +95,13 @@
                                       <td>
                                         {{ $game->KickOff }}
                                       </td>
-                                      <td style="font-weight:bold;color:yellow !important">
+                                      <td style="font-weight:bold;color:red !important">
                                         {{ $game->Pick }}
                                       </td>
                                    </tr>                                    
                                 @endforeach
                                 @else
-                                <tr>
+                                <tr class="text-center">
                                     @if(is_null($free))
                                     <td colspan="5">
                                         <div class="alert alert-danger">
@@ -121,7 +121,7 @@
                                       <td>
                                         {{ $free->KickOff }}
                                       </td>
-                                      <td style="font-weight:bold;color:yellow !important">
+                                      <td style="font-weight:bold;color:red !important">
                                         {{ $free->Pick }}
                                       </td>
                                     @endif
@@ -141,7 +141,7 @@
             <hr>
         </div>
     </div>
-    <div class="conteiner">
+    <div class="container">
       <h4 class="text-center">All Games</h4>
     </div>
      {{-- This table will be visible by the administrator only --}}
@@ -164,14 +164,14 @@
                <th>
                  Pick 
                </th>
-               <th>
+               <th colspan="2">
                  Actions
                </th>
              </tr>
        </thead>
      <tbody>
       @foreach ($games as $game)
-      <tr>
+      <tr class="text-center">
           <td>
               {{ $game->GameId }}
             </td>
@@ -184,14 +184,14 @@
             <td>
               {{ $game->KickOff }}
             </td>
-            <td style="font-weight:bold;color:yellow !important">
+            <td style="font-weight:bold;color:red !important">
               {{ $game->Pick }}
             </td>
             @if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
             <td>
               @if($game->OutCome)
                      @if($game->OutCome==1)
-                       <td><button class="btn btn-primary btn-sm btn-block">Won</button></td>
+                       <td><button class="btn btn-success btn-sm btn-block">Won</button></td>
                      @endif
                      @if($game->OutCome==2)
                      <td><button class="btn btn-danger btn-sm btn-block">Lost</button></td>

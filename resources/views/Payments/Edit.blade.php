@@ -1,4 +1,4 @@
-@extends('layouts.app',['pageSlug'=>'payments'])
+@extends('layouts.user',['pageSlug'=>'payments'])
 @section('content')
 <div class="container">
     <h1 class="text-center">Edit payment Details</h1>

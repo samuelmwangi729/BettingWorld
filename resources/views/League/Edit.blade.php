@@ -1,4 +1,4 @@
-@extends('layouts.app',['pageSlug' => 'league'])
+@extends('layouts.user',['pageSlug' => 'league'])
 @section('content')
 <div class="section">
     <h2>Update {{ $league->League }} </h2>

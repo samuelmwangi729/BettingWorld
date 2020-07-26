@@ -1,4 +1,4 @@
-@extends('layouts.app',['pageSlug'=>'subs'])
+@extends('layouts.user',['pageSlug'=>'subs'])
 @section('content')
 <div class="container">
 <h1 class="text-center">My Subscriptions</h1>

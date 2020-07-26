@@ -1,4 +1,4 @@
-@extends('layouts.app',['pageSlug'=>'game'])
+@extends('layouts.user',['pageSlug'=>'game'])
 @section('content')
 <div class="container">
     @if(Session::has('success'))

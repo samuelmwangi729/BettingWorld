@@ -1,4 +1,4 @@
-@extends('layouts.app',['pageSlug'=>'SubsManage'])
+@extends('layouts.user',['pageSlug'=>'SubsManage'])
 @section('content')
 @if(Session::has('error'))
 <div class="alert alert-danger">
