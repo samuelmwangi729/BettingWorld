@@ -32,9 +32,9 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="TransactionId" class="label-control">
-                        User Number
+                        User Email
                     </label>
-                    <input type="number" class="form-control {{ $errors->has('UserNumber') ? ' is-invalid' : '' }}" value="{{ $payment->UserId }}"  name="UserNumber">
+                    <input type="number" class="form-control {{ $errors->has('UserNumber') ? ' is-invalid' : '' }}" value="{{ $payment->UserId }}"  name="UserNumber" name="Leave It Empty">
                     @include('alerts.feedback', ['field' => 'UserNumber'])
                 </div>
             </div>

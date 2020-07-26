@@ -8,7 +8,9 @@
         <li>Go to your M-Pesa</li>
         <li>Select Send Money</li>
         <li>Enter the Phone Number <span style="color:red;font-weight:bold">0792209882</span></li>
-        <li>Enter Amount <span style="color:red;font-weight:bold">Ksh. 2000</span> </li>
+        <li>Enter Amount <span style="color:red;font-weight:bold">10 &euro;</span> subject to 
+          <a href="https://www.google.com/search?sxsrf=ALeKk031tMFuTRCzG5iXParDqeWM3kczxQ%3A1595745280840&ei=ACQdX8LYMoixU-uvkPAC&q=ksh+to+euro&oq=ksh+to+euro&gs_lcp=CgZwc3ktYWIQAzIHCAAQRhCCAjICCAAyAggAMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB46BwgAEEcQsAM6BwgjEOoCECc6BwguEOoCECc6BAgjECc6BQgAEJECOg4ILhCxAxDHARCvARCRAjoECC4QQzoFCAAQsQM6CAguELEDEIMBOgsILhCxAxDHARCvAToICAAQsQMQgwE6CAgAELEDEJECOgUILhCRAjoHCAAQFBCHAjoFCC4QsQM6CAguEMcBEK8BOgQIABBDOg0IABCxAxCRAhBGEIICOggIABAWEAoQHlCjCljvQmDwRWgEcAB4BIAB-QKIAZomkgEGMi0xMy41mAEAoAEBqgEHZ3dzLXdperABCsABAQ&sclient=psy-ab&ved=0ahUKEwjC2Pa0purqAhWI2BQKHesXBC4Q4dUDCAw&uact=5">
+            Conversion Rates Here</a></li>
         <li>Hit Send. Then after you receive a confirmation text,Post the transaction Code to us through the form below. It will take at least 5 minutes for us to verify the transaction</li>
       </ul>
     </span>

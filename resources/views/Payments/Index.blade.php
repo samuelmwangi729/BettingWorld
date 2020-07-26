@@ -40,7 +40,7 @@
                         <label for="TransactionId" class="label-control">
                             User Email
                         </label>
-                        <input type="email" class="form-control {{ $errors->has('UserEmail') ? ' is-invalid' : '' }}" placeholder="Eg. 0704922042 " name="UserEmail">
+                        <input type="email" class="form-control {{ $errors->has('UserEmail') ? ' is-invalid' : '' }}" placeholder="Leave it Empty " name="UserEmail" readonly value="Leave it Empty">
                         @include('alerts.feedback', ['field' => 'UserEmail'])
                     </div>
                 </div>
@@ -61,14 +61,12 @@
             <tr class="text-center">
                 <td>TransactionId</td>
                 <td>Amount</td>
-                <td>User Email</td>
                 <td>Actions</td>
             </tr>
             @foreach($payments as $payment)
             <tr>
                 <td>{{ $payment->TransactionId }}</td>
                 <td>{{ $payment->Amount }}</td>
-                <td>{{ $payment->UserId }}</td>
                 <td class="text-center">
                 <a href="{{ route('payments.edit',[$payment->id]) }}" class=" btn btn-sm btn-primary"><i class="fa fa-edit"></i></a> &nbsp;
                 <a href="#" class=" btn btn-sm btn-primary" onclick="document.getElementById('form').submit()"><i class="fa fa-trash"></i></a> &nbsp;
