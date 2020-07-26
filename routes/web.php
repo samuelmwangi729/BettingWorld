@@ -16,7 +16,9 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
-
+Route::get('/live',[
+	'uses'=>'IndexController@live'
+]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

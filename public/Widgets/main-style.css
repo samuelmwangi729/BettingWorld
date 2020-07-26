@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+}
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap';
+header {
+    font-family: open sans;
+}
+@media (min-width: 1201px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        max-width: 100%;
+    }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}
+.callendar-select-for-mobile {
+    display: none;
+}
+@media (max-width: 768px) {
+    .callendar-select-for-mobile {
+        color: black;
+        background-color: #ffc107;
+        display: inline-flex;
+        border-color: #ffc107;
+        box-sizing: border-box;
+        padding: .3rem .4rem;
+        border: 1px solid #ffc107;
+        font-weight: bold;
+        border-radius: .25rem;
+    }
+    option:checked {
+        color: #ffc107;
+        background-color: black;
+    }
+}

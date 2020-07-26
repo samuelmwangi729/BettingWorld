@@ -30,4 +30,7 @@ class IndexController extends Controller
         ->with('games',$games)
         ->with('todays',$todays);
     }
+    protected function live(){
+        return view('live');
+    }
 }

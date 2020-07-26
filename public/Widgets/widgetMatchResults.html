@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Coming Soon ...</title>
+	<link rel="shortcut icon" type="image/png" href="favicon-32x32.png"/>
+	<link rel="stylesheet" type="text/css" href="widgetMatchResults.css">
+	<script src="jquery.js"></script>
+	<script src="jqueryGlobals.js"></script>
+    <script src="jquery.widgetMatchResults.js" type="text/javascript"></script>
+</head>
+<body>
+	<header>
+		<div class="menuBar">
+			<img class="logo-img-size" src="img/Logo-Test.png">
+			<p class="backButton">back</p>
+		</div>
+	</header>
+	<div class="loading">Loading&#8230;</div>
+	<section id="widgetMatchResults"></section>
+</body>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		var url = window.location.href;
+        var getMatchIdFromLink = url.substring(url.lastIndexOf("/") + 1);
+
+        if($.isNumeric(getMatchIdFromLink)){
+            $('#widgetMatchResults').widgetMatchResults({
+                matchId: getMatchIdFromLink
+            });
+        } else {
+            $('#widgetMatchResults').widgetMatchResults();
+        }
+	});
+
+</script>
+</html>

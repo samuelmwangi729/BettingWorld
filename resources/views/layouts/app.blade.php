@@ -13,8 +13,9 @@
     <meta property="og:type"  content="Website" />
     <meta property="og:title"content="BettingWorld" />
     <meta property="og:description"   content="BettingWorld is the world's best prediction site with sure, secure and guaranteed sports betting tips. Trust our 100% free betting tips and predictions.">
-    <title>{{ config('app.name') }} Is a Sports games prediction website aimed into helping individuals maximize their earning from the world of sports betting. With our \\
+    <title>{{ config('app.name') }} Is a Sports games prediction website aimed into helping individuals maximize their earning from the world of sports betting. With our 
         complex machine learning Algorithms, we are able to predict matches outcomes with an overall 99% accuracy rate. Be one of Us and get to join the team. 
+        Get free football predictions and betting previews for every game in all the major leagues, including match tips and correct scores.
     </title>
 
     <!-- Scripts -->
@@ -119,6 +120,58 @@
             @yield('content')
         </main>
     </div>
+    <section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+                    <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px">
+                    <p class="text-white">
+                   We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.
+                   We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.
+                    </p>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Livescore</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Match Results</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>JackPots</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Tips</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>HT/FT</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Asian Handicap</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Correct Score</a></li>
+						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Combos</a></li>
+						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				<hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">© All right Reversed.<a class="text-green ml-2" href="/" target="_blank">BettingWorld</a></p>
+				</div>
+				<hr>
+			</div>	
+		</div>
+	</section>
+	<!-- ./Footer -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dfd935ad1993c93"></script>
 </body>
