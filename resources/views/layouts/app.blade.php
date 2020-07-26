@@ -61,7 +61,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-whatsapp" style="color:green"></i>&nbsp;0705033943
+                        <i class="fab fa-whatsapp" style="color:green"></i>&nbsp;0792209882
                     </a>
                 </li>
                 <li class="nav-item">

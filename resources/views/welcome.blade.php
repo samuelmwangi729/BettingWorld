@@ -214,7 +214,14 @@
     </div>
   {{-- End Col-sm-9 --}}
     <div class="col-sm-3">
-      Tyes 
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld">
+        <div class="card-body">
+          <p class="card-text">We offer the 
+            most well known football wagering tips day by day  giving you motivation to come back 
+           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
+        </div>
+      </div>
     </div>
   </div>
   <!--Start Other Games Table-->
@@ -273,9 +280,16 @@
         </table>
       </div>
     {{-- End Col-sm-9 --}}
-      <div class="col-sm-3">
-        Tyes 
+    <div class="col-sm-3">
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="Daily recovery tips to make you get back on track">
+        <div class="card-body">
+          <p class="card-text">We offer the 
+            most well known football wagering tips day by day  giving you motivation to come back 
+           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
+        </div>
       </div>
+    </div>
     </div>
   <!--End  Container-->
 @endsection
