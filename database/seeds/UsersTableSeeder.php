@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
                 'League'=>'league'.$i,
                 'Outcome'=>null,
                 'DatePosted'=>date('Y-m-d'),
-                'Type'=>'0',
+                'Type'=>'1',
                 'Status'=>'0'
                 ]);
         }
