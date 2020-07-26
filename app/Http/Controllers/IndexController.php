@@ -12,7 +12,7 @@ class IndexController extends Controller
             ['Type','=',0],
             ['OutCome','=',null]
         ])->get();
-        $games=Game::where('Outcome','!=',null)->get();
+        $games=Game::where('Outcome','=',1)->get();
         return view('welcome')
         ->with('games',$games)
         ->with('todays',$todays);
