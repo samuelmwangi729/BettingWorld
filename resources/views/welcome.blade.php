@@ -117,7 +117,6 @@
       <!--End Body-->
     </table>
   </div>
-  {{-- <script type="text/javascript" src="https://widget.enetscores.com/FW8224919A69030DC4"></script> --}}
   </div>
   <!--End  Container-->
 @endsection
