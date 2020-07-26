@@ -33,19 +33,19 @@ class UsersTableSeeder extends Seeder
         //     'updated_at' => now()
         // ]);
         //migrate the games
-        // for($i=0;$i<10;$i++){
-        //     DB::table('games')->insert([
-        //         'GameId'=>$i.'id',
-        //         'HomeTeam'=>'Home team'.$i,
-        //         'AwayTeam'=>'AwayTeam'.$i,
-        //         'KickOff'=>'time'.$i,
-        //         'Pick'=>'1',
-        //         'League'=>'league'.$i,
-        //         'Outcome'=>null,
-        //         'DatePosted'=>date('Y-m-d'),
-        //         'Type'=>'1',
-        //         'Status'=>'0'
-        //         ]);
+        for($i=0;$i<5;$i++){
+            DB::table('games')->insert([
+                'GameId'=>$i.'id',
+                'HomeTeam'=>'Home team'.$i,
+                'AwayTeam'=>'AwayTeam'.$i,
+                'KickOff'=>'time'.$i,
+                'Pick'=>'1',
+                'League'=>'league'.$i,
+                'Outcome'=>null,
+                'DatePosted'=>date('Y-m-d'),
+                'Type'=>'0',
+                'Status'=>'0'
+                ]);
         }
     }
 }

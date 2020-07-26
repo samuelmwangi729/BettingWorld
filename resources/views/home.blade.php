@@ -39,39 +39,41 @@
           </td>
       </tr>
        @else
-       <tr class="text-center">
-        <td>
-            {{ $free->GameId }}
-          </td>
-          <td style="font-size:13px;font-family:'Courier New', Courier, monospace'">
-            {{ $free->HomeTeam }} Vs   {{ $free->AwayTeam }}
-          </td>
-          <td>
-             {{ $free->League }}
-            </td>
-          <td>
-            {{ $free->KickOff }}
-          </td>
-          <td style="font-weight:bold;color:red !important">
-            {{ $free->Pick }}
-          </td>
-          @if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
-         <td>
-           @if($free->OutCome)
-                  @if($free->OutCome==1)
-                  <div class="badge badge-success">&check; &nbsp;Won</div>
-
-                  @else
-                  <div class="badge badge-danger">&times; &nbsp;Lost</div>
-
-                  @endif
-           @else
-           <a href="{{ route('games.update',$free->id) }}" class="btn btn-sm btn-primary">Won</a>
-           <a href="{{ route('games.lost',[$free->id]) }}" class="btn btn-sm btn-danger">Lost</a>
-           @endif
-         </td>
-          @endif
-       </tr>
+          @foreach($free as $free)
+          <tr class="text-center">
+            <td>
+                {{ $free->GameId }}
+              </td>
+              <td style="font-size:13px;font-family:'Courier New', Courier, monospace'">
+                {{ $free->HomeTeam }} Vs   {{ $free->AwayTeam }}
+              </td>
+              <td>
+                 {{ $free->League }}
+                </td>
+              <td>
+                {{ $free->KickOff }}
+              </td>
+              <td style="font-weight:bold;color:red !important">
+                {{ $free->Pick }}
+              </td>
+                      @if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
+                    <td>
+                                  @if($free->OutCome)
+                                          @if($free->OutCome==1)
+                                          <div class="badge badge-success">&check; &nbsp;Won</div>
+    
+                                          @else
+                                          <div class="badge badge-danger">&times; &nbsp;Lost</div>
+    
+                                          @endif
+                                  @else
+                                  <a href="{{ route('games.update',$free->id) }}" class="btn btn-sm btn-primary">Won</a>
+                                  <a href="{{ route('games.lost',[$free->id]) }}" class="btn btn-sm btn-danger">Lost</a>
+                                  @endif
+                    </td>
+                      @endif
+           </tr>
+          @endforeach
        @endif
        @else
        {{-- This handles if the client is subscribed
@@ -106,21 +108,23 @@
                         </div>
                     </td>
                     @else
-                    <td>
-                        {{ $free->GameId }}
-                      </td>
-                      <td>
-                        {{ $free->HomeTeam }} Vs   {{ $free->AwayTeam }}
-                      </td>
-                      <td>
-                         {{ $free->League }}
-                        </td>
-                      <td>
-                        {{ $free->KickOff }}
-                      </td>
-                      <td style="font-weight:bold;color:red !important">
-                        {{ $free->Pick }}
-                      </td>
+                   @foreach($free as $free)
+                   <td>
+                    {{ $free->GameId }}
+                  </td>
+                  <td>
+                    {{ $free->HomeTeam }} Vs   {{ $free->AwayTeam }}
+                  </td>
+                  <td>
+                     {{ $free->League }}
+                    </td>
+                  <td>
+                    {{ $free->KickOff }}
+                  </td>
+                  <td style="font-weight:bold;color:red !important">
+                    {{ $free->Pick }}
+                  </td>
+                   @endforeach
                     @endif
                    </tr>
                    <tr>

@@ -54,7 +54,7 @@ class HomeController extends Controller
       $free=Game::where([
           ['DatePosted','=',date('Y-m-d')],
           ['Type','=',0]
-      ])->get()->last();
+      ])->get();
       return view('home')
       ->with('isSubscribed',$subscribed)
       ->with('isActive',$active)

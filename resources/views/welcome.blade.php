@@ -1,6 +1,58 @@
 @extends('layouts.app',['pageSlug'=>'index'])
 
 @section('content')
+<div class="container-fluid">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 h-25" src="{{ asset('slider/1.jpg') }}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="text-shadow:1px 1px black,2px 2px green;font-size:150px;margin-top:-400px;color:red;">We are Here with you</h1>
+          <h3>To Help You Make the Dive</h3>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ asset('slider/2.jpg') }}" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="text-shadow:1px 1px black,2px 2px green;font-size:150px;margin-top:-400px;color:red;">We Got Accurate Predictions</h1>
+          <h3>That You Can Watch A match In Confidence</h3>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"  src="{{ asset('slider/3.jpg') }}" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="text-shadow:1px 1px black,2px 2px green;font-size:150px;margin-top:-400px;color:red;">Fill Void  Spaces Available</h1>
+        <h3> Making you Feel Warm</h3>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"  src="{{ asset('slider/5.jpg') }}" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="text-shadow:1px 1px black,2px 2px green;font-size:150px;margin-top:-400px;color:red;">Lets Hit It Hard</h1>
+        <h3> Feel Free To Start The Game</h3>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox"></div>
+            
 <!--Start Today Games Table-->
 <div class="col-sm-12">
  <marquee class="h1" style="color:red">Today Free Games</marquee>
