@@ -120,10 +120,11 @@
         </li>
     @endif
     <li class="nav-link">
-        <a class="dropdown-item" href="{{ route('logout') }}"
+        <a  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                                      <i class="fa fa-power-off"></i>
+                                      <p>  {{ __('Logout') }}</p>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -166,11 +167,8 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; <?php echo date('Y');?> <a href="{{ url('') }}">{{ config('app.name') }}</a>.</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.2
-    </div>
   </footer>
 
   <!-- Control Sidebar -->
