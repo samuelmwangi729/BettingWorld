@@ -8,8 +8,7 @@
             </li>
         </ul>
         <div class="copyright">
-            &copy; {{ now()->year }} {{ __('made with') }} <i class="tim-icons icon-heart-2" style="color:red"></i> {{ __('by') }}
-          {{_('samuel mwangi')}}
+            <p>{{ config('app.name') }} © Copyright <?php echo date('Y');?> Made with   <i class="tim-icons icon-heart-2" style="color:red"></i> {{ __('by') }} <a href="mailto:samuelmwangi729@gmail.com" style="color:white;text-style:none !mportant">Samuel Mwangi</a></p>
         </div>
     </div>
 </footer>

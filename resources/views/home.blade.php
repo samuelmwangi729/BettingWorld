@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="row">
+<div class="container">
+  <a href="{{ route('subscribers.index') }}" class="btn btn-danger btn-lg">Subscribe to VIP</a>
+</div>
   <marquee>Todays Free Games</marquee>
   <table class="table table-striped table-bordered table-condensed" id="">
     <thead>

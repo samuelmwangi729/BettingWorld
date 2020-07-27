@@ -275,7 +275,7 @@
         </div>
         <div class="card-body">
           <p class="card-text">We offer the 
-            most well known football wagering tips day by day  giving you motivation to come back 
+            most well known football wagering tips day by day  giving you motivation to come back to
            Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
         </div>
       </div>

@@ -147,7 +147,6 @@
 						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Asian Handicap</a></li>
 						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Correct Score</a></li>
 						<li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Combos</a></li>
-						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
 					</ul>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index(){
         $today=date('Y-m-d');
-        $yesterday=date('d.m.Y',strtotime("-2 days"));
+        $yesterday = date('Y-m-d', strtotime($today . '-1 days'));
         $yesterdays=Game::where([
             ['DatePosted','=',$yesterday],
             ['OutCome','=',1]
