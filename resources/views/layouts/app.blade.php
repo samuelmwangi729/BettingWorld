@@ -164,7 +164,7 @@
 			</div>	
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p> © Copyrights  <?php echo date('Y');?> {{ config('app.name') }}| All Rights Reserved &nbsp; Design by <a href="mailto:samuelmwangi729@gmail.com" style="color:white;text-style:none !mportant">Samuel Mwangi</a></p>
+                    <p> © Copyrights  <?php echo date('Y');?> {{ config('app.name') }}| All Rights Reserved &nbsp;<br> Design by <a href="mailto:samuelmwangi729@gmail.com" style="color:white;text-style:none !mportant">Samuel Mwangi</a></p>
 				</div>
 				<hr>
 			</div>	
