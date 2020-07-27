@@ -3,7 +3,10 @@
 @section('content')
 <div class="row">
 <div class="container">
+  @if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6')
+  @else
   <a href="{{ route('subscribers.index') }}" class="btn btn-danger btn-lg">Subscribe to VIP</a>
+  @endif
 </div>
   <marquee>Todays Free Games</marquee>
   <table class="table table-striped table-bordered table-condensed" id="">
