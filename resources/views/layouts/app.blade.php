@@ -116,9 +116,7 @@
         </div>
     </nav>
     <div id="app" class="row">
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
     <div class="row" id="footer">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
