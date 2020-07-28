@@ -115,11 +115,57 @@
             </ul>
         </div>
     </nav>
-    <div id="app" class="container-fluid">
+    <div id="app" class="container">
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <footer class="footer" style="background-color:gold;color:purple">
+        <div class="container">
+          {{-- <span class="text-muted">Place sticky footer content here.</span> --}}
+          <div class="row">
+              <div class="col-sm-4 text-center">
+                {{-- <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px"> --}}
+                <p>
+               We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.
+               We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.
+                </p>
+              </div>
+              <div class="col-sm-4 text-center">
+                <h5>Quick links</h5>
+                <ul class="list-unstyled quick-links" style="font-weight:bold; !important">
+                    <li><a href="javascript:void(0)" style="color:purple">Home</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">About</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">Livescore</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">Match Results</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">JackPots</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 text-center">
+                <h5>Tips</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="javascript:void(0)" style="color:purple">HT/FT</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">Asian Handicap</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">Correct Score</a></li>
+                    <li><a href="javascript:void(0)" style="color:purple">Combos</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 text-center">
+                <ul class="list-unstyled list-inline social">
+                    <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+          </div>
+          <div class="container">
+              &copy; 2020 {{ config('app.name') }}
+          </div>
+        </div>
+      </footer>
+	<!-- ./Footer -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dfd935ad1993c93"></script>
 </body>
