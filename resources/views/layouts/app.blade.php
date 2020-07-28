@@ -151,18 +151,18 @@
                         <li><a href="javascript:void(0)" style="color:purple">Combos</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <ul class="list-unstyled list-inline social">
-                        <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
-                </div>
+              </div>
+              <div class="container text-center">
+                <ul class="list-unstyled list-inline social">
+                    <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
               </div>
               <div class="container">
-                  &copy; 2020 {{ config('app.name') }}
+                &copy; 2020 {{ config('app.name') }} | All Rigts Reserved  || Made with <i class="fa fa-heart"  style="color:red"></i> By <a href="mailto:samuelmwangi729@gmail.com">Samuel Mwangi</a>
               </div>
             </div>
           </footer>
