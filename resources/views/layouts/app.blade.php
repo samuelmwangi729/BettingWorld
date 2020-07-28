@@ -115,12 +115,12 @@
             </ul>
         </div>
     </nav>
-    <div id="app" class="row-fluid">
+    <div id="app" class="row">
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <section id="footer">
+    <div class="row" id="footer">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px">
@@ -167,7 +167,7 @@
             </div>
             <hr>
         </div>	
-	</section>
+	</div>
 	<!-- ./Footer -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dfd935ad1993c93"></script>
