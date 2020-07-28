@@ -116,55 +116,49 @@
         </div>
     </nav>
     <div id="app" class="row">
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
     <div class="row" id="footer">
-        <div class="row text-center text-xs-center text-sm-left text-md-left">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px">
-                <p class="text-white">
-               We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.
-               We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.
-                </p>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Quick links</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>About</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Livescore</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Match Results</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>JackPots</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h5>Tips</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>HT/FT</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Asian Handicap</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Correct Score</a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Combos</a></li>
-                </ul>
-            </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px">
+            <p class="text-white">
+           We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.
+           We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.
+            </p>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                <ul class="list-unstyled list-inline social">
-                    <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
-                    <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-            </div>
-            <hr>
-        </div>	
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                <p> © Copyrights  <?php echo date('Y');?> {{ config('app.name') }}| All Rights Reserved &nbsp;<br> Design by <a href="mailto:samuelmwangi729@gmail.com" style="color:white;text-style:none !mportant">Samuel Mwangi</a></p>
-            </div>
-            <hr>
-        </div>	
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Quick links</h5>
+            <ul class="list-unstyled quick-links">
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>About</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Livescore</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Match Results</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>JackPots</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Tips</h5>
+            <ul class="list-unstyled quick-links">
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>HT/FT</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Asian Handicap</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Correct Score</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-angle-double-right"></i>Combos</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social">
+                <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p> © Copyrights  <?php echo date('Y');?> {{ config('app.name') }}| All Rights Reserved &nbsp;<br> Design by <a href="mailto:samuelmwangi729@gmail.com" style="color:white;text-style:none !mportant">Samuel Mwangi</a></p>
+        </div>
 	</div>
 	<!-- ./Footer -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
