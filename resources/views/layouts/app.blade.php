@@ -115,12 +115,12 @@
             </ul>
         </div>
     </nav>
-    <div id="app" class="row">
+    <div id="app" class="row-fluid">
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <section id="footer" class="row">
+    <section id="footer">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px">
