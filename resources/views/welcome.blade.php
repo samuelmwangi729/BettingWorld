@@ -65,9 +65,8 @@
       <cite class="blockquote-footer">Bet Responsibly</cite>
     </blockquote>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
+  <div class="row">
+    <div class="col-sm-9">
       <h1 class="text-center" style="color:red; font-family:'Times New Roman'">Today Free Games</h1>
         <table class="table table-condensed table-bordered">
           <thead class=" text-primary">
@@ -140,7 +139,6 @@
           </tbody>
         </table>
       </div>
-    </div>
   </div>
   <!--End  Container-->
   <!--Start Yesterday Games Table-->
@@ -266,12 +264,11 @@
         </table>
       </div>
     {{-- End Col-sm-9 --}}
-    <div class="col-sm-3" style="padding-top:30px">
+    <div class="col-sm-4" style="padding-top:30px">
       <div class="card">
-        <div class="row">
-          <div class="col-sm-6 offset-sm-3">
-            <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;float:center">
-          </div>
+        <div class="container text-center">
+          <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;float:center">
+
         </div>
         <div class="card-body">
           <p class="card-text">We offer the 
@@ -279,16 +276,6 @@
            Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
         </div>
       </div>
-      <h6 class="text-center">We Give Premium Tips In</h6>
-      <ul class="list-group">
-        <li class="list-group-item">Sure Bets</li>
-        <li class="list-group-item">HT/FT</li>
-        <li class="list-group-item">Correct Score</li>
-        <li class="list-group-item">Combos</li>
-        <li class="list-group-item">Jackpots 
-        <sup>  <div class="badge badge-success">New</div></sup>
-        </li>
-      </ul>
     </div>
     </div>
   <!--End  Container-->
