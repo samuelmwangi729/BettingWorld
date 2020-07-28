@@ -115,7 +115,7 @@
             </ul>
         </div>
     </nav>
-    <div id="app">
+    <div id="app" class="row">
         <main class="py-4">
             @yield('content')
         </main>
