@@ -276,6 +276,16 @@
            Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
         </div>
       </div>
+      <h6 class="text-center">We Give Premium Tips In</h6>
+      <ul class="list-group">
+        <li class="list-group-item">Sure Bets</li>
+        <li class="list-group-item">HT/FT</li>
+        <li class="list-group-item">Correct Score</li>
+        <li class="list-group-item">Combos</li>
+        <li class="list-group-item">Jackpots 
+        <sup>  <div class="badge badge-success">New</div></sup>
+        </li>
+      </ul>
     </div>
     </div>
   <!--End  Container-->
