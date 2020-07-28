@@ -13,6 +13,16 @@
             Conversion Rates Here</a></li>
         <li>Hit Send. Then after you receive a confirmation text,Post the transaction Code to us through the form below. It will take at least 5 minutes for us to verify the transaction</li>
       </ul>
+      <u>Steps to Subscribe to our VIP Games via <span style="color:purple;font-weight:bold">SKRILL</span></u>
+      <ul>
+        <li>SIgn In to your Skrill account <a href="https://account.skrill.com/wallet/account/login">Here</a></li>
+        <li>If you Dont Have an Account , Sign Up <a href="https://account.skrill.com/wallet/account/sign-up">Here</a></li>
+        <li>Click on Send Money to a Skrill account and add recipient email address <span style="color:red;font-weight:bold">dominicmainaw@gmail.com</span></li>
+        <li>Enter Amount <span style="color:red;font-weight:bold">10 &euro;</span> subject to 
+          <a href="https://www.google.com/search?sxsrf=ALeKk031tMFuTRCzG5iXParDqeWM3kczxQ%3A1595745280840&ei=ACQdX8LYMoixU-uvkPAC&q=ksh+to+euro&oq=ksh+to+euro&gs_lcp=CgZwc3ktYWIQAzIHCAAQRhCCAjICCAAyAggAMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB46BwgAEEcQsAM6BwgjEOoCECc6BwguEOoCECc6BAgjECc6BQgAEJECOg4ILhCxAxDHARCvARCRAjoECC4QQzoFCAAQsQM6CAguELEDEIMBOgsILhCxAxDHARCvAToICAAQsQMQgwE6CAgAELEDEJECOgUILhCRAjoHCAAQFBCHAjoFCC4QsQM6CAguEMcBEK8BOgQIABBDOg0IABCxAxCRAhBGEIICOggIABAWEAoQHlCjCljvQmDwRWgEcAB4BIAB-QKIAZomkgEGMi0xMy41mAEAoAEBqgEHZ3dzLXdperABCsABAQ&sclient=psy-ab&ved=0ahUKEwjC2Pa0purqAhWI2BQKHesXBC4Q4dUDCAw&uact=5">
+            Conversion Rates Here</a></li>
+        <li>Then Confirm and Send. Then Send the transaction code to us via the form below</li>
+      </ul>
     </span>
   </div>
 <h1 class="text-center">My Subscriptions</h1>
