@@ -23,6 +23,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
+Route::get('/Free/Games',[
+    'uses'=>'IndexController@todays',
+    'as'=>'free.games'
+]);
+Route::get('/Premium/Games',[
+    'uses'=>'IndexController@premium',
+    'as'=>'premium.games'
+]);
+Route::get('/Get/Completed/Games',[
+    'uses'=>'IndexController@completed',
+    'as'=>'completed.games'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {

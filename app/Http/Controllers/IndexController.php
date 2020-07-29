@@ -30,8 +30,32 @@ class IndexController extends Controller
         ->with('premium',$premium)
         ->with('games',$games)
         ->with('todays',$todays);
+
+    }
+    protected function todays(){
+        $todays=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+            ['Type','=',0],
+            ['OutCome','=',null]
+        ])->get();
+        return $todays;
     }
     protected function live(){
         return view('live');
     }
+    public function premium()
+    {
+        $todays=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+            ['Type','=',1],
+            ['OutCome','=',null]
+        ])->get();
+        return $todays;
+    }
+    public function completed()
+    {
+        $games=Game::where('Outcome','=',1)->get();
+        return $games;
+    }
+
 }

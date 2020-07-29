@@ -33,131 +33,71 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="{{ url('/') }}" style="text-shadow: 1px 1px white,2px 2px red;font-size:20px">
-            <img src="{{ asset('dist/img/logo.jpg') }}" height="45px"> {{ config('app.name') }}
-         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Features</a>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="{{ url('/') }}" style="text-shadow: 1px 1px white,2px 2px red;font-size:20px">
+                <img src="https://bettingworld.co.ke/dist/img/logo.jpg" height="45px"> BettingWorld
+             </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Pricing</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav .d-none .d-sm-block">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fa fa-envelope" style="color:red"></i>&nbsp;dominicmainaw@gmail.com
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fa fa-phone-alt" style="color:royalblue"></i>&nbsp;0792209882
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fab fa-whatsapp" style="color:green"></i>&nbsp;0792209882
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fab fa-facebook-f" style="color:blue"></i>&nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fab fa-pinterest" style="color:blue"></i>&nbsp;
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                            <i class="fab fa-twitter" style="color:blue"></i>&nbsp;
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Pricing</a>
+                    <a class="nav-link" href="{{ url('register') }}">Register</a>
                 </li>
-            </ul>
-            <ul class="navbar-nav .d-none .d-sm-block">
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fa fa-envelope" style="color:red"></i>&nbsp;dominicmainaw@gmail.com
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fa fa-phone-alt" style="color:royalblue"></i>&nbsp;0792209882
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-whatsapp" style="color:green"></i>&nbsp;0792209882
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-facebook-f" style="color:blue"></i>&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-pinterest" style="color:blue"></i>&nbsp;
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <i class="fab fa-twitter" style="color:blue"></i>&nbsp;
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-               @guest
-               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/login') }}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/register') }}">Register</a>
-            </li>
-               @endguest
-               @auth
-               <li class="nav-item">
-                <a class="nav-link" href="/home">MyAccount</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
+                                              </ul>
+            </div>
+        </nav>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-               @endauth
-            </ul>
-        </div>
-    </nav>
-    <div  id="app">
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <div class="row" style="background-color:gold;color:purple">
-        <div class="col-sm-4 text-center">
-          {{-- <img class="card-img-top" src="{{ asset('dist/img/logo.jpg') }}" alt="BettingWorld" style="width:150px;border-radius:75px"> --}}
-          <p>
-         We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.
-         We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.
-          </p>
-        </div>
-        <div class="col-sm-4 text-center">
-          <h5>Quick links</h5>
-          <ul class="list-unstyled quick-links" style="font-weight:bold; !important">
-              <li><a href="javascript:void(0)" style="color:purple">Home</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">About</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">Livescore</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">Match Results</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">JackPots</a></li>
-          </ul>
-      </div>
-      <div class="col-sm-4 text-center">
-          <h5>Tips</h5>
-          <ul class="list-unstyled quick-links">
-              <li><a href="javascript:void(0)" style="color:purple">HT/FT</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">Asian Handicap</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">Correct Score</a></li>
-              <li><a href="javascript:void(0)" style="color:purple">Combos</a></li>
-          </ul>
-      </div>
-    </div>
-    <div class="row text-center" style="background-color:gold;color:purple;display:block">
-      <ul class="list-unstyled list-inline social">
-          <li class="list-inline-item" style="padding-left:30px"><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
-          <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-          <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
-          <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
-      </ul>
-      <h5 class="text-center">&copy; 2020 {{ config('app.name') }} | All Rigts Reserved  || Made with <i class="fa fa-heart"  style="color:red"></i> By <a href="mailto:samuelmwangi729@gmail.com">Samuel Mwangi</a></h5>
-    </div>
+
 	<!-- ./Footer -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dfd935ad1993c93"></script>

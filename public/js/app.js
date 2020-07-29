@@ -1932,6 +1932,199 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/IndexComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      games: {},
+      premium: {},
+      completedGames: {}
+    };
+  },
+  methods: {
+    loadGames: function loadGames() {
+      var _this = this;
+
+      axios.get('Free/Games').then(function (_ref) {
+        var data = _ref.data;
+        return _this.games = data;
+      });
+    },
+    //end load the games 
+    loadPremium: function loadPremium() {
+      var _this2 = this;
+
+      axios.get('Premium/Games').then(function (_ref2) {
+        var data = _ref2.data;
+        return _this2.premium = data;
+      });
+    },
+    //load the completed games into the DOM
+    loadCompleted: function loadCompleted() {
+      var _this3 = this;
+
+      axios.get('Get/Completed/Games').then(function (_ref3) {
+        var data = _ref3.data;
+        return _this3.completedGames = data;
+      });
+      console.log('You cant find anything here,Haha');
+    }
+  },
+  created: function created() {
+    this.loadGames();
+    this.loadPremium();
+    this.loadCompleted();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37556,6 +37749,510 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-9" }, [
+        _c(
+          "h3",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "red", "font-weight": "bold" }
+          },
+          [_vm._v("Todays Free Games")]
+        ),
+        _vm._v(" "),
+        _c(
+          "table",
+          { staticClass: "table table-condensed table-bordered table-hover" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.games, function(game) {
+                return _c("tr", { key: game.id }, [
+                  _c("td", [
+                    _vm._v(_vm._s(game.HomeTeam) + " "),
+                    _c("span", { staticStyle: { color: "red" } }, [
+                      _vm._v("vs")
+                    ]),
+                    _vm._v(" " + _vm._s(game.AwayTeam))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.League))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.Pick))])
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c(
+          "h3",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "red", "font-weight": "bold" }
+          },
+          [_vm._v(" VIP Games")]
+        ),
+        _vm._v(" "),
+        _c(
+          "table",
+          {
+            staticClass:
+              "table table-active table-hover table-bordered table-striped"
+          },
+          [
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.premium, function(game) {
+                return _c("tr", { key: game.id }, [
+                  _c("td", [
+                    _vm._v(_vm._s(game.HomeTeam) + " "),
+                    _c("span", { staticStyle: { color: "red" } }, [
+                      _vm._v("vs")
+                    ]),
+                    _vm._v(" " + _vm._s(game.AwayTeam))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.League))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v("█████")])
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-9" }, [
+        _c(
+          "h3",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "red", "font-weight": "bold" }
+          },
+          [_vm._v("Completed Games")]
+        ),
+        _vm._v(" "),
+        _c(
+          "table",
+          { staticClass: "table table-condensed table-bordered table-hover" },
+          [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.completedGames, function(game) {
+                return _c("tr", { key: game.id }, [
+                  _c("td", [
+                    _vm._v(_vm._s(game.HomeTeam) + " "),
+                    _c("span", { staticStyle: { color: "red" } }, [
+                      _vm._v("vs")
+                    ]),
+                    _vm._v(" " + _vm._s(game.AwayTeam))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.League))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    {
+                      staticClass: "text-center",
+                      staticStyle: { color: "green", "font-size": "20px" }
+                    },
+                    [_vm._v("✓")]
+                  )
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(4)
+    ]),
+    _vm._v(" "),
+    _vm._m(5)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "card text-center",
+        staticStyle: { "margin-top": "30px" }
+      },
+      [
+        _c("blockquote", { staticClass: "blockquote" }, [
+          _vm._v(
+            "\n            Gamblers Don't Have Enough Money. Bet Responsibly\n            "
+          ),
+          _c(
+            "cite",
+            {
+              staticClass: "blockquote-footer",
+              staticStyle: { "font-weight": "bold" }
+            },
+            [_vm._v("BettingWorld")]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Pick")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Pick")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("OutCome")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-3 justify-content-center" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "text-center",
+          staticStyle: { color: "red", "font-weight": "bold" }
+        },
+        [_vm._v("About Us")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "container text-center" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          staticStyle: {
+            width: "150px",
+            float: "center",
+            "border-radius": "70px"
+          },
+          attrs: {
+            src: "https://bettingworld.co.ke/dist/img/logo.jpg",
+            alt: "BettingWorld"
+          }
+        })
+      ]),
+      _vm._v(
+        "\n         We offer the \n         most well known football wagering tips day by day  giving you motivation to come back to\n        Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.\n        "
+      ),
+      _c("h6", { staticClass: "text-center" }, [
+        _vm._v("We Give Premium Tips In")
+      ]),
+      _vm._v(" "),
+      _c(
+        "ul",
+        {
+          staticStyle: {
+            "list-style": "none",
+            color: "purple",
+            "background-color": "gold"
+          }
+        },
+        [
+          _c("li", { staticClass: "list-item" }, [_vm._v("Sure Bets")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-item" }, [_vm._v("HT/FT")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-item" }, [_vm._v("Correct Score")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-item" }, [_vm._v("Combos")]),
+          _vm._v(" "),
+          _c("li", { staticClass: "list-item" }, [
+            _vm._v("Jackpots \n             "),
+            _c("sup", [
+              _c("div", { staticClass: "badge badge-success" }, [_vm._v("New")])
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "footer",
+      {
+        staticClass: "footer",
+        staticStyle: { "background-color": "gold", color: "purple" }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-4 text-center" }, [
+            _c("h5", [_c("u", [_vm._v("Brief")])]),
+            _vm._v(
+              "\n                  We provide Selected Soccer betting Tips and predictions. You probably would need to pick at most 3 games and stake highly. 99% chances of winning guaranteed.\n      We also  aim to promote responsibility in gambling. We provide information to help you make informed decisions about your gambling.\n             "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-4 text-center" }, [
+            _c("h5", [_c("u", [_vm._v("Quick links")])]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "list-unstyled quick-links",
+                staticStyle: { "font-weight": "bold" }
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Home")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("About")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Livescore")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Match Results")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("JackPots")]
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-4 text-center" }, [
+            _c("h5", [_c("u", [_vm._v("Tips")])]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "list-unstyled quick-links",
+                staticStyle: { "font-weight": "bold" }
+              },
+              [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("HT/FT")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Asian Handicap")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Correct Score")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { color: "purple" },
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [_vm._v("Combos")]
+                  )
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "container justify-content-center" }, [
+          _c("ul", { staticClass: "list-unstyled list-inline social" }, [
+            _c(
+              "li",
+              {
+                staticClass: "list-inline-item",
+                staticStyle: { "padding-left": "30px" }
+              },
+              [
+                _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                  _c("i", { staticClass: "fab fa-facebook" })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-inline-item" }, [
+              _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                _c("i", { staticClass: "fab fa-twitter" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-inline-item" }, [
+              _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                _c("i", { staticClass: "fab fa-instagram" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-inline-item" }, [
+              _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                _c("i", { staticClass: "fab fa-google-plus" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "list-inline-item" }, [
+              _c(
+                "a",
+                { attrs: { href: "javascript:void(0)", target: "_blank" } },
+                [_c("i", { staticClass: "fa fa-envelope" })]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h5", { staticClass: "text-center" }, [
+            _vm._v("© 2020 Laravel | All Rigts Reserved  || Made with "),
+            _c("i", {
+              staticClass: "fa fa-heart",
+              staticStyle: { color: "red" }
+            }),
+            _vm._v(" By "),
+            _c("a", { attrs: { href: "mailto:samuelmwangi729@gmail.com" } }, [
+              _vm._v("Samuel Mwangi")
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49744,6 +50441,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('welcome-component', __webpack_require__(/*! ./components/IndexComponent.vue */ "./resources/js/components/IndexComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49870,6 +50568,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/IndexComponent.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/IndexComponent.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexComponent.vue?vue&type=template&id=754b2df6& */ "./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6&");
+/* harmony import */ var _IndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/IndexComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _IndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/IndexComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/IndexComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/IndexComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./IndexComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./IndexComponent.vue?vue&type=template&id=754b2df6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49888,8 +50655,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/p1rate/Downloads/Sites/BettingWorld/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/p1rate/Downloads/Sites/BettingWorld/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/p1rate/Downloads/Sites/Tests/BettingWorld/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/p1rate/Downloads/Sites/Tests/BettingWorld/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
