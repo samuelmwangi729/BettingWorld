@@ -131,7 +131,7 @@
                     <li class="list-inline-item"><a href="javascript:void(0)"><i class="fab fa-google-plus"></i></a></li>
                     <li class="list-inline-item"><a href="javascript:void(0)" target="_blank"><i class="fa fa-envelope"></i></a></li>
                 </ul>
-                      <h5 class="text-center">&copy; 2020 Laravel | All Rigts Reserved  || Made with <i class="fa fa-heart"  style="color:red"></i> By <a href="mailto:samuelmwangi729@gmail.com">Samuel Mwangi</a></h5>
+                      <h5 class="text-center">&copy; 2020 BettingWorld | All Rigts Reserved  || Made with <i class="fa fa-heart"  style="color:red"></i> By <a href="mailto:samuelmwangi729@gmail.com">Samuel Mwangi</a></h5>
             </div>
         </footer>
    </div>

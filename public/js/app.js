@@ -38232,7 +38232,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("h5", { staticClass: "text-center" }, [
-            _vm._v("© 2020 Laravel | All Rigts Reserved  || Made with "),
+            _vm._v("© 2020 BettingWorld | All Rigts Reserved  || Made with "),
             _c("i", {
               staticClass: "fa fa-heart",
               staticStyle: { color: "red" }
