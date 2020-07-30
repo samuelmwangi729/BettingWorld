@@ -60,7 +60,7 @@
                             <th>Game</th>
                             <th>League</th>
                             <th>Time</th>
-                            <th>OutCome</th>
+                            <th>Result</th>
                         </tr>
                     </thead>
                     <tbody>

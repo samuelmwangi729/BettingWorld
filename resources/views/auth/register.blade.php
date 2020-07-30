@@ -2,7 +2,7 @@
 
 @section('content')
 {{--  start new Registration design --}}
-<div class="container register">
+{{-- <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
@@ -75,5 +75,6 @@
         </div>
     </div>
 
-</div>
+</div> --}}
+<register-component></register-component>
 @endsection
