@@ -32,16 +32,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    <div id='tawk_5ec73d42c75cbf1769ee438b'></div>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date(); Tawk_API.embedded='tawk_5ec73d42c75cbf1769ee438b';
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
-    s1.src='https://embed.tawk.to/5ec73d42c75cbf1769ee438b/1eer6d4br';
+    s1.src='https://embed.tawk.to/5ec73d42c75cbf1769ee438b/1eer6ubsr';
     s1.charset='UTF-8';
     s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    s0.parentNode.insertBefore(s1,s0);})();
     </script>
     <!--End of Tawk.to Script-->
     <script data-ad-client="ca-pub-6177716716878978" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
