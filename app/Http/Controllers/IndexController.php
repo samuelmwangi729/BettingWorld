@@ -33,15 +33,17 @@ class IndexController extends Controller
 
     }
     protected function todays(){
+        //gets over 1.5 today
         $todays=Game::where([
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
-            ['OutCome','=',null]
+            ['OutCome','=',null],
+            ['TipType','=','OV1.5']
         ])->get();
         return $todays;
     }
     protected function live(){
-        return view('live');
+        return view('livescore');
     }
     public function premium()
     {
@@ -56,6 +58,33 @@ class IndexController extends Controller
     {
         $games=Game::where('Outcome','=',1)->get();
         return $games;
+    }
+    protected function under(){
+        $under=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+            ['Type','=',0],
+            ['OutCome','=',null],
+            ['TipType','=','UD1.5']
+        ])->get();
+        return $under;
+    }
+    protected function over2(){
+        $over=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+            ['Type','=',0],
+            ['OutCome','=',null],
+            ['TipType','=','OV2.5']
+        ])->get();
+        return $over;
+    }
+    protected function draw(){
+        $draw=Game::where([
+            ['DatePosted','=',date('Y-m-d')],
+            ['Type','=',0],
+            ['OutCome','=',null],
+            ['TipType','=','DRAW']
+        ])->get();
+        return $draw;
     }
 
 }

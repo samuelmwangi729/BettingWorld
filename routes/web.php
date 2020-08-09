@@ -16,16 +16,28 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
-Route::get('/live',[
+Route::get('/livescore',[
 	'uses'=>'IndexController@live'
 ]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
-Route::get('/Free/Games',[
+Route::get('/Free/Over',[
     'uses'=>'IndexController@todays',
     'as'=>'free.games'
+]);
+Route::get('/Free/Over2',[
+    'uses'=>'IndexController@over2',
+    'as'=>'over2.games'
+]);
+Route::get('/Free/Under',[
+    'uses'=>'IndexController@under',
+    'as'=>'under.games'
+]);
+Route::get('/Free/Draw',[
+    'uses'=>'IndexController@draw',
+    'as'=>'draw.games'
 ]);
 Route::get('/Premium/Games',[
     'uses'=>'IndexController@premium',
@@ -85,6 +97,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('/Payment/Delete/{id}',[
 		'uses'=>'PaymentsController@destroy',
 		'as'=>'payments.delete'
+	]);
+	Route::post('Matches/Fixtures',[
+		'uses'=>'GamesController@fixtures',
+		'as'=>'fixtures'
 	]);
 	Route::resource('league','LeaguesController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

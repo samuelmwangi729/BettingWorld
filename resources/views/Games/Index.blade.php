@@ -41,6 +41,21 @@
                                 @include('alerts.feedback', ['field' => 'Pick'])
                               </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="inputAddress" class="label-control text-center">Tip Type</label>
+                               <select class="form-control" name="TipType">
+                                   <option label="Select Tip Type"></option>
+                                   <option value="GG">GG</option>
+                                   <option value="DRAW">HTFT DRAW</option>
+                                   <option value="OV1.5">Over 1.5</option>
+                                   <option value="UD1.5">Under 1.5</option>
+                                   <option value="OV2.5">Over 2.5</option>
+                                   <option value="Other">Other</option>
+                               </select>
+                                @include('alerts.feedback', ['field' => 'TipType'])
+                              </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">

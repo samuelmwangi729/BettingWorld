@@ -13,7 +13,7 @@
       <div class="carousel-item active">
         <img class="d-block w-100" src="{{ asset('Slider/1.jpg') }}" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Feel the precense</h1>
+            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Feel the Warmth</h1>
             <p style="font-size:2em;background-color:black;opacity:.5;width:50%">Enjoy the Match. We Got You!!</p>
             <p class="text-left">
             <button class="btn btn-lg" style="background-color:gold;color:purple;font-weight:bold">Join Us Today &rarr;</button>

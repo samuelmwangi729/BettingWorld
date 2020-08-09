@@ -50,6 +50,7 @@ class GamesController extends Controller
         'AwayTeam'=>'required',
         'KickOff'=>'required',
         'Pick'=>'required',
+        'TipType'=>'required',
         'League'=>'required',
         'Type'=>'required',
     ];
@@ -62,6 +63,7 @@ class GamesController extends Controller
         'AwayTeam'=>$request->AwayTeam,
         'KickOff'=>$request->KickOff,
         'Pick'=>$request->Pick,
+        'TipType'=>$request->TipType,
         'League'=>$request->League,
         'Type'=>$request->Type,
         'DatePosted'=>date('Y-m-d')
@@ -138,5 +140,9 @@ class GamesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    protected function fixtures(Request $request){
+        $data=$request->all();
+        return $data;
     }
 }

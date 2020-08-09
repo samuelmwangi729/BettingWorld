@@ -44,6 +44,14 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
+    <style>
+
+.table-hover tbody tr:hover {
+  color: white;
+  background-color: black;
+}
+
+    </style>
     <!--End of Tawk.to Script-->
     <script data-ad-client="ca-pub-6177716716878978" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>

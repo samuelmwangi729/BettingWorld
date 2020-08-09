@@ -37,6 +37,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('welcome-component', require('./components/IndexComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
+Vue.component('livescore-component', require('./components/LivescoreComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

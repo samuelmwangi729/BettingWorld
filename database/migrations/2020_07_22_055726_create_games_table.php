@@ -19,6 +19,7 @@ class CreateGamesTable extends Migration
             $table->string('AwayTeam');
             $table->string('KickOff');
             $table->string('Pick');
+            $table->string('TipType');
             $table->string('League');
             $table->string('OutCome')->nullable();
             $table->string('DatePosted');

@@ -12,6 +12,7 @@ class Game extends Model
         'AwayTeam',
         'KickOff',
         'Pick',
+        'TipType',
         'League',
         'OutCome',
         'DatePosted',
