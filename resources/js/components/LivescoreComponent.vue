@@ -41,7 +41,7 @@ export default{
     },
     methods: {
         loadLive(){
-               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-11?timezone=Europe/Amsterdam', {
+               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-12?timezone=Europe/Amsterdam', {
                 headers: {
                     "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                     "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
@@ -56,6 +56,7 @@ export default{
         PostData(live){
            this.live.forEach(element => {
                         let eventDate=element.event_date;
+                        let fixture=element.fixture_id;
                         let venue=element.venue;
                         let league=element.league.name;
                         let country=element.league.country;
@@ -67,6 +68,7 @@ export default{
                         axios.post('/Matches/Fixtures',{
                             _token: this.token,
                             date: eventDate,
+                            fixture_id:fixture,
                             venue: venue,
                             league: league,
                             country: country,

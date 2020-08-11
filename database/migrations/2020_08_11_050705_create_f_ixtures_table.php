@@ -16,6 +16,7 @@ class CreateFIxturesTable extends Migration
         Schema::create('f_ixtures', function (Blueprint $table) {
             $table->id();
             $table->string('TodayDate')->default(date('Y-m-d'));
+            $table->string('fixture_id')->nullable();
             $table->string('date')->nullable();
             $table->string('venue')->nullable();
             $table->string('league')->nullable();

@@ -9,6 +9,7 @@ class FIxture extends Model
     protected $fillable=[
         'TodayDate',
         'date',
+        'fixture_id',
         'venue',
         'league',
         'country',

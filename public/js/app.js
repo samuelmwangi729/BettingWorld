@@ -2605,7 +2605,7 @@ __webpack_require__.r(__webpack_exports__);
     loadLive: function loadLive() {
       var _this = this;
 
-      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-11?timezone=Europe/Amsterdam', {
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-12?timezone=Europe/Amsterdam', {
         headers: {
           "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
           "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
@@ -2620,6 +2620,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.live.forEach(function (element) {
         var eventDate = element.event_date;
+        var fixture = element.fixture_id;
         var venue = element.venue;
         var league = element.league.name;
         var country = element.league.country;
@@ -2631,6 +2632,7 @@ __webpack_require__.r(__webpack_exports__);
         axios.post('/Matches/Fixtures', {
           _token: _this2.token,
           date: eventDate,
+          fixture_id: fixture,
           venue: venue,
           league: league,
           country: country,
