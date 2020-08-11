@@ -24,6 +24,14 @@ Route::get('/Leagues',[
 	'uses'=>'LeaguesController@league',
 	'as'=>'leagues.view'
 ]);
+Route::get('/All/Leagues',[
+	'uses'=>'LeaguesController@All',
+	'as'=>'leagues.all'
+]);
+Route::get('Todays/Games',[
+	'uses'=>'GamesController@todaysFixtures',
+	'as'=>'Today'
+]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -123,14 +131,7 @@ Route::group(['middleware' => 'auth'], function () {
 		'as'=>'apileaguespost'
 	]);
 	
-	Route::get('/All/Leagues',[
-		'uses'=>'LeaguesController@All',
-		'as'=>'leagues.all'
-	]);
-	Route::get('Todays/Games',[
-		'uses'=>'GamesController@todaysFixtures',
-		'as'=>'Today'
-	]);
+
 	Route::resource('league','LeaguesController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
