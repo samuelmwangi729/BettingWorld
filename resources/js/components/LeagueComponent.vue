@@ -39,7 +39,7 @@ export default{
         PostData(games,length){
             for(let i=1;i<=length;i++){
                 let name=games[i].name;
-                if(name==undefined){
+                if(name===undefined){
                     name=''
                 }
                 axios.post('/Api/Leagues/Post',{

@@ -2436,7 +2436,7 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 1; i <= length; i++) {
         var name = games[i].name;
 
-        if (name == undefined) {
+        if (name === undefined) {
           name = '';
         }
 
