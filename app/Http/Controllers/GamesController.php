@@ -156,7 +156,7 @@ class GamesController extends Controller
         return $fixtures;
     }
     protected function Top(){
-        $fixtures=FIxture::orderBy('id','asc')->get()->take(20);
+        $fixtures=FIxture::orderBy('id','asc')->get()->take(50);
         return $fixtures;
     }
 }
