@@ -152,12 +152,12 @@ class GamesController extends Controller
     }
     protected function todaysFixtures(){
         $today=date('Y-m-d');
-        $fixtures=FIxture::where('TodayDate','=',$today)->get();
+        $fixtures=FIxture::all();
         return $fixtures;
     }
     protected function Top(){
         $today=date('Y-m-d');
-        $fixtures=FIxture::where('TodayDate','=',$today)->get()->take(15);
+        $fixtures=FIxture::orderBy('id','asc')->get()->take(20);
         return $fixtures;
     }
 }
