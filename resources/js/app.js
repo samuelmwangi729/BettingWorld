@@ -38,6 +38,9 @@ Vue.component('welcome-component', require('./components/IndexComponent.vue').de
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('register-component', require('./components/RegisterComponent.vue').default);
 Vue.component('livescore-component', require('./components/LivescoreComponent.vue').default);
+Vue.component('fixtures-component', require('./components/FixturesComponent.vue').default);
+Vue.component('league-component', require('./components/LeagueComponent.vue').default);
+Vue.component('leagueid-component', require('./components/LeagueIndexComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

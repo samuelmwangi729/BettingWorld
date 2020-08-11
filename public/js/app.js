@@ -1949,6 +1949,110 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fixtures: {},
+      leagues: {}
+    };
+  },
+  methods: {
+    loadFixtures: function loadFixtures() {
+      var _this = this;
+
+      axios.get('/Todays/Games').then(function (_ref) {
+        var data = _ref.data;
+        return _this.fixtures = data;
+      });
+    },
+    loadLeagues: function loadLeagues() {
+      var _this2 = this;
+
+      axios.get('/All/Leagues').then(function (data) {
+        _this2.leagues = data.data.data; //if the fetch is successful
+      });
+    }
+  },
+  created: function created() {
+    this.loadFixtures();
+    this.loadLeagues();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/IndexComponent.vue?vue&type=script&lang=js& ***!
@@ -2281,10 +2385,90 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LivescoreComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LivescoreComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      leagues: {},
+      token: ''
+    };
+  },
+  methods: {
+    loadLeagues: function loadLeagues() {
+      var _this = this;
+
+      axios.get('https://api-football-v1.p.rapidapi.com/leagues', {
+        headers: {
+          "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+          "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+        return _this.leagues = data.api.leagues, _this.PostData(_this.leagues, data.api.results);
+      });
+    },
+    PostData: function PostData(games, length) {
+      for (var i = 1; i <= length; i++) {
+        var name = games[i].name;
+
+        if (name == undefined) {
+          name = '';
+        }
+
+        axios.post('/Api/Leagues/Post', {
+          _token: this.token,
+          name: name,
+          country: games[i].country,
+          season: games[i].season,
+          start_season: games[i].season_start,
+          end_season: games[i].season_end,
+          logo: games[i].logo
+        }).then(function (response) {
+          //when they have been updated
+          console.log('Data Successfully Saved');
+        });
+      }
+    }
+  },
+  created: function created() {
+    this.loadLeagues();
+  },
+  mounted: function mounted() {
+    this.token = $('meta[name="csrf-token"]').attr('content');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2335,6 +2519,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      leagues: {},
+      games: {}
+    };
+  },
+  methods: {
+    loadLeagues: function loadLeagues() {
+      var _this = this;
+
+      axios.get('/All/Leagues').then(function (data) {
+        _this.leagues = data.data.data; //if the fetch is successful
+      });
+    },
+    loadHot: function loadHot() {
+      var _this2 = this;
+
+      axios.get('/Top/Games').then(function (data) {
+        _this2.games = data.data; //  console.log(data.data)
+        //if the fetch is successful
+      });
+    }
+  },
+  created: function created() {
+    this.loadHot();
+    this.loadLeagues();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LivescoreComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LivescoreComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2346,21 +2605,53 @@ __webpack_require__.r(__webpack_exports__);
     loadLive: function loadLive() {
       var _this = this;
 
-      axios.get('https://api-football-beta.p.rapidapi.com/fixtures?date=2020-08-09', {
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-11?timezone=America/Eirunepe', {
         headers: {
-          "x-rapidapi-host": "api-football-beta.p.rapidapi.com",
-          "x-rapidapi-key": "c13040f058msha0bc089bf3931f5p116ea2jsn7c9c8b77577d"
+          "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+          "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
         }
       }).then(function (_ref) {
         var data = _ref.data;
-        return _this.live = data.response, console.log(data.response) //post the results to a controller for the data to be saved 
-        // axios.post('/Matches/Fixtures', data.response)
-        ;
+        return _this.live = data.api.fixtures, _this.PostData(_this.live);
+      }); //try to post data using azion
+    },
+    PostData: function PostData(live) {
+      var _this2 = this;
+
+      this.live.forEach(function (element) {
+        var eventDate = element.event_date;
+        var venue = element.venue;
+        var league = element.league.name;
+        var country = element.league.country;
+        var flag = element.league.flag;
+        var homeTeam = element.homeTeam.team_name;
+        var homeLogo = element.homeTeam.logo;
+        var awayTeam = element.awayTeam.team_name;
+        var awayLogo = element.awayTeam.logo;
+        axios.post('/Matches/Fixtures', {
+          _token: _this2.token,
+          date: eventDate,
+          venue: venue,
+          league: league,
+          country: country,
+          flag: flag,
+          home: homeTeam,
+          homeFlag: homeLogo,
+          away: awayTeam,
+          awayFlag: awayLogo
+        }).then(function (response) {
+          console.log('Data Successfully Posted');
+        }); // console.log('Event Date Is '+)
+        // console.log('Event venue Is '+venue)
+        // console.log('Event league Is '+league)
+        // console.log('Event country Is '+country)
+        // console.log('Event flag Is '+flag)
+        // console.log('Event homeTeam Is '+homeTeam)
+        // console.log('Event homeflag Is '+homeLogo)
+        // console.log('Event awayIs '+awayTeam)
+        // console.log('Event away flag Is '+awayLogo)
       });
     }
-  },
-  create: function create() {
-    this.loadLive();
   },
   mounted: function mounted() {
     this.token = $('meta[name="csrf-token"]').attr('content'), this.loadLive();
@@ -42370,6 +42661,154 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row", staticStyle: { "margin-top": "70px" } },
+    [
+      _c("div", { staticClass: "col-sm-9" }, [
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("h2", { staticClass: "text-center" }, [_vm._v("Todays Games")]),
+          _vm._v(" "),
+          _c(
+            "table",
+            {
+              staticClass: "table table-condensed table-active table-hover",
+              staticStyle: { "font-size": "12px" }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.fixtures, function(fixture) {
+                  return _c("tr", { key: fixture.id }, [
+                    _c("td", [
+                      _c("img", { attrs: { src: fixture.flag, width: "30px" } })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(fixture.home) + " "),
+                      _c("b", { staticStyle: { color: "red" } }, [
+                        _vm._v("VS")
+                      ]),
+                      _vm._v("  " + _vm._s(fixture.away))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(fixture.league))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(fixture.venue))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(fixture.country))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(fixture.date))])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Leagues")]),
+        _vm._v(" "),
+        _c(
+          "table",
+          { staticClass: "table table-hover table-condensed table-bordered" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.leagues, function(league) {
+                return _c("tr", { key: league.id }, [
+                  _c("td", [
+                    _c("img", { attrs: { src: league.logo, width: "30px" } })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(league.country))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(league.name))])
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [
+          _vm._v("\n                        Flag\n                    ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("\n                        Teams\n                    ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("\n                        League\n                    ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("\n                        Venue\n                    ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("\n                        Country\n                    ")
+        ]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("\n                        KickOff\n                    ")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Flag")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("league")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/IndexComponent.vue?vue&type=template&id=754b2df6& ***!
@@ -43249,6 +43688,183 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("table", { staticClass: "table table-hover table-condensed" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [_vm._v("\n                League Name\n            ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Country")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Flag")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Session")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("End Session")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c(
+      "div",
+      {
+        staticClass: "row",
+        staticStyle: {
+          "margin-top": "100px",
+          color: "white",
+          background: "linear-gradient(90deg, #a8c0ff 0%,#3f2b96 100% )"
+        }
+      },
+      [
+        _c("div", { staticClass: "col-sm-5 table-responsive" }, [
+          _c("h2", { staticClass: "text-center" }, [_vm._v("  Leagues")]),
+          _vm._v(" "),
+          _c(
+            "table",
+            { staticClass: "table table-hover table-condensed table-bordered" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.leagues, function(league) {
+                  return _c("tr", { key: league.id }, [
+                    _c("td", [
+                      _c("img", { attrs: { src: league.logo, width: "30px" } })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(league.country))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(league.name))])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-7" }, [
+          _c("h2", { staticClass: "text-center" }, [_vm._v(" Top GamesToday")]),
+          _vm._v(" "),
+          _c(
+            "table",
+            { staticClass: "table table-hover table-condensed table-bordered" },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.games, function(game) {
+                  return _c("tr", { key: game.id }, [
+                    _c("td", [
+                      _c("img", { attrs: { src: game.flag, width: "30px" } })
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(game.home) + " "),
+                      _c("b", [_vm._v("Vs")]),
+                      _vm._v(" " + _vm._s(game.away))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(game.league))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(game.date))])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Flag")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("LeagueName")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Flag")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Teams")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Time")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LivescoreComponent.vue?vue&type=template&id=6618bca2&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LivescoreComponent.vue?vue&type=template&id=6618bca2& ***!
@@ -43268,57 +43884,6 @@ var render = function() {
     "div",
     { staticClass: "container-fluid", staticStyle: { "margin-top": "70px" } },
     [
-      _c("form", { attrs: { method: "post", action: "/Matches/Fixtures" } }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.token,
-              expression: "token"
-            }
-          ],
-          attrs: { type: "hidden", name: "_token" },
-          domProps: { value: _vm.token },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.token = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.live,
-              expression: "live"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { type: "hidden" },
-          domProps: { value: _vm.live },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.live = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [_vm._v("Post Games")]
-        )
-      ]),
-      _vm._v(" "),
       _c("table", { staticClass: "table" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -43326,11 +43891,9 @@ var render = function() {
           "tbody",
           _vm._l(_vm.live, function(game) {
             return _c("tr", { key: game.id }, [
-              _c("td", [_vm._v(_vm._s(game.fixture.date))]),
+              _c("td", [_vm._v(_vm._s(game.event_date))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.fixture.venue.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.fixture.venue.city))]),
+              _c("td", [_vm._v(_vm._s(game.venue))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(game.league.name))]),
               _vm._v(" "),
@@ -43338,27 +43901,13 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(game.league.flag))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.teams.home.name))]),
+              _c("td", [_vm._v(_vm._s(game.homeTeam.team_name))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.teams.home.logo))]),
+              _c("td", [_vm._v(_vm._s(game.homeTeam.logo))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.teams.away.name))]),
+              _c("td", [_vm._v(_vm._s(game.awayTeam.team_name))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(game.teams.home.logo))]),
-              _vm._v(" "),
-              _c("form", [
-                _c(
-                  "input",
-                  _vm._b(
-                    { attrs: { type: "text", name: "data" } },
-                    "input",
-                    _vm.live,
-                    false
-                  )
-                ),
-                _vm._v(" "),
-                _c("button", [_vm._v("Done form")])
-              ])
+              _c("td", [_vm._v(_vm._s(game.awayTeam.logo))])
             ])
           }),
           0
@@ -43378,8 +43927,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Stadium")]),
         _vm._v(" "),
-        _c("th", [_vm._v("City")]),
-        _vm._v(" "),
         _c("th", [_vm._v("League")]),
         _vm._v(" "),
         _c("th", [_vm._v("Country")]),
@@ -43392,9 +43939,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("AwayTeam")]),
         _vm._v(" "),
-        _c("th", [_vm._v("AwayFlag")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Post")])
+        _c("th", [_vm._v("AwayFlag")])
       ])
     ])
   }
@@ -56190,6 +56735,9 @@ Vue.component('welcome-component', __webpack_require__(/*! ./components/IndexCom
 Vue.component('login-component', __webpack_require__(/*! ./components/LoginComponent.vue */ "./resources/js/components/LoginComponent.vue")["default"]);
 Vue.component('register-component', __webpack_require__(/*! ./components/RegisterComponent.vue */ "./resources/js/components/RegisterComponent.vue")["default"]);
 Vue.component('livescore-component', __webpack_require__(/*! ./components/LivescoreComponent.vue */ "./resources/js/components/LivescoreComponent.vue")["default"]);
+Vue.component('fixtures-component', __webpack_require__(/*! ./components/FixturesComponent.vue */ "./resources/js/components/FixturesComponent.vue")["default"]);
+Vue.component('league-component', __webpack_require__(/*! ./components/LeagueComponent.vue */ "./resources/js/components/LeagueComponent.vue")["default"]);
+Vue.component('leagueid-component', __webpack_require__(/*! ./components/LeagueIndexComponent.vue */ "./resources/js/components/LeagueIndexComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56318,6 +56866,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FixturesComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/FixturesComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FixturesComponent.vue?vue&type=template&id=33ef1c38& */ "./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38&");
+/* harmony import */ var _FixturesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FixturesComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FixturesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FixturesComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FixturesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FixturesComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FixturesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FixturesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FixturesComponent.vue?vue&type=template&id=33ef1c38& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FixturesComponent.vue?vue&type=template&id=33ef1c38&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FixturesComponent_vue_vue_type_template_id_33ef1c38___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/IndexComponent.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/IndexComponent.vue ***!
@@ -56382,6 +56999,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexComponent_vue_vue_type_template_id_754b2df6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueComponent.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/LeagueComponent.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeagueComponent.vue?vue&type=template&id=160e84f3& */ "./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3&");
+/* harmony import */ var _LeagueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeagueComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LeagueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LeagueComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LeagueComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./LeagueComponent.vue?vue&type=template&id=160e84f3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueComponent.vue?vue&type=template&id=160e84f3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueComponent_vue_vue_type_template_id_160e84f3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueIndexComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/LeagueIndexComponent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LeagueIndexComponent.vue?vue&type=template&id=528e9776& */ "./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776&");
+/* harmony import */ var _LeagueIndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LeagueIndexComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LeagueIndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LeagueIndexComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueIndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LeagueIndexComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueIndexComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueIndexComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./LeagueIndexComponent.vue?vue&type=template&id=528e9776& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LeagueIndexComponent.vue?vue&type=template&id=528e9776&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeagueIndexComponent_vue_vue_type_template_id_528e9776___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

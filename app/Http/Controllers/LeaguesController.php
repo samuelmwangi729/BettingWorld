@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\League;
+use App\ApiLeagues;
 use Session;
 class LeaguesController extends Controller
 {
@@ -23,9 +24,14 @@ class LeaguesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function Api()
     {
-        //
+        return view('League.Api');
+    }
+
+    public function Post(Request $request){
+        ApiLeagues::create($request->all());
+        return back();
     }
 
     /**
@@ -121,5 +127,12 @@ class LeaguesController extends Controller
             Session::flash('error','League Successfully Deleted');
             return back();
         }
+    }
+    protected function league(){
+        return view('League.League');
+    }
+    protected function All(){
+        $leagues=ApiLeagues::paginate(15);
+        return $leagues;
     }
 }

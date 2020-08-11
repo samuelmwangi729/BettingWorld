@@ -67,10 +67,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Features</a>
+                        <a class="nav-link" href="{{ route('todays') }}">Fixtures</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Pricing</a>
+                        <a class="nav-link" href="{{ route('leagues.view') }}">Leagues</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav .d-none .d-sm-block">

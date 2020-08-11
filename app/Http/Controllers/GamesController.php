@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\League;
 use Illuminate\Http\Request;
 use App\Game;
+use App\FIxture;
 use Str;
 use Session;
 class GamesController extends Controller
@@ -142,7 +143,21 @@ class GamesController extends Controller
         //
     }
     protected function fixtures(Request $request){
-        $data=$request->all();
-        return $data;
+        Fixture::create($request->all());
+        return back();
+    }
+
+    protected function tfixtures(){
+       return view('Fixtures');
+    }
+    protected function todaysFixtures(){
+        $today=date('Y-m-d');
+        $fixtures=FIxture::where('TodayDate','=',$today)->get();
+        return $fixtures;
+    }
+    protected function Top(){
+        $today=date('Y-m-d');
+        $fixtures=FIxture::where('TodayDate','=',$today)->get()->take(15);
+        return $fixtures;
     }
 }
