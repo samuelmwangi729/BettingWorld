@@ -32,6 +32,10 @@ Route::get('Todays/Games',[
 	'uses'=>'GamesController@todaysFixtures',
 	'as'=>'Today'
 ]);
+Route::get('Top/Games',[
+	'uses'=>'GamesController@Top'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -118,10 +122,6 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses'=>'GamesController@fixtures',
 		'as'=>'fixtures'
 	]);
-	Route::get('Top/Games',[
-		'uses'=>'GamesController@Top'
-	]);
-
 	Route::get('/Api/Leagues',[
 		'uses'=>'LeaguesController@Api',
 		'as'=>'apileagues'
