@@ -132,7 +132,7 @@ class LeaguesController extends Controller
         return view('League.League');
     }
     protected function All(){
-        $leagues=ApiLeagues::paginate(15);
+        $leagues=ApiLeagues::all();
         return $leagues;
     }
 }
