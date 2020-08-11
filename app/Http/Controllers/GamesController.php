@@ -156,7 +156,6 @@ class GamesController extends Controller
         return $fixtures;
     }
     protected function Top(){
-        $today=date('Y-m-d');
         $fixtures=FIxture::orderBy('id','asc')->get()->take(20);
         return $fixtures;
     }

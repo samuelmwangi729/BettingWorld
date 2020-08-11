@@ -16,8 +16,13 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
-Route::get('/livescore',[
-	'uses'=>'IndexController@live'
+Route::get('Fixtures',[
+	'uses'=>'GamesController@tfixtures',
+	'as'=>'todays'
+]);
+Route::get('/Leagues',[
+	'uses'=>'LeaguesController@league',
+	'as'=>'leagues.view'
 ]);
 Auth::routes();
 
@@ -50,6 +55,9 @@ Route::get('/Get/Completed/Games',[
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
+	Route::get('/livescore',[
+		'uses'=>'IndexController@live'
+	]);
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('/Leagues/Delete/{id}',[
 		'uses'=>'LeaguesController@destroy',
@@ -105,10 +113,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('Top/Games',[
 		'uses'=>'GamesController@Top'
 	]);
-	Route::get('Fixtures',[
-		'uses'=>'GamesController@tfixtures',
-		'as'=>'todays'
-	]);
+
 	Route::get('/Api/Leagues',[
 		'uses'=>'LeaguesController@Api',
 		'as'=>'apileagues'
@@ -117,10 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses'=>'LeaguesController@Post',
 		'as'=>'apileaguespost'
 	]);
-	Route::get('/Leagues',[
-		'uses'=>'LeaguesController@league',
-		'as'=>'leagues.view'
-	]);
+	
 	Route::get('/All/Leagues',[
 		'uses'=>'LeaguesController@All',
 		'as'=>'leagues.all'
