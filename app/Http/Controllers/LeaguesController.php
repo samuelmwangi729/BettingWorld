@@ -135,4 +135,8 @@ class LeaguesController extends Controller
         $leagues=ApiLeagues::paginate(50);
         return $leagues;
     }
+    protected function some(){
+        $leagues=ApiLeagues::paginate(10);
+        return $leagues;
+    }
 }

@@ -136,6 +136,32 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::get('/IsAdminiistratorOfTheSite',[
+		'uses'=>'HomeController@isAdmin',
+		'as'=>'isadmin'
+	]);
+	Route::get('AllTheGamez',[
+		'uses'=>'GamesController@all',
+	]);
+	Route::get('Complete',[
+		'uses'=>'GamesController@allC',
+	]);
+	Route::get('Suspend/{id}',[
+		'uses'=>'GamesController@suspend',
+	]);
+	Route::get('Reset/{id}',[
+		'uses'=>'GamesController@Reset',
+	]);
+	Route::resource('settings','SettingsController');
+	Route::get('/Some/Leagues',[
+		'uses'=>'LeaguesController@some'
+	]);
+	Route::get('/Frees/Games',[
+		'uses'=>'GamesController@Free'
+	]);
+	Route::get('/isSub',[
+		'uses'=>'SubscribersController@sub'
+	]);
 });
 
 

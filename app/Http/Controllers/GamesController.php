@@ -85,8 +85,8 @@ class GamesController extends Controller
        if($game){
            $game->OutCome=1;
            $game->save();
-           Session::flash('success','game successfully Updated');
-           return back();
+           $data=['message'=>'updated'];
+           return $data;
        }
        return back();
     }
@@ -100,12 +100,37 @@ class GamesController extends Controller
     {
         $game=Game::find($id);
        if($game){
-           $game->OutCome=2;
+           $game->OutCome=3;
            $game->save();
-           Session::flash('success','game successfully Updated');
-           return back();
+           $data=['message'=>'success'];
+           return $data;
        }
-       return back();
+       $data=['message'=>'success'];
+       return $data;
+    }
+    public function suspend($id)
+    {
+        $game=Game::find($id);
+       if($game){
+        $game->OutCome=2;
+        $game->save();
+        $data=['message'=>'success'];
+        return $data;
+       }
+       $data=['message'=>'error'];
+       return $data;
+    }
+    public function Reset($id)
+    {
+        $game=Game::find($id);
+       if($game){
+        $game->OutCome=null;
+        $game->save();
+        $data=['message'=>'success'];
+        return $data;
+       }
+       $data=['message'=>'error'];
+       return $data;
     }
 
     /**
@@ -158,5 +183,17 @@ class GamesController extends Controller
     protected function Top(){
         $fixtures=FIxture::orderBy('id','asc')->get()->take(50);
         return $fixtures;
+    }
+    protected function all(){
+        $games=Game::where('OutCome','=',NULL)->get();
+        return $games;
+    }
+    protected function allC(){
+        $games=Game::orderBy('id','desc')->where('OutCome','!=',NULL)->get()->take(20);
+        return $games;
+    }
+    protected function Free(){
+        $games=Game::where('Type','=',0)->get();
+        return $games;
     }
 }

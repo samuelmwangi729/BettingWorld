@@ -41,6 +41,9 @@ Vue.component('livescore-component', require('./components/LivescoreComponent.vu
 Vue.component('fixtures-component', require('./components/FixturesComponent.vue').default);
 Vue.component('league-component', require('./components/LeagueComponent.vue').default);
 Vue.component('leagueid-component', require('./components/LeagueIndexComponent.vue').default);
+Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('admin-component', require('./components/AdminComponent.vue').default);
+Vue.component('user-component', require('./components/UserComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

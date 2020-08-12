@@ -61,4 +61,11 @@ class HomeController extends Controller
       ->with('free',$free)
       ->with('games',$games);
     }
+    protected function isAdmin(){
+        if(Auth::user()->IsAdmin=='044535f73f8da4844a0c96f760e6e054e4dddce6'){
+            return "true";
+        }else{
+            return "false";
+        }
+    }
 }

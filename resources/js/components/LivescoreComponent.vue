@@ -99,7 +99,7 @@ export default{
         }
     },
     mounted(){
-           this.token= $('meta[name="csrf-token"]').attr('content'),
+            this.token= $('meta[name="csrf-token"]').attr('content'),
          this.loadLive()
     }
 }

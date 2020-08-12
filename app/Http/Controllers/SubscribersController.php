@@ -124,4 +124,20 @@ class SubscribersController extends Controller
     protected function manage(){
         return view('Subscribers.Manage')->with('Subscribers',Subscriber::all());
     }
+    protected function sub(){
+        $mySubs=Subscriber::where('UserId','=',Auth::user()->email)->get()->last();
+        if($mySubs->count()==0){
+            $data=['message','You are not subscribed for VIP. Subscribe to view Our VIP Games'];
+            return $data;
+        }
+        if( $mySubs->Status==1){
+            $data=['message','Your Subscription Has Expired. Kidly Consider Renew It To Continue Accessing VIP Games'];
+            return $data;
+        }
+        if( $mySubs->Status==0){
+            $data=['success','Your Subscription Is Still Active'];
+            return $data;
+        }
+
+    }
 }
