@@ -176,9 +176,9 @@ class GamesController extends Controller
             'league'=>$request->league,
             'country'=>$request->country,
             'flag'=>$request->flag,
-            'home'=>$request->homeTeam,
+            'home'=>$request->home,
             'homeFlag'=>$request->homeFlag,
-            'away'=>$request->awayTeam,
+            'away'=>$request->away,
             'awayFlag'=>$request->awayFlag,
         ]);
         $data=['message'=>'Data Successfully Inserted'];
