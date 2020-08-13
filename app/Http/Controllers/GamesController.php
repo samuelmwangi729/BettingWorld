@@ -191,8 +191,16 @@ class GamesController extends Controller
        return view('Fixtures');
     }
     protected function todaysFixtures(){
-        $today=date('Y-m-d');
-        $fixtures=FIxture::all();
+        $settings=Setting::where('Day','=','Today')->get()->first();
+        if(is_null($settings)){
+            $data=['message'=>'Unknown Error Occurred'];
+            return $data;
+        }
+        $date= $settings->Date;
+        $fixtures=FIxture::where([
+            ['TodayDate','=',$date],
+            ['Status','=',0]
+        ])->get();
         return $fixtures;
     }
     protected function Top(){
@@ -225,5 +233,8 @@ class GamesController extends Controller
         ])->get();
         $data=['games'=>$Games];
         return $data;
+    }
+    protected function Predictions(){
+        return view('Predictions');
     }
 }

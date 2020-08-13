@@ -44,6 +44,7 @@ Vue.component('leagueid-component', require('./components/LeagueIndexComponent.v
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 Vue.component('admin-component', require('./components/AdminComponent.vue').default);
 Vue.component('user-component', require('./components/UserComponent.vue').default);
+Vue.component('prediction-component', require('./components/PredictionComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

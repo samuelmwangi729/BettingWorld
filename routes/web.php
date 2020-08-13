@@ -165,6 +165,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('Yesterday/WonGames',[
 		'uses'=>'GamesController@Yesterday'
 	]);
+	Route::get('/Get/Predictions',[
+		'uses'=>'GamesController@Predictions'
+	]);
+	Route::resource('predictions','PredictionsController');
+	Route::get('/predict/game/{id}',[
+		'uses'=>'PredictionsController@Predict'
+	]);
 });
 
 
