@@ -162,6 +162,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/isSub',[
 		'uses'=>'SubscribersController@sub'
 	]);
+	Route::get('Yesterday/WonGames',[
+		'uses'=>'GamesController@Yesterday'
+	]);
 });
 
 

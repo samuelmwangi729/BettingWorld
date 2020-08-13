@@ -38,7 +38,7 @@ class IndexController extends Controller
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
             ['OutCome','=',null],
-            ['TipType','=','OV1.5']
+            ['TipType','=','Ov1.5']
         ])->get();
         return $todays;
     }
@@ -56,7 +56,7 @@ class IndexController extends Controller
     }
     public function completed()
     {
-        $games=Game::where('Outcome','=',1)->get();
+        $games=Game::orderBy('id','desc')->where('OutCome','!=',NULL)->get()->take(10);
         return $games;
     }
     protected function under(){
@@ -73,7 +73,7 @@ class IndexController extends Controller
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
             ['OutCome','=',null],
-            ['TipType','=','OV2.5']
+            ['TipType','=','Other']
         ])->get();
         return $over;
     }

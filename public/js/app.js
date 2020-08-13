@@ -2670,18 +2670,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2690,7 +2678,8 @@ __webpack_require__.r(__webpack_exports__);
       Draws: {},
       overs: {},
       premium: {},
-      completedGames: {}
+      completedGames: {},
+      yesterdays: {}
     };
   },
   methods: {
@@ -2735,7 +2724,6 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref5.data;
         return _this5.completedGames = data;
       });
-      console.log('You cant find anything here,Haha');
     },
     loadDraw: function loadDraw() {
       var _this6 = this;
@@ -2743,6 +2731,16 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('Free/Draw').then(function (_ref6) {
         var data = _ref6.data;
         return _this6.Draws = data;
+      });
+    },
+    loadYesterday: function loadYesterday() {
+      var _this7 = this;
+
+      axios.get('Yesterday/WonGames').then(function (data) {
+        _this7.yesterdays = data.data.games, console.log('Loading yesterday games');
+        console.log(data.data.games);
+      })["catch"](function (data) {
+        console.log('Unknown error occurred');
       });
     }
   },
@@ -2753,6 +2751,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loadDraw();
     this.loadPremium();
     this.loadCompleted();
+    this.loadYesterday();
   }
 });
 
@@ -43969,283 +43968,216 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "row", staticStyle: { "font-size": "10px !important" } },
+      {
+        staticClass: "row",
+        staticStyle: {
+          background:
+            "linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% )",
+          color: "white"
+        }
+      },
       [
         _c("div", { staticClass: "col-sm-9" }, [
-          _c(
-            "div",
-            {
-              staticClass: "row",
-              staticStyle: {
-                background:
-                  "linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% )",
-                color: "white"
-              }
-            },
-            [
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: {
-                      color: "white",
-                      "font-weight": "bold",
-                      "font-size": "10px",
-                      "padding-top": "10px"
-                    }
-                  },
-                  [_vm._v("Todays Free  (Over 1.5) Games")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-condensed table-bordered table-hover"
-                  },
-                  [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.games, function(game) {
-                        return _c("tr", { key: game.id }, [
-                          _c("td", [
-                            _vm._v(_vm._s(game.HomeTeam) + " "),
-                            _c("span", { staticStyle: { color: "red" } }, [
-                              _vm._v("vs")
-                            ]),
-                            _vm._v(" " + _vm._s(game.AwayTeam))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.League))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.KickOff))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.Pick))])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ]),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "h3",
+                {
+                  staticClass: "text-center",
+                  staticStyle: {
+                    color: "white",
+                    "font-weight": "bold",
+                    "font-size": "10px",
+                    "padding-top": "10px"
+                  }
+                },
+                [_vm._v("Todays Free  (Over 1.5) Games")]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: {
-                      color: "white",
-                      "font-weight": "bold",
-                      "font-size": "10px",
-                      "padding-top": "10px"
-                    }
-                  },
-                  [_vm._v("Todays Free  (under 1.5) Games")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-condensed table-bordered table-hover"
-                  },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.under, function(game) {
-                        return _c("tr", { key: game.id }, [
-                          _c("td", [
-                            _vm._v(_vm._s(game.HomeTeam) + " "),
-                            _c("span", { staticStyle: { color: "red" } }, [
-                              _vm._v("vs")
-                            ]),
-                            _vm._v(" " + _vm._s(game.AwayTeam))
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-condensed table-bordered table-hover"
+                },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.games, function(game) {
+                      return _c("tr", { key: game.id }, [
+                        _c("td", [
+                          _vm._v(_vm._s(game.HomeTeam) + " "),
+                          _c("span", { staticStyle: { color: "red" } }, [
+                            _vm._v("vs")
                           ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.League))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.KickOff))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.Pick))])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row",
-              staticStyle: {
-                background:
-                  "linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% )",
-                color: "white"
-              }
-            },
-            [
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: {
-                      color: "white",
-                      "font-weight": "bold",
-                      "font-size": "10px",
-                      "padding-top": "10px"
-                    }
-                  },
-                  [_vm._v("Todays Free  (HTFT DRAW) Games")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-condensed table-bordered table-hover"
-                  },
-                  [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.Draws, function(game) {
-                        return _c("tr", { key: game.id }, [
-                          _c("td", [
-                            _vm._v(_vm._s(game.HomeTeam) + " "),
-                            _c("span", { staticStyle: { color: "red" } }, [
-                              _vm._v("vs")
-                            ]),
-                            _vm._v(" " + _vm._s(game.AwayTeam))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.League))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.KickOff))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.Pick))])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6" }, [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: {
-                      color: "white",
-                      "font-weight": "bold",
-                      "font-size": "10px",
-                      "padding-top": "10px"
-                    }
-                  },
-                  [_vm._v("Todays Free  Over 2.5) Games")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  {
-                    staticClass:
-                      "table table-condensed table-bordered table-hover"
-                  },
-                  [
-                    _vm._m(4),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.overs, function(game) {
-                        return _c("tr", { key: game.id }, [
-                          _c("td", [
-                            _vm._v(_vm._s(game.HomeTeam) + " "),
-                            _c("span", { staticStyle: { color: "red" } }, [
-                              _vm._v("vs")
-                            ]),
-                            _vm._v(" " + _vm._s(game.AwayTeam))
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.League))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.KickOff))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(game.Pick))])
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-3" }, [
-          _c(
-            "h3",
-            {
-              staticClass: "text-center",
-              staticStyle: {
-                color: "red",
-                "font-size": "14px",
-                "margin-top": "10px",
-                "font-weight": "bold"
-              }
-            },
-            [_vm._v("VIP GAMES")]
-          ),
-          _vm._v(" "),
-          _c("table", { staticClass: "table" }, [
-            _vm._m(5),
+                          _vm._v(" " + _vm._s(game.AwayTeam))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.League))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.Pick))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.premium, function(game) {
-                return _c("tr", { key: game.id }, [
-                  _c("td", [_vm._v(_vm._s(game.HomeTeam))]),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "h3",
+                {
+                  staticClass: "text-center",
+                  staticStyle: {
+                    color: "white",
+                    "font-weight": "bold",
+                    "font-size": "10px",
+                    "padding-top": "10px"
+                  }
+                },
+                [_vm._v("Todays Free  (under 1.5) Games")]
+              ),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-condensed table-bordered table-hover"
+                },
+                [
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(game.League))]),
-                  _vm._v(" "),
-                  _c("td", { staticStyle: { color: "red" } }, [_vm._v("█████")])
-                ])
-              }),
-              0
-            )
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.under, function(game) {
+                      return _c("tr", { key: game.id }, [
+                        _c("td", [
+                          _vm._v(_vm._s(game.HomeTeam) + " "),
+                          _c("span", { staticStyle: { color: "red" } }, [
+                            _vm._v("vs")
+                          ]),
+                          _vm._v(" " + _vm._s(game.AwayTeam))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.League))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.Pick))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
           ]),
           _vm._v(" "),
-          _vm._m(6)
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-9" }, [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            {
-              staticClass: "col-sm-6",
-              staticStyle: {
-                background: "linear-gradient(90deg, #ad5389 0%,#3c1053 100% )",
-                color: "white"
-              }
-            },
-            [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "h3",
+                {
+                  staticClass: "text-center",
+                  staticStyle: {
+                    color: "white",
+                    "font-weight": "bold",
+                    "font-size": "10px",
+                    "padding-top": "10px"
+                  }
+                },
+                [_vm._v("Todays Free  (HTFT DRAW) Games")]
+              ),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-condensed table-bordered table-hover"
+                },
+                [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.Draws, function(game) {
+                      return _c("tr", { key: game.id }, [
+                        _c("td", [
+                          _vm._v(_vm._s(game.HomeTeam) + " "),
+                          _c("span", { staticStyle: { color: "red" } }, [
+                            _vm._v("vs")
+                          ]),
+                          _vm._v(" " + _vm._s(game.AwayTeam))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.League))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.Pick))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "h3",
+                {
+                  staticClass: "text-center",
+                  staticStyle: {
+                    color: "white",
+                    "font-weight": "bold",
+                    "font-size": "10px",
+                    "padding-top": "10px"
+                  }
+                },
+                [_vm._v("Todays Free Combo")]
+              ),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-condensed table-bordered table-hover"
+                },
+                [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.overs, function(game) {
+                      return _c("tr", { key: game.id }, [
+                        _c("td", [
+                          _vm._v(_vm._s(game.HomeTeam) + " "),
+                          _c("span", { staticStyle: { color: "red" } }, [
+                            _vm._v("vs")
+                          ]),
+                          _vm._v(" " + _vm._s(game.AwayTeam))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.League))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.Pick))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
               _c(
                 "h3",
                 {
@@ -44258,6 +44190,56 @@ var render = function() {
                   }
                 },
                 [_vm._v("Yesterday Games")]
+              ),
+              _vm._v(" "),
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-condensed table-bordered table-hover"
+                },
+                [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    { staticStyle: { "font-size": "10px" } },
+                    _vm._l(_vm.yesterdays, function(game) {
+                      return _c("tr", { key: game.id }, [
+                        _c("td", [
+                          _vm._v(_vm._s(game.HomeTeam) + " "),
+                          _c("span", { staticStyle: { color: "red" } }, [
+                            _vm._v("vs")
+                          ]),
+                          _vm._v(" " + _vm._s(game.AwayTeam))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.League))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
+                        _vm._v(" "),
+                        _vm._m(6, true)
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c(
+                "h3",
+                {
+                  staticClass: "text-center",
+                  staticStyle: {
+                    color: "white",
+                    "font-weight": "bold",
+                    "font-size": "10px",
+                    "padding-top": "10px"
+                  }
+                },
+                [_vm._v("Completed Games")]
               ),
               _vm._v(" "),
               _c(
@@ -44293,75 +44275,68 @@ var render = function() {
                   )
                 ]
               )
-            ]
-          ),
-          _vm._v(" "),
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-3" }, [
           _c(
-            "div",
+            "h3",
             {
-              staticClass: "col-sm-6",
+              staticClass: "text-center",
               staticStyle: {
-                background: "linear-gradient(90deg, #333333 0%,#dd1818 100% )",
-                color: "white"
+                color: "red",
+                "font-size": "14px",
+                "margin-top": "10px",
+                "font-weight": "bold"
               }
             },
-            [
-              _c(
-                "h3",
-                {
-                  staticClass: "text-center",
-                  staticStyle: {
-                    color: "white",
-                    "font-weight": "bold",
-                    "font-size": "10px",
-                    "padding-top": "10px"
-                  }
-                },
-                [_vm._v("Completed Games")]
-              ),
-              _vm._v(" "),
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-condensed table-bordered table-hover"
-                },
-                [
-                  _vm._m(9),
+            [_vm._v("VIP GAMES")]
+          ),
+          _vm._v(" "),
+          _c("table", { staticClass: "table" }, [
+            _vm._m(9),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.premium, function(game) {
+                return _c("tr", { key: game.id }, [
+                  _c("td", [_vm._v(_vm._s(game.HomeTeam))]),
                   _vm._v(" "),
-                  _c(
-                    "tbody",
-                    { staticStyle: { "font-size": "10px" } },
-                    _vm._l(_vm.completedGames, function(game) {
-                      return _c("tr", { key: game.id }, [
-                        _c("td", [
-                          _vm._v(_vm._s(game.HomeTeam) + " "),
-                          _c("span", { staticStyle: { color: "red" } }, [
-                            _vm._v("vs")
-                          ]),
-                          _vm._v(" " + _vm._s(game.AwayTeam))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(game.League))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(game.KickOff))]),
-                        _vm._v(" "),
-                        _vm._m(10, true)
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              )
-            ]
-          )
+                  _c("td", [_vm._v(_vm._s(game.League))]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { color: "red" } }, [_vm._v("█████")])
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(10),
+          _vm._v(" "),
+          _c(
+            "h3",
+            {
+              staticClass: "text-center",
+              staticStyle: { color: "red", "font-weight": "bold" }
+            },
+            [_vm._v("About Us")]
+          ),
+          _vm._v(" "),
+          _vm._m(11),
+          _vm._v(
+            "\n            We offer the \n            most well known football wagering tips day by day  giving you motivation to come back to\n           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.\n           "
+          ),
+          _c("h6", { staticClass: "text-center" }, [
+            _vm._v("We Give Premium Tips In")
+          ]),
+          _vm._v(" "),
+          _vm._m(12)
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(11)
-    ]),
+      ]
+    ),
     _vm._v(" "),
-    _vm._m(12)
+    _vm._m(13)
   ])
 }
 var staticRenderFns = [
@@ -44461,6 +44436,72 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
+      _c("tr", { staticStyle: { "font-size": "10px" } }, [
+        _c("th", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Result")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "td",
+      {
+        staticClass: "text-center",
+        staticStyle: { color: "green", "font-size": "20px" }
+      },
+      [
+        _c("span", { staticStyle: { "background-color": "white" } }, [
+          _vm._v("✓")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticStyle: { "font-size": "10px" } }, [
+        _c("th", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Result")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "td",
+      {
+        staticClass: "text-center",
+        staticStyle: { color: "green", "font-size": "20px" }
+      },
+      [
+        _c("span", { staticStyle: { "background-color": "white" } }, [
+          _vm._v("✓")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("Game")]),
         _vm._v(" "),
@@ -44486,16 +44527,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticStyle: { "font-size": "10px" } }, [
-        _c("th", [_vm._v("Game")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("League")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Time")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Result")])
-      ])
+    return _c("div", { staticClass: "container text-center" }, [
+      _c("img", {
+        staticClass: "card-img-top",
+        staticStyle: {
+          width: "150px",
+          float: "center",
+          "border-radius": "70px"
+        },
+        attrs: {
+          src: "https://bettingworld.co.ke/dist/img/logo.jpg",
+          alt: "BettingWorld"
+        }
+      })
     ])
   },
   function() {
@@ -44503,113 +44547,31 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "td",
+      "ul",
       {
-        staticClass: "text-center",
-        staticStyle: { color: "green", "font-size": "20px" }
+        staticStyle: {
+          "list-style": "none",
+          color: "purple",
+          background: "linear-gradient(90deg, #ffdb00 30%,#ff0303 75% )"
+        }
       },
       [
-        _c("span", { staticStyle: { "background-color": "white" } }, [
-          _vm._v("✓")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticStyle: { "font-size": "10px" } }, [
-        _c("th", [_vm._v("Game")]),
+        _c("li", { staticClass: "list-item" }, [_vm._v("Sure Bets")]),
         _vm._v(" "),
-        _c("th", [_vm._v("League")]),
+        _c("li", { staticClass: "list-item" }, [_vm._v("HT/FT")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Time")]),
+        _c("li", { staticClass: "list-item" }, [_vm._v("Correct Score")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Result")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "td",
-      {
-        staticClass: "text-center",
-        staticStyle: { color: "green", "font-size": "20px" }
-      },
-      [
-        _c("span", { staticStyle: { "background-color": "white" } }, [
-          _vm._v("✓")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-3 justify-content-center" }, [
-      _c(
-        "h3",
-        {
-          staticClass: "text-center",
-          staticStyle: { color: "red", "font-weight": "bold" }
-        },
-        [_vm._v("About Us")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container text-center" }, [
-        _c("img", {
-          staticClass: "card-img-top",
-          staticStyle: {
-            width: "150px",
-            float: "center",
-            "border-radius": "70px"
-          },
-          attrs: {
-            src: "https://bettingworld.co.ke/dist/img/logo.jpg",
-            alt: "BettingWorld"
-          }
-        })
-      ]),
-      _vm._v(
-        "\n            We offer the \n            most well known football wagering tips day by day  giving you motivation to come back to\n           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.\n           "
-      ),
-      _c("h6", { staticClass: "text-center" }, [
-        _vm._v("We Give Premium Tips In")
-      ]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        {
-          staticStyle: {
-            "list-style": "none",
-            color: "purple",
-            background: "linear-gradient(90deg, #ffdb00 30%,#ff0303 75% )"
-          }
-        },
-        [
-          _c("li", { staticClass: "list-item" }, [_vm._v("Sure Bets")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [_vm._v("HT/FT")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [_vm._v("Correct Score")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [_vm._v("Combos")]),
-          _vm._v(" "),
-          _c("li", { staticClass: "list-item" }, [
-            _vm._v("Jackpots \n                "),
-            _c("sup", [
-              _c("div", { staticClass: "badge badge-success" }, [_vm._v("New")])
-            ])
+        _c("li", { staticClass: "list-item" }, [_vm._v("Combos")]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-item" }, [
+          _vm._v("Jackpots \n                "),
+          _c("sup", [
+            _c("div", { staticClass: "badge badge-success" }, [_vm._v("New")])
           ])
-        ]
-      )
-    ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -44646,7 +44608,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Home")]
@@ -44657,7 +44619,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("About")]
@@ -44668,7 +44630,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Livescore")]
@@ -44679,7 +44641,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Match Results")]
@@ -44690,7 +44652,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("JackPots")]
@@ -44714,7 +44676,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("HT/FT")]
@@ -44725,7 +44687,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Asian Handicap")]
@@ -44736,7 +44698,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Correct Score")]
@@ -44747,7 +44709,7 @@ var staticRenderFns = [
                 _c(
                   "a",
                   {
-                    staticStyle: { color: "purple" },
+                    staticStyle: { color: "white" },
                     attrs: { href: "javascript:void(0)" }
                   },
                   [_vm._v("Combos")]
@@ -44812,9 +44774,14 @@ var staticRenderFns = [
                 staticStyle: { color: "black" }
               }),
               _vm._v(" By "),
-              _c("a", { attrs: { href: "mailto:samuelmwangi729@gmail.com" } }, [
-                _vm._v("Samuel Mwangi")
-              ])
+              _c(
+                "a",
+                {
+                  staticStyle: { color: "black" },
+                  attrs: { href: "mailto:samuelmwangi729@gmail.com" }
+                },
+                [_vm._v("Samuel Mwangi")]
+              )
             ]
           )
         ])

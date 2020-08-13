@@ -5,6 +5,7 @@ use App\League;
 use Illuminate\Http\Request;
 use App\Game;
 use App\FIxture;
+use App\Setting;
 use Str;
 use Session;
 class GamesController extends Controller
@@ -58,6 +59,7 @@ class GamesController extends Controller
     $this->validate($request,$rules);
     $gameId=Str::random(7);
     //it the request is valid, then insert into the database
+    // dd($request->TipType);
     Game::create([
         'GameId'=>$gameId,
         'HomeTeam'=>$request->HomeTeam,
@@ -208,5 +210,20 @@ class GamesController extends Controller
     protected function Free(){
         $games=Game::where('Type','=',0)->get();
         return $games;
+    }
+    protected function Yesterday(){
+        $settings=Setting::where('Day','=','Yesterday')->get()->first();
+        if(is_null($settings)){
+            $data=['message'=>'Unknown Error Occurred'];
+            return $data;
+        }
+        $date= $settings->Date;
+        //load yesterdays Games
+        $Games=Game::where([
+            ['DatePosted','=',$date],
+            ['OutCome','!=',NULL]
+        ])->get();
+        $data=['games'=>$Games];
+        return $data;
     }
 }
