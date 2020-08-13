@@ -46,7 +46,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" style="elevation:7">
             <a class="navbar-brand" href="{{ url('/') }}" style="text-shadow: 1px 1px white,2px 2px red;font-size:20px">
                 <img src="https://bettingworld.co.ke/dist/img/logo.jpg" height="45px"> BettingWorld
              </a>
@@ -60,6 +60,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('leagues.view') }}">Leagues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('top.games') }}">Top Games <sup><div class="badge badge-success">New</div></sup></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('leagues.view') }}">Today's Combos <sup><div class="badge badge-danger">New</div></sup></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav .d-none .d-sm-block">

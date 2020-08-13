@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Prediction;
 use App\FIxture;
+use Session;
 class PredictionsController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class PredictionsController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -35,19 +36,30 @@ class PredictionsController extends Controller
      */
     public function store(Request $request)
     {
-        $prediction=Prediction::create([
-            'fixture_id'=>$request->fixture_id,
-            'advice'=>$request->advice,
-            'win_percent'=>$request->win_percent,
-             'teams'=>$request->teams,
-             'h2h'=>$request->h2h,
-        ]);
-        if($prediction){
-            $data=['message'=>'prediction Successfully Saved'];
-            return $data;
+      
+        $prediction=Prediction::where('id','!=',0)->get();
+        $fixture_ids=[];
+        for($i=0;$i<count($prediction);$i++){
+            array_push($fixture_ids,$prediction[$i]->fixture_id);
+        }
+        $inArray= in_array($request->fixture_id,$fixture_ids);
+        if($inArray==1){
+            return back();
         }else{
-            $data=['message'=>'the prediction could not be saved. Kndly try again later'];
-            return $data;
+            $prediction=Prediction::create([
+                'fixture_id'=>$request->fixture_id,
+                'advice'=>$request->advice,
+                'win_percent'=>$request->win_percent,
+                 'teams'=>$request->teams,
+                 'h2h'=>$request->h2h,
+            ]);
+            if($prediction){
+                $data=['message'=>'prediction Successfully Saved'];
+                return $data;
+            }else{
+                $data=['message'=>'the prediction could not be saved. Kndly try again later'];
+                return $data;
+            }
         }
 
     }
@@ -60,7 +72,8 @@ class PredictionsController extends Controller
      */
     public function show($id)
     {
-        //
+        $gameData=Prediction::where('fixture_id','=',$id)->get();
+        return $gameData;
     }
 
     /**
@@ -71,7 +84,7 @@ class PredictionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "true";
     }
 
     /**
@@ -104,5 +117,19 @@ class PredictionsController extends Controller
             $game->save();
             $data=['message'=>'Game Fixture Successfully Updated'];
         }
+    }
+    protected function LatestData(Request $request){
+        session(['latest' => $request->all()]);
+      $data=['message'=>'Data Successfully Posted'];
+      return $data;
+    }
+    protected function single(){
+        return view('Games.Single');
+    }
+    protected function GetData(){
+        $latest=Session::get('latest');
+        $data=['latest'=>$latest];
+        session()->forget('latest');
+        return $data;
     }
 }

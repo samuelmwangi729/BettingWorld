@@ -237,4 +237,12 @@ class GamesController extends Controller
     protected function Predictions(){
         return view('Predictions');
     }
+    protected function Gtop(){
+        //find the games where status ==1
+        return view('Games.Top');
+    }
+    protected function OnlyTop(){
+        $games=FIxture::where('Status','=',1)->get();
+        return $games;
+    }
 }

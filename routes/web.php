@@ -149,6 +149,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('Suspend/{id}',[
 		'uses'=>'GamesController@suspend',
 	]);
+	Route::get('/top/Games',[
+		'uses'=>'GamesController@Gtop',
+		'as'=>'top.games'
+	]);
+	Route::get('/OnlyTop',[
+		'uses'=>'GamesController@OnlyTop',
+		'as'=>'only.games'
+	]);
 	Route::get('Reset/{id}',[
 		'uses'=>'GamesController@Reset',
 	]);
@@ -171,6 +179,16 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('predictions','PredictionsController');
 	Route::get('/predict/game/{id}',[
 		'uses'=>'PredictionsController@Predict'
+	]);
+	Route::post('/LatestData',[
+		'uses'=>'PredictionsController@LatestData'
+	]);
+	Route::get('/Match/Highlights',[
+		'uses'=>'PredictionsController@single',
+	]);
+	Route::get('/Latest/Data',[
+		'uses'=>'PredictionsController@GetData',
+
 	]);
 });
 

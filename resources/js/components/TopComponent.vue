@@ -1,11 +1,10 @@
 <template>
-    <div class="row" style="margin-top:70px">
-<div class="col-sm-9">
-    <div class="table-responsive">
-        <h2 class="text-center">Todays Games</h2>
-        <table class="table table-condensed table-active table-hover" style="font-size:12px">
-            <thead>
-                <tr>
+    <div class="row" style="background:linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% );color:white">
+        <div class="col-sm-9 table-responsive">
+          <h2 class="text-center">Top Games Today</h2>
+          <table class="table table-condensed table-hover table-bordered">
+              <thead>
+                  <tr>
                      <th>
                         Flag
                     </th>
@@ -25,9 +24,9 @@
                         KickOff
                     </th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr v-for="fixture in fixtures" :key="fixture.id">
+              </thead>
+               <tbody>
+                <tr v-for="fixture in games" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
                     <td @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
                     <td @click="Predict(fixture.fixture_id)">{{fixture.home}} <b style="color:red">VS</b>  {{fixture.away}}</td>
@@ -37,11 +36,10 @@
                     <td @click="Predict(fixture.fixture_id)">{{fixture.date}}</td>
                 </tr>
             </tbody>
-        </table>
-    </div>
-</div>
-<div class="col-sm-3">
-    <h2 class="text-center">Leagues</h2>
+          </table>
+        </div>
+        <div class="col-sm-3">
+         <h2 class="text-center">Leagues</h2>
     <table  class="table table-hover table-condensed table-bordered">
                 <thead>
                     <tr>
@@ -58,43 +56,50 @@
                     </tr>
                 </tbody>
             </table>
-</div>
+        </div>
     </div>
 </template>
 <script>
 export default{
     data(){
         return{
-            fixtures:{},
-            leagues:{}
+            games:[],
+            leagues:[]
         }
     },
     methods:{
-        Predict(id){
-            axios.get('predictions/'+id).then((data)=>{
-                console.log(data)
-            }).catch((error)=>{
-                console.log(error)
+        loadGames(){
+            axios.get('/OnlyTop').then((response)=>{
+                this.games=response.data
+            }).catch((err)=>{
+                console.log(err)
             })
         },
-        loadFixtures(){
-            axios.get('/Todays/Games').then(
-                 ({
-                        data
-                    })=>(this.fixtures=data)
-            )
-        },
-         loadLeagues(){
-         axios.get('/All/Leagues').then((data)=>{
+        loadLeagues(){
+             axios.get('/All/Leagues').then((data)=>{
              this.leagues=data.data.data
              
              //if the fetch is successful
          })
-       },
+        },
+        Predict(id){
+           axios.get('/predictions/'+id).then((data)=>{
+               let latestData=data.data
+               axios.post('/LatestData',{
+                   data:latestData
+               }).then((response)=>{
+                  window.open('/Match/Highlights','_parent');
+               }).catch((err)=>{
+                   console.log(err)
+               })
+            }).catch((error)=>{
+                console.log(error)
+            })
+        }
     },
     created(){
-        this.loadFixtures()
-        this.loadLeagues()
+        this.loadGames()
+      this.loadLeagues()
     }
 }
 </script>
