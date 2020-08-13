@@ -3015,7 +3015,9 @@ __webpack_require__.r(__webpack_exports__);
           away: awayTeam,
           awayFlag: awayLogo
         }).then(function (response) {
-          console.log('Data Successfully Posted');
+          console.log(response.data.message);
+        })["catch"](function (error) {
+          console.log(error);
         }); // console.log('Event Date Is '+)
         // console.log('Event venue Is '+venue)
         // console.log('Event league Is '+league)

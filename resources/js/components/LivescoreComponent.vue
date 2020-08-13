@@ -82,8 +82,10 @@ export default{
                             )
                         .then((response)=>{
 
-                       console.log('Data Successfully Posted');
+                       console.log(response.data.message);
 
+                        }).catch((error)=>{
+                            console.log(error)
                         })
                         // console.log('Event Date Is '+)
                         // console.log('Event venue Is '+venue)

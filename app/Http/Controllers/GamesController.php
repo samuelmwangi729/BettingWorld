@@ -168,8 +168,21 @@ class GamesController extends Controller
         //
     }
     protected function fixtures(Request $request){
-        Fixture::create($request->all());
-        return back();
+        Fixture::create([
+            'TodayDate'=>date('Y-m-d'),
+            'date'=>$request->date,
+            'fixture_id'=>$request->fixture_id,
+            'venue'=>$request->venue,
+            'league'=>$request->league,
+            'country'=>$request->country,
+            'flag'=>$request->flag,
+            'home'=>$request->homeTeam,
+            'homeFlag'=>$request->homeFlag,
+            'away'=>$request->awayTeam,
+            'awayFlag'=>$request->awayFlag,
+        ]);
+        $data=['message'=>'Data Successfully Inserted'];
+        return $data;
     }
 
     protected function tfixtures(){
