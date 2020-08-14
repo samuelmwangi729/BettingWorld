@@ -56,7 +56,6 @@ export default{
                 }
                 }).then(({data})=>(
                     this.live=data.api.fixtures,
-                   
                     this.PostData(this.live)
                 ));
                 //try to post data using azion
@@ -89,7 +88,7 @@ export default{
                             }
                             )
                         .then((response)=>{
-
+                            console.log('Data Successfully Posted');
 
                         }).catch((error)=>{
                             console.log(error)

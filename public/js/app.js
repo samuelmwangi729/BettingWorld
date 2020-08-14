@@ -3030,7 +3030,9 @@ __webpack_require__.r(__webpack_exports__);
           homeFlag: homeLogo,
           away: awayTeam,
           awayFlag: awayLogo
-        }).then(function (response) {})["catch"](function (error) {
+        }).then(function (response) {
+          console.log('Data Successfully Posted');
+        })["catch"](function (error) {
           console.log(error);
         }); // console.log('Event Date Is '+)
         // console.log('Event venue Is '+venue)
