@@ -248,7 +248,16 @@ class GamesController extends Controller
         return view('Games.Top');
     }
     protected function OnlyTop(){
-        $games=FIxture::where('Status','=',1)->get();
+        $settings=Setting::where('Day','=','Today')->get()->first();
+        if(is_null($settings)){
+            $data=['message'=>'Unknown Error Occurred'];
+            return $data;
+        }
+        $date= $settings->Date;
+        $games=FIxture::where([
+            ['Status','=',1],
+            ['TodayDate','=',$date]
+        ])->get();
         return $games;
     }
 }
