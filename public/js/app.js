@@ -46924,7 +46924,11 @@ var render = function() {
     },
     [
       _c("div", { staticClass: "col-sm-9 table-responsive" }, [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("Top Games Today")]),
+        _c("h2", { staticClass: "text-center" }, [
+          _vm._v(
+            "1X2 Highly Analysed Games(Tap on the game to view Prediction)"
+          )
+        ]),
         _vm._v(" "),
         _c(
           "table",

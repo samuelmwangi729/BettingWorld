@@ -1,7 +1,7 @@
 <template>
     <div class="row" style="background:linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% );color:white">
         <div class="col-sm-9 table-responsive">
-          <h2 class="text-center">Top Games Today</h2>
+          <h2 class="text-center">1X2 Highly Analysed Games(Tap on the game to view Prediction)</h2>
           <table class="table table-condensed table-hover table-bordered">
               <thead>
                   <tr>

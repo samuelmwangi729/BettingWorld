@@ -203,7 +203,8 @@ class GamesController extends Controller
         return $fixtures;
     }
     protected function Top(){
-        $fixtures=FIxture::orderBy('id','asc')->get()->take(50);
+        $settings=Setting::where('Day','=','Today')->get()->first();
+        $fixtures=FIxture::orderBy('id','asc')->where('TodayDate','=',$settings->Date)->get()->take(50);
         return $fixtures;
     }
     protected function all(){
