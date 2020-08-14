@@ -16,6 +16,10 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
+Route::get('/OnlyTop',[
+	'uses'=>'GamesController@OnlyTop',
+	'as'=>'only.games'
+]);
 Route::get('/top/Games',[
 	'uses'=>'GamesController@Gtop',
 	'as'=>'top.games'
@@ -152,11 +156,6 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 	Route::get('Suspend/{id}',[
 		'uses'=>'GamesController@suspend',
-	]);
-
-	Route::get('/OnlyTop',[
-		'uses'=>'GamesController@OnlyTop',
-		'as'=>'only.games'
 	]);
 	Route::get('/Get/Today',[
 		'uses'=>'SettingsController@today',
