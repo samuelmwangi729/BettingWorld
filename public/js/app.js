@@ -3045,7 +3045,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.token = $('meta[name="csrf-token"]').attr('content'), //  this.loadLive()
+    this.token = $('meta[name="csrf-token"]').attr('content'), this.loadLive();
     this.getToday();
   }
 });

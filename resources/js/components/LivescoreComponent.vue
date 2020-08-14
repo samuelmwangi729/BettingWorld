@@ -109,7 +109,7 @@ export default{
     },
     mounted(){
             this.token= $('meta[name="csrf-token"]').attr('content'),
-        //  this.loadLive()
+         this.loadLive()
         this.getToday()
     }
 }
