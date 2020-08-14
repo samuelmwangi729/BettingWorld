@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid">
+<div class="container-fluid table-responsive">
         <div class="row" style="margin-top:100px;color:white;background:linear-gradient(90deg, #a8c0ff 0%,#3f2b96 100% );">
         <div class="col-sm-5 table-responsive">
           <h2 class="text-center">  Leagues</h2>
@@ -20,7 +20,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-7 table-responsive">
          <h2 class="text-center"> Top GamesToday</h2>
          <table  class="table table-hover table-condensed table-bordered">
                 <thead>
@@ -34,9 +34,9 @@
                 <tbody>
                     <tr v-for="game in games" :key="game.id">
                         <td><img :src="game.flag" width="30px"></td>
-                        <td>{{game.home}} <b>Vs</b> {{game.away}}</td>
-                        <td>{{game.league}}</td>
-                        <td>{{game.date}}</td>
+                        <td style="font-size:10px">{{game.home}} <b>Vs</b> {{game.away}}</td>
+                        <td style="font-size:10px">{{game.league}}</td>
+                        <td style="font-size:10px">{{game.date}}</td>
                     </tr>
                 </tbody>
             </table>

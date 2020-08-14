@@ -1,8 +1,5 @@
 <template>
     <div class="row" style="margin-top:70px">
-        <div class="col-sm-2" style="background-color:whitesmoke">
-            <button class="btn btn-success" @click="loadPredictions">Load Predictions</button>
-        </div>
         <div class="col-sm-10">
          Games Not Predicted
          <table class="table table-hover table-condensed table-bordered">
@@ -11,6 +8,7 @@
                      <td>Flag</td>
                      <td>League</td>
                      <td>Game</td>
+                     <td>Action</td>
                  </tr>
              </thead>
              <tbody>
@@ -23,6 +21,16 @@
                      </td>
                      <td>
                        <img :src="game.homeFlag" width="20px">&nbsp; {{ game.home }}  V.s   <img :src="game.awayFlag" width="20px">&nbsp; {{ game.away }}
+                     </td>
+                     <td>
+                       <span v-if="game.Status==1">
+                           <div class="btn btn-warning">
+                               Prediction Exists
+                           </div>
+                       </span>
+                       <span v-else>
+                             <button class="btn btn-success" @click="loadPrediction(game.fixture_id)">Get Predictions</button>
+                       </span>
                      </td>
                  </tr>
              </tbody>
@@ -46,15 +54,9 @@ export default{
                this.games=data.data;
              })
         },
-        loadPredictions(){
+        loadPrediction(id){
             //first load the games from the dataase 
-            axios.get('/Todays/Games').then((data)=>{
-                //use foreach loop
-                this.games=data.data;
-                this.games.forEach(element => {
-                    this.fixture_id=element.fixture_id;
-                    //get the request
-                    axios.get('https://api-football-v1.p.rapidapi.com/v2/predictions/'+this.fixture_id,{
+                             axios.get('https://api-football-v1.p.rapidapi.com/v2/predictions/'+id,{
                         headers: {
                         //send headers
                         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
@@ -65,7 +67,7 @@ export default{
                         //this is the prediction object
                         data.data.api.predictions.forEach(element => {
                             let token=this.token;
-                            let fixture=this.fixture_id;
+                            let fixture=id;
                             let advice=element.advice;
                             let win=element.winning_percent;
                             let teams=element.teams;
@@ -80,8 +82,9 @@ export default{
                           }).then((data)=>{
                               //after the data is posted, then update the fixture in the fixtures table 
                               //send a get request 
-                            axios.get('/predict/game/'+this.fixture_id).then((response)=>{
+                            axios.get('/predict/game/'+id).then((response)=>{
                                this.loadGames()
+                               console.log(response)
                             }).catch((response)=>{
                                 console.log(response.data)
                             })
@@ -92,11 +95,7 @@ export default{
                         //in case of any error 
                         console.log(error)
                     })
-                });
-
-            }).catch((error)=>{
-                console.log(error)
-            })
+           
         }
     },
     created(){

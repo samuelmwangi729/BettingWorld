@@ -199,7 +199,6 @@ class GamesController extends Controller
         $date= $settings->Date;
         $fixtures=FIxture::where([
             ['TodayDate','=',$date],
-            ['Status','=',0]
         ])->get();
         return $fixtures;
     }

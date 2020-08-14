@@ -2977,25 +2977,35 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       live: {},
-      token: ''
+      token: '',
+      today: ''
     };
   },
   methods: {
-    loadLive: function loadLive() {
+    getToday: function getToday() {
       var _this = this;
 
-      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-13?timezone=Europe/Amsterdam', {
+      axios.get('/Get/Today').then(function (response) {
+        _this.today = response.data;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    loadLive: function loadLive() {
+      var _this2 = this;
+
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/' + this.today + '?timezone=Europe/Amsterdam', {
         headers: {
           "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
           "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
         }
       }).then(function (_ref) {
         var data = _ref.data;
-        return _this.live = data.api.fixtures, _this.PostData(_this.live);
+        return _this2.live = data.api.fixtures, _this2.PostData(_this2.live);
       }); //try to post data using azion
     },
     PostData: function PostData(live) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.live.forEach(function (element) {
         var eventDate = element.event_date;
@@ -3009,7 +3019,7 @@ __webpack_require__.r(__webpack_exports__);
         var awayTeam = element.awayTeam.team_name;
         var awayLogo = element.awayTeam.logo;
         axios.post('/Matches/Fixtures', {
-          _token: _this2.token,
+          _token: _this3.token,
           date: eventDate,
           fixture_id: fixture,
           venue: venue,
@@ -3020,9 +3030,7 @@ __webpack_require__.r(__webpack_exports__);
           homeFlag: homeLogo,
           away: awayTeam,
           awayFlag: awayLogo
-        }).then(function (response) {
-          console.log(response.data.message);
-        })["catch"](function (error) {
+        }).then(function (response) {})["catch"](function (error) {
           console.log(error);
         }); // console.log('Event Date Is '+)
         // console.log('Event venue Is '+venue)
@@ -3037,7 +3045,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.token = $('meta[name="csrf-token"]').attr('content'), this.loadLive();
+    this.token = $('meta[name="csrf-token"]').attr('content'), this.getToday();
+    this.loadLive();
   }
 });
 
@@ -3165,6 +3174,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3182,56 +3199,47 @@ __webpack_require__.r(__webpack_exports__);
         _this.games = data.data;
       });
     },
-    loadPredictions: function loadPredictions() {
+    loadPrediction: function loadPrediction(id) {
       var _this2 = this;
 
       //first load the games from the dataase 
-      axios.get('/Todays/Games').then(function (data) {
-        //use foreach loop
-        _this2.games = data.data;
-
-        _this2.games.forEach(function (element) {
-          _this2.fixture_id = element.fixture_id; //get the request
-
-          axios.get('https://api-football-v1.p.rapidapi.com/v2/predictions/' + _this2.fixture_id, {
-            headers: {
-              //send headers
-              "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-              "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8",
-              "useQueryString": true
-            }
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/predictions/' + id, {
+        headers: {
+          //send headers
+          "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+          "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8",
+          "useQueryString": true
+        }
+      }).then(function (data) {
+        //this is the prediction object
+        data.data.api.predictions.forEach(function (element) {
+          var token = _this2.token;
+          var fixture = id;
+          var advice = element.advice;
+          var win = element.winning_percent;
+          var teams = element.teams;
+          var h2h = element.h2h;
+          axios.post('/predictions', {
+            _token: token,
+            fixture_id: fixture,
+            advice: advice,
+            win_percent: win,
+            teams: teams,
+            h2h: h2h
           }).then(function (data) {
-            //this is the prediction object
-            data.data.api.predictions.forEach(function (element) {
-              var token = _this2.token;
-              var fixture = _this2.fixture_id;
-              var advice = element.advice;
-              var win = element.winning_percent;
-              var teams = element.teams;
-              var h2h = element.h2h;
-              axios.post('/predictions', {
-                _token: token,
-                fixture_id: fixture,
-                advice: advice,
-                win_percent: win,
-                teams: teams,
-                h2h: h2h
-              }).then(function (data) {
-                //after the data is posted, then update the fixture in the fixtures table 
-                //send a get request 
-                axios.get('/predict/game/' + _this2.fixture_id).then(function (response) {
-                  _this2.loadGames();
-                })["catch"](function (response) {
-                  console.log(response.data);
-                });
-              });
+            //after the data is posted, then update the fixture in the fixtures table 
+            //send a get request 
+            axios.get('/predict/game/' + id).then(function (response) {
+              _this2.loadGames();
+
+              console.log(response);
+            })["catch"](function (response) {
+              console.log(response.data);
             });
-          })["catch"](function (error) {
-            //in case of any error 
-            console.log(error);
           });
         });
       })["catch"](function (error) {
+        //in case of any error 
         console.log(error);
       });
     }
@@ -3341,23 +3349,205 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      details: []
+      details: [],
+      leagues: {}
     };
   },
   methods: {
+    loadLeagues: function loadLeagues() {
+      var _this = this;
+
+      axios.get('/All/Leagues').then(function (data) {
+        _this.leagues = data.data.data; //if the fetch is successful
+      });
+    },
     loadDetails: function loadDetails() {
+      var _this2 = this;
+
       axios.get('/Latest/Data').then(function (response) {
-        console.log(response.data.latest);
+        _this2.details = response.data.latest.data;
       })["catch"](function (err) {
         console.log(err);
       });
     }
   },
   created: function created() {
-    this.loadDetails(), console.log('loading Details');
+    this.loadDetails(), this.loadLeagues();
   }
 });
 
@@ -45198,7 +45388,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
+  return _c("div", { staticClass: "container-fluid table-responsive" }, [
     _c(
       "div",
       {
@@ -45238,7 +45428,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-sm-7" }, [
+        _c("div", { staticClass: "col-sm-7 table-responsive" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v(" Top GamesToday")]),
           _vm._v(" "),
           _c(
@@ -45255,15 +45445,19 @@ var render = function() {
                       _c("img", { attrs: { src: game.flag, width: "30px" } })
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticStyle: { "font-size": "10px" } }, [
                       _vm._v(_vm._s(game.home) + " "),
                       _c("b", [_vm._v("Vs")]),
                       _vm._v(" " + _vm._s(game.away))
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(game.league))]),
+                    _c("td", { staticStyle: { "font-size": "10px" } }, [
+                      _vm._v(_vm._s(game.league))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(game.date))])
+                    _c("td", { staticStyle: { "font-size": "10px" } }, [
+                      _vm._v(_vm._s(game.date))
+                    ])
                   ])
                 }),
                 0
@@ -45648,24 +45842,6 @@ var render = function() {
     "div",
     { staticClass: "row", staticStyle: { "margin-top": "70px" } },
     [
-      _c(
-        "div",
-        {
-          staticClass: "col-sm-2",
-          staticStyle: { "background-color": "whitesmoke" }
-        },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success",
-              on: { click: _vm.loadPredictions }
-            },
-            [_vm._v("Load Predictions")]
-          )
-        ]
-      ),
-      _vm._v(" "),
       _c("div", { staticClass: "col-sm-10" }, [
         _vm._v("\n     Games Not Predicted\n     "),
         _c(
@@ -45695,6 +45871,31 @@ var render = function() {
                     _vm._v("  " + _vm._s(game.home) + "  V.s   "),
                     _c("img", { attrs: { src: game.awayFlag, width: "20px" } }),
                     _vm._v("  " + _vm._s(game.away) + "\n                 ")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    game.Status == 1
+                      ? _c("span", [
+                          _c("div", { staticClass: "btn btn-warning" }, [
+                            _vm._v(
+                              "\n                           Prediction Exists\n                       "
+                            )
+                          ])
+                        ])
+                      : _c("span", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success",
+                              on: {
+                                click: function($event) {
+                                  return _vm.loadPrediction(game.fixture_id)
+                                }
+                              }
+                            },
+                            [_vm._v("Get Predictions")]
+                          )
+                        ])
                   ])
                 ])
               }),
@@ -45717,7 +45918,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("League")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Game")])
+        _c("td", [_vm._v("Game")]),
+        _vm._v(" "),
+        _c("td", [_vm._v("Action")])
       ])
     ])
   }
@@ -46087,10 +46290,607 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _vm._v("\n    Shows Single Match Highlights\n")
+    _c(
+      "div",
+      { staticClass: "col-sm-8" },
+      [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Match Analytics")]),
+        _vm._v(" "),
+        _vm._l(_vm.details, function(detail) {
+          return _c(
+            "div",
+            {
+              key: detail.id,
+              staticStyle: { "background-color": "whitesmoke" }
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-6 text-center" }, [
+                  _c("img", {
+                    attrs: { src: detail.h2h[0].league.flag, width: "70%" }
+                  }),
+                  _vm._v(" "),
+                  _c("h2", [
+                    _vm._v("Country: " + _vm._s(detail.h2h[0].league.country))
+                  ]),
+                  _vm._v(" "),
+                  _c("h2", [
+                    _vm._v(
+                      "League:   " + _vm._s(detail.h2h[0].league.name) + " "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("h6", [
+                    _vm._v("Venue:   " + _vm._s(detail.h2h[0].venue) + " ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-6" }, [
+                  _c("h2", [_vm._v("Home Team")]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(
+                      "Team Name:    " + _vm._s(detail.teams.home.team_name)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "container" }, [
+                    _c("h3", [_vm._v("Last 5 Matched")]),
+                    _vm._v(" "),
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-condensed table-hover table-bordered"
+                      },
+                      [
+                        _vm._m(0, true),
+                        _vm._v(" "),
+                        _c("tbody", [
+                          _c("tr", [
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.home.last_5_matches.forme)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.home.last_5_matches.att)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.home.last_5_matches.def)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.home.last_5_matches.goals)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(
+                                    detail.teams.home.last_5_matches.goals_avg
+                                  )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(
+                                    detail.teams.home.last_5_matches
+                                      .goals_against
+                                  )
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("h6", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "Goals Against Average: " +
+                          _vm._s(
+                            detail.teams.home.last_5_matches.goals_against_avg
+                          )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { color: "red" }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(detail.teams.home.team_name) +
+                            " Matches Played"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "table",
+                      { staticClass: "table table-condensed table-bordered" },
+                      [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c("tbody", [
+                          _c("tr", [
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  detail.teams.home.all_last_matches.matchs
+                                    .matchsPlayed.home
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  detail.teams.home.all_last_matches.matchs
+                                    .matchsPlayed.away
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  detail.teams.home.all_last_matches.matchs
+                                    .matchsPlayed.total
+                                )
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { color: "Red" }
+                      },
+                      [_vm._v("Matches Won")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-condensed table-hover table-bordered"
+                      },
+                      [
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.home.all_last_matches.matchs.wins
+                                  .home
+                              ) + "  "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.home.all_last_matches.matchs.wins
+                                  .away
+                              ) + "  "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.home.all_last_matches.matchs.wins
+                                  .total
+                              ) + "  "
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-6" }, [
+                  _c("h2", [_vm._v("Away Team")]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _vm._v(
+                      "Team Name:    " + _vm._s(detail.teams.away.team_name)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "container" }, [
+                    _c("h3", [_vm._v("Last 5 Matched")]),
+                    _vm._v(" "),
+                    _c(
+                      "table",
+                      {
+                        staticClass:
+                          "table table-condensed table-hover table-bordered table-responsive"
+                      },
+                      [
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _c("tbody", [
+                          _c("tr", [
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.away.last_5_matches.forme)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.away.last_5_matches.att)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.away.last_5_matches.def)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(detail.teams.away.last_5_matches.goals)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(
+                                    detail.teams.away.last_5_matches.goals_avg
+                                  )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                "  " +
+                                  _vm._s(
+                                    detail.teams.away.last_5_matches
+                                      .goals_against
+                                  )
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("h6", { staticClass: "text-center" }, [
+                      _vm._v(
+                        "Goals Against Average: " +
+                          _vm._s(
+                            detail.teams.away.last_5_matches.goals_against_avg
+                          )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { color: "red" }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(detail.teams.away.team_name) +
+                            " Matches Played"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("table", { staticClass: "table" }, [
+                      _vm._m(4, true),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.away.all_last_matches.matchs
+                                  .matchsPlayed.home
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.away.all_last_matches.matchs
+                                  .matchsPlayed.away
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              _vm._s(
+                                detail.teams.away.all_last_matches.matchs
+                                  .matchsPlayed.total
+                              )
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    {
+                      staticClass: "text-center",
+                      staticStyle: { color: "Red" }
+                    },
+                    [_vm._v("Matches Won")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    {
+                      staticClass:
+                        "table table-condensed table-hover table-bordered"
+                    },
+                    [
+                      _vm._m(5, true),
+                      _vm._v(" "),
+                      _c("tr", [
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              detail.teams.away.all_last_matches.matchs.wins
+                                .home
+                            ) + "  "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              detail.teams.away.all_last_matches.matchs.wins
+                                .away
+                            ) + "  "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              detail.teams.away.all_last_matches.matchs.wins
+                                .total
+                            ) + "  "
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-6" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-5 text-center" }, [
+                      _c("img", {
+                        attrs: {
+                          src: detail.h2h[0].homeTeam.logo,
+                          width: "100px"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("  " + _vm._s(detail.h2h[0].homeTeam.team_name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(6, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-5 text-center" }, [
+                      _c("img", {
+                        attrs: {
+                          src: detail.h2h[0].awayTeam.logo,
+                          width: "100px"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("  " + _vm._s(detail.h2h[0].awayTeam.team_name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { color: "red" }
+                      },
+                      [
+                        _vm._v("Prediction: "),
+                        _c("u", [_vm._v(_vm._s(detail.advice))])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-4" }, [
+      _c("h2", [_vm._v("Leagues")]),
+      _vm._v(" "),
+      _c(
+        "table",
+        { staticClass: "table table-hover table-condensed table-bordered" },
+        [
+          _vm._m(7),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.leagues, function(league) {
+              return _c("tr", { key: league.id }, [
+                _c("td", [
+                  _c("img", { attrs: { src: league.logo, width: "30px" } })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(league.country))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(league.name))])
+              ])
+            }),
+            0
+          )
+        ]
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Forme")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Att")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Def")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Goals")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Avg. Goals")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Goals Against")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Home")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Away")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Home")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Away")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Total")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Forme")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Att")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Def")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Goals")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Avg. Goals")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Goals Against")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Home")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Away")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Home")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Away")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Total")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 text-center" }, [
+      _c("h1", { staticStyle: { color: "red" } }, [_vm._v("VS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Flag")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("League")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

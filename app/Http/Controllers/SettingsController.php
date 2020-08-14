@@ -101,4 +101,8 @@ class SettingsController extends Controller
             return $data;
         }
     }
+    protected function today(){
+    $setting=Setting::where('Day','=','Today')->get()->first();
+    return $setting->Date;
+    }
 }

@@ -129,7 +129,6 @@ class PredictionsController extends Controller
     protected function GetData(){
         $latest=Session::get('latest');
         $data=['latest'=>$latest];
-        session()->forget('latest');
         return $data;
     }
 }

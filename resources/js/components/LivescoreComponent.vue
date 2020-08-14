@@ -37,11 +37,19 @@ export default{
         return{
             live:{},
             token:'',
+            today:''
         }
     },
     methods: {
+        getToday(){
+            axios.get('/Get/Today').then((response)=>{
+            this.today=response.data
+            }).catch((err)=>{
+                console.log(err)
+            })
+        },
         loadLive(){
-               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-13?timezone=Europe/Amsterdam', {
+               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/'+this.today+'?timezone=Europe/Amsterdam', {
                 headers: {
                     "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                     "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
@@ -82,7 +90,6 @@ export default{
                             )
                         .then((response)=>{
 
-                       console.log(response.data.message);
 
                         }).catch((error)=>{
                             console.log(error)
@@ -102,7 +109,8 @@ export default{
     },
     mounted(){
             this.token= $('meta[name="csrf-token"]').attr('content'),
-         this.loadLive()
+            this.getToday()
+            this.loadLive()
     }
 }
 </script>

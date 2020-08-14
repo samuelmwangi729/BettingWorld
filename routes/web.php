@@ -157,6 +157,9 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses'=>'GamesController@OnlyTop',
 		'as'=>'only.games'
 	]);
+	Route::get('/Get/Today',[
+		'uses'=>'SettingsController@today',
+	]);
 	Route::get('Reset/{id}',[
 		'uses'=>'GamesController@Reset',
 	]);

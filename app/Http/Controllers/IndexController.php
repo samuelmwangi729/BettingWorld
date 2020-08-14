@@ -24,6 +24,7 @@ class IndexController extends Controller
             ['Type','=',1],
             ['OutCome','=',null]
         ])->get()->take(5);
+        session()->forget('latest');
         $games=Game::where('Outcome','=',1)->get();
         return view('welcome')
         ->with('yesterdays',$yesterdays)
