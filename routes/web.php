@@ -16,6 +16,9 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
+Route::get('Yesterday/WonGames',[
+	'uses'=>'GamesController@Yesterday'
+]);
 Route::get('/OnlyTop',[
 	'uses'=>'GamesController@OnlyTop',
 	'as'=>'only.games'
@@ -172,9 +175,6 @@ Route::group(['middleware' => 'auth'], function () {
 	]);
 	Route::get('/isSub',[
 		'uses'=>'SubscribersController@sub'
-	]);
-	Route::get('Yesterday/WonGames',[
-		'uses'=>'GamesController@Yesterday'
 	]);
 	Route::get('/Get/Predictions',[
 		'uses'=>'GamesController@Predictions'
