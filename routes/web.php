@@ -16,6 +16,9 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
+Route::get('/predict/game/{id}',[
+	'uses'=>'PredictionsController@Predict'
+]);
 Route::get('Yesterday/WonGames',[
 	'uses'=>'GamesController@Yesterday'
 ]);
@@ -180,9 +183,7 @@ Route::group(['middleware' => 'auth'], function () {
 		'uses'=>'GamesController@Predictions'
 	]);
 	Route::resource('predictions','PredictionsController');
-	Route::get('/predict/game/{id}',[
-		'uses'=>'PredictionsController@Predict'
-	]);
+
 	Route::post('/LatestData',[
 		'uses'=>'PredictionsController@LatestData'
 	]);
