@@ -186,21 +186,15 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/Get/Predictions',[
 		'uses'=>'GamesController@Predictions'
 	]);
-
-	Route::post('/LatestData',[
-		'uses'=>'PredictionsController@LatestData'
-	]);
-	Route::get('/Latest/Data',[
-		'uses'=>'PredictionsController@GetData',
-
-	]);
 });
 
+Route::post('/LatestData',[
+	'uses'=>'PredictionsController@LatestData'
+]);
+Route::get('/Latest/Data',[
+	'uses'=>'PredictionsController@GetData',
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
