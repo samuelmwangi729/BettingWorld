@@ -2374,10 +2374,10 @@ __webpack_require__.r(__webpack_exports__);
     loadFixtures: function loadFixtures() {
       var _this = this;
 
-      axios.get('/Todays/Games').then(function (_ref) {
-        var data = _ref.data;
-        return _this.fixtures = data;
-      });
+      axios.get('/Todays/Games').then(function (data) {
+        _this.fixtures = data.data;
+        console.log(data);
+      })["catch"]();
     },
     loadLeagues: function loadLeagues() {
       var _this2 = this;

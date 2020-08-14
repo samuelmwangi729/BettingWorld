@@ -78,11 +78,10 @@ export default{
             })
         },
         loadFixtures(){
-            axios.get('/Todays/Games').then(
-                 ({
-                        data
-                    })=>(this.fixtures=data)
-            )
+            axios.get('/Todays/Games').then((data)=>{
+                this.fixtures=data.data
+                console.log(data)
+            }).catch();
         },
          loadLeagues(){
          axios.get('/All/Leagues').then((data)=>{

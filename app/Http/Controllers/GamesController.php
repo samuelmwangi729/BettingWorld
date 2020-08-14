@@ -170,8 +170,14 @@ class GamesController extends Controller
         //
     }
     protected function fixtures(Request $request){
+        $settings=Setting::where('Day','=','Today')->get()->first();
+        if(is_null($settings)){
+            $data=['message'=>'Unknown Error Occurred'];
+            return $data;
+        }
+        $date= $settings->Date;
         Fixture::create([
-            'TodayDate'=>date('Y-m-d'),
+            'TodayDate'=>$date,
             'date'=>$request->date,
             'fixture_id'=>$request->fixture_id,
             'venue'=>$request->venue,
