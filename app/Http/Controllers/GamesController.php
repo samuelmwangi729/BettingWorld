@@ -270,7 +270,7 @@ class GamesController extends Controller
         $big=FIxture::orderBy('id','asc')->where([
             ['Status','=','1'],
             ['TodayDate','=',$date]
-        ])->get()->last();
+        ])->get()->first();
         return $big;
     }
 }
