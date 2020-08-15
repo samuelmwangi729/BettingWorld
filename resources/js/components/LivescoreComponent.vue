@@ -49,7 +49,7 @@ export default{
             })
         },
         loadLive(){
-               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-15?timezone=Europe/Amsterdam', {
+               axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-16?timezone=Europe/Amsterdam', {
                 headers: {
                     "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                     "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
