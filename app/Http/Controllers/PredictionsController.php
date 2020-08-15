@@ -120,7 +120,7 @@ class PredictionsController extends Controller
     }
     protected function LatestData(Request $request){
         session(['latest' => $request->all()]);
-      $data=['message'=>'Data Successfully Posted'];
+      $data=['message'=>$request->all(),];
       return $data;
     }
     protected function single(){

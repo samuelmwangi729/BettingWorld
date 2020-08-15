@@ -260,4 +260,17 @@ class GamesController extends Controller
         ])->get();
         return $games;
     }
+    protected function Big(){
+        $settings=Setting::where('Day','=','Today')->get()->first();
+        if(is_null($settings)){
+            $data=['message'=>'Unknown Error Occurred'];
+            return $data;
+        }
+        $date= $settings->Date;
+        $big=FIxture::orderBy('id','asc')->where([
+            ['Status','=','1'],
+            ['TodayDate','=',$date]
+        ])->get()->last();
+        return $big;
+    }
 }

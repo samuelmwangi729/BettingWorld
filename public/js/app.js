@@ -2677,9 +2677,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      big: {},
+      prediction: {},
       games: {},
       under: {},
       Draws: {},
@@ -2744,10 +2769,35 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       axios.get('Yesterday/WonGames').then(function (data) {
-        _this7.yesterdays = data.data.games, console.log('Loading yesterday games');
-        console.log(data.data.games);
+        _this7.yesterdays = data.data.games;
       })["catch"](function (data) {
         console.log('Unknown error occurred');
+      });
+    },
+    loadBig: function loadBig() {
+      var _this8 = this;
+
+      console.log('Big Game Loading');
+      axios.get('/bigGame/today').then(function (data) {
+        _this8.big = data.data; //get predictions
+
+        _this8.loadPrediction(_this8.big.fixture_id);
+      });
+    },
+    loadPrediction: function loadPrediction(id) {
+      var _this9 = this;
+
+      axios.get('/predictions/' + id).then(function (data) {
+        var latestData = data.data;
+        axios.post('/LatestData', {
+          data: latestData
+        }).then(function (response) {
+          _this9.prediction = response.data.message.data[0];
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   },
@@ -2759,6 +2809,7 @@ __webpack_require__.r(__webpack_exports__);
     this.loadPremium();
     this.loadCompleted();
     this.loadYesterday();
+    this.loadBig();
   }
 });
 
@@ -2816,7 +2867,7 @@ __webpack_require__.r(__webpack_exports__);
         var name = games[i].name;
 
         if (name === undefined) {
-          name = '';
+          name = 'Unavailable';
         }
 
         axios.post('/Api/Leagues/Post', {
@@ -44497,7 +44548,64 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-5 offset-sm-3" }, [
+        _c(
+          "h1",
+          { staticClass: "text-center", staticStyle: { color: "red" } },
+          [_vm._v("The Big Game")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-5 text-center" }, [
+            _c("img", { attrs: { src: _vm.big.homeFlag, width: "200px" } }),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [_vm._v("   " + _vm._s(_vm.big.home))])
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-5 text-center" }, [
+            _c("img", { attrs: { src: _vm.big.awayFlag, width: "200px" } }),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [_vm._v("   " + _vm._s(_vm.big.away))])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center" }, [
+          _c("span", [
+            _vm._v("Country: "),
+            _c("img", { attrs: { src: _vm.big.flag, width: "30px" } }),
+            _vm._v(" " + _vm._s(_vm.big.country))
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("span", [_vm._v("League: " + _vm._s(_vm.big.league))]),
+          _vm._v(" "),
+          _c(
+            "h1",
+            { staticStyle: { color: "red", "font-family": "monospace" } },
+            [
+              _vm._v("Prediction  "),
+              _c(
+                "u",
+                {
+                  staticStyle: {
+                    "text-transform": "UPPERCASE",
+                    "text-shadow": "2px 2px silver"
+                  }
+                },
+                [_vm._v(" " + _vm._s(_vm.prediction.advice))]
+              )
+            ]
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
     _vm._v(" "),
     _c(
       "div",
@@ -44534,7 +44642,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(1),
+                  _vm._m(2),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44583,7 +44691,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(2),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44634,7 +44742,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(3),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44683,7 +44791,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(4),
+                  _vm._m(5),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44732,7 +44840,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(5),
+                  _vm._m(6),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44751,7 +44859,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(game.KickOff))]),
                         _vm._v(" "),
-                        _vm._m(6, true)
+                        _vm._m(7, true)
                       ])
                     }),
                     0
@@ -44782,7 +44890,7 @@ var render = function() {
                     "table table-condensed table-bordered table-hover"
                 },
                 [
-                  _vm._m(7),
+                  _vm._m(8),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -44801,7 +44909,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(game.KickOff))]),
                         _vm._v(" "),
-                        _vm._m(8, true)
+                        _vm._m(9, true)
                       ])
                     }),
                     0
@@ -44828,7 +44936,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table" }, [
-            _vm._m(9),
+            _vm._m(10),
             _vm._v(" "),
             _c(
               "tbody",
@@ -44845,7 +44953,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(10),
+          _vm._m(11),
           _vm._v(" "),
           _c(
             "h3",
@@ -44856,7 +44964,7 @@ var render = function() {
             [_vm._v("About Us")]
           ),
           _vm._v(" "),
-          _vm._m(11),
+          _vm._m(12),
           _vm._v(
             "\n            We offer the \n            most well known football wagering tips day by day  giving you motivation to come back to\n           Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.\n           "
           ),
@@ -44864,15 +44972,30 @@ var render = function() {
             _vm._v("We Give Premium Tips In")
           ]),
           _vm._v(" "),
-          _vm._m(12)
+          _vm._m(13)
         ])
       ]
     ),
     _vm._v(" "),
-    _vm._m(13)
+    _vm._m(14)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-2 text-center" }, [
+      _c(
+        "h1",
+        {
+          staticClass: "hidden-sm",
+          staticStyle: { color: "red", "padding-top": "70px" }
+        },
+        [_vm._v("VS")]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

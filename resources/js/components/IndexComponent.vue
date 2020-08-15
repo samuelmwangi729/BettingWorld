@@ -1,5 +1,28 @@
 <template>
     <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-5 offset-sm-3">
+                <h1 class="text-center" style="color:red">The Big Game</h1>
+                <div class="row">
+                        <div class="col-sm-5 text-center">
+                            <img :src="big.homeFlag" width="200px"><br>
+                            <span>   {{ big.home }}</span>
+                        </div>
+                        <div class="col-sm-2 text-center">
+                        <h1 style="color:red;padding-top:70px" class="hidden-sm">VS</h1>
+                        </div>
+                        <div class="col-sm-5 text-center">
+                            <img :src="big.awayFlag"  width="200px"><br>
+                            <span>   {{ big.away }}</span>
+                        </div>
+                </div>
+                <div class="text-center">
+                    <span>Country: <img :src="big.flag" width="30px"> {{big.country}}</span><br>
+                    <span>League: {{big.league}}</span>
+                   <h1 style="color:red;font-family:monospace">Prediction  <u style="text-transform:UPPERCASE;text-shadow:2px 2px silver"> {{ prediction.advice }}</u></h1>
+                </div>
+          </div>
+        </div>
         <div class="card text-center" style="margin-top:30px">
            <blockquote class="blockquote">
                Gamblers Don't Have Enough Money. Bet Responsibly
@@ -237,6 +260,8 @@
     export default {
         data(){
             return{
+                big:{},
+                prediction:{},
                  games:{},
                  under:{},
                  Draws:{},
@@ -281,12 +306,32 @@
             },
             loadYesterday(){
                 axios.get('Yesterday/WonGames').then((data)=>{
-                    this.yesterdays=data.data.games,
-                    console.log('Loading yesterday games')
-                    console.log(data.data.games)
+                    this.yesterdays=data.data.games
                 }).catch((data)=>{
                     console.log('Unknown error occurred')
                 })
+            },
+            loadBig(){
+                console.log('Big Game Loading')
+                axios.get('/bigGame/today').then((data)=>{
+                    this.big=data.data
+                    //get predictions
+                    this.loadPrediction(this.big.fixture_id)
+                })
+            },
+            loadPrediction(id){
+                 axios.get('/predictions/'+id).then((data)=>{
+               let latestData=data.data
+               axios.post('/LatestData',{
+                   data:latestData
+               }).then((response)=>{
+                   this.prediction=response.data.message.data[0]
+               }).catch((err)=>{
+                   console.log(err)
+               })
+            }).catch((error)=>{
+                console.log(error)
+            })
             }
         },
         created() {
@@ -297,6 +342,7 @@
            this.loadPremium()
            this.loadCompleted()
            this.loadYesterday()
+           this.loadBig()
         }
     }
 </script>

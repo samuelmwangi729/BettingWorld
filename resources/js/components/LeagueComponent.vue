@@ -40,7 +40,7 @@ export default{
             for(let i=1;i<=length;i++){
                 let name=games[i].name;
                 if(name===undefined){
-                    name=''
+                    name='Unavailable'
                 }
                 axios.post('/Api/Leagues/Post',{
                          _token: this.token,

@@ -16,6 +16,12 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
+Route::get('/Standings',[
+	'uses'=>'StadingsController@standing'
+]);
+ROute::get('/bigGame/today',[
+	'uses'=>'GamesController@Big'
+]);
 Route::resource('predictions','PredictionsController');
 Route::get('/Match/Highlights',[
 	'uses'=>'PredictionsController@single',
