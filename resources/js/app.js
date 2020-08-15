@@ -47,6 +47,7 @@ Vue.component('user-component', require('./components/UserComponent.vue').defaul
 Vue.component('prediction-component', require('./components/PredictionComponent.vue').default);
 Vue.component('top-component', require('./components/TopComponent.vue').default);
 Vue.component('single-component', require('./components/SingleComponent.vue').default);
+Vue.component('all-component', require('./components/AllComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

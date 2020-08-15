@@ -16,6 +16,13 @@ Route::get('/',[
 	'uses'=>'IndexController@index',
 	'as'=>'index'
 ]);
+Route::get('/Predicted/Games/All',[
+	'uses'=>'PredictionsController@PredictedAll'
+]);
+Route::get('Allpredictions',[
+	'uses'=>'PredictionsController@all',
+	'as'=>'AllPredictions'
+]);
 Route::get('/Standings',[
 	'uses'=>'StadingsController@standing'
 ]);

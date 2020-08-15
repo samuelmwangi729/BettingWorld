@@ -131,4 +131,11 @@ class PredictionsController extends Controller
         $data=['latest'=>$latest];
         return $data;
     }
+    protected function all(){
+        return view('Games.predicted');
+    }
+    protected function PredictedAll(){
+        $games=FIxture::orderBy('id','desc')->where('Status','=','1')->get();
+        return $games;
+    }
 }

@@ -65,7 +65,7 @@
                         <a class="nav-link" href="{{ route('top.games') }}">Top Games <sup><div class="badge badge-success">New</div></sup></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('leagues.view') }}">Today's Combos <sup><div class="badge badge-danger">New</div></sup></a>
+                        <a class="nav-link" href="{{ route('AllPredictions') }}">All Predictions <sup><div class="badge badge-danger">New</div></sup></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav .d-none .d-sm-block">
