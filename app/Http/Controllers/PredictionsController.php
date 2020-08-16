@@ -54,7 +54,7 @@ class PredictionsController extends Controller
                  'h2h'=>$request->h2h,
             ]);
             if($prediction){
-                $data=['message'=>'prediction Successfully Saved'];
+                $data=['message'=>'Successfully Posted'];
                 return $data;
             }else{
                 $data=['message'=>'the prediction could not be saved. Kndly try again later'];

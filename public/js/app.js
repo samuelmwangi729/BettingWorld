@@ -3398,6 +3398,7 @@ __webpack_require__.r(__webpack_exports__);
             teams: teams,
             h2h: h2h
           }).then(function (data) {
+            //   console.log(data)
             //after the data is posted, then update the fixture in the fixtures table 
             //send a get request 
             axios.get('/predict/game/' + id).then(function (response) {
