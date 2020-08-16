@@ -111,11 +111,16 @@ class PredictionsController extends Controller
     }
     protected function Predict($id){
         //find the game from the fixtures table
-        $game=FIxture::where('fixture_id','=',$id)->get()->first();
+        $game=FIxture::where('fixture_id','=',$id)->get()->last();
+        // dd($game->Status);
         if($game){
             $game->Status=1;
             $game->save();
             $data=['message'=>'Game Fixture Successfully Updated'];
+            return $data;
+        }else{
+            $data=['message'=>'Game Not Found'];
+            return $data;
         }
     }
     protected function LatestData(Request $request){
