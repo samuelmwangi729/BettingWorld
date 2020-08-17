@@ -261,7 +261,7 @@ class GamesController extends Controller
         return $games;
     }
     protected function Big(){
-        $settings=Setting::where('Day','=','Today')->get()->first();
+        $settings=Setting::where('Day','=','Today')->get()->last();
         if(is_null($settings)){
             $data=['message'=>'Unknown Error Occurred'];
             return $data;

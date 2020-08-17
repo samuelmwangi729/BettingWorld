@@ -3163,7 +3163,7 @@ __webpack_require__.r(__webpack_exports__);
     loadLive: function loadLive() {
       var _this2 = this;
 
-      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-17?timezone=Europe/Amsterdam', {
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-18?timezone=Europe/Amsterdam', {
         headers: {
           "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
           "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
