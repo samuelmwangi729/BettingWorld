@@ -2,26 +2,26 @@
     <div class="row" style="margin-top:70px">
 <div class="col-sm-9">
     <div class="table-responsive">
-        <h2 class="text-center">Todays Games</h2>
+        <h2 class="text-center" style="color:white !important">Todays Games</h2>
         <table class="table table-condensed table-active table-hover" style="font-size:12px">
             <thead>
-                <tr>
-                     <th>
+                <tr >
+                     <th style="color:white !important">
                         Flag
                     </th>
-                    <th>
+                    <th style="color:white !important">
                         Teams
                     </th>
-                    <th>
+                    <th style="color:white !important">
                         League
                     </th>
-                    <th>
+                    <th style="color:white !important">
                         Venue
                     </th>
-                     <th>
+                     <th style="color:white !important">
                         Country
                     </th>
-                    <th>
+                    <th style="color:white !important">
                         KickOff
                     </th>
                 </tr>
@@ -29,32 +29,32 @@
             <tbody>
                 <tr v-for="fixture in fixtures" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
-                    <td @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
-                    <td @click="Predict(fixture.fixture_id)">{{fixture.home}} <b style="color:red">VS</b>  {{fixture.away}}</td>
-                    <td @click="Predict(fixture.fixture_id)">{{fixture.league}}</td>
-                    <td @click="Predict(fixture.fixture_id)">{{fixture.venue}}</td>
-                    <td @click="Predict(fixture.fixture_id)">{{fixture.country}}</td>
-                    <td @click="Predict(fixture.fixture_id)">{{fixture.date}}</td>
+                    <td style="color:white !important" @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
+                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.home}} <b style="color:red">VS</b>  {{fixture.away}}</td>
+                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.league}}</td>
+                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.venue}}</td>
+                    <td  style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.country}}</td>
+                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.date}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 <div class="col-sm-3">
-    <h2 class="text-center">Leagues</h2>
+    <h2 class="text-center" style="color:white !important">Leagues</h2>
     <table  class="table table-hover table-condensed table-bordered">
                 <thead>
                     <tr>
-                        <th>Flag</th>
-                        <th>Country</th>
-                        <th>league</th>
+                        <th style="color:white !important">Flag</th>
+                        <th style="color:white !important">Country</th>
+                        <th style="color:white !important">league</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="league in leagues" :key="league.id">
-                        <td><img :src="league.logo" width="30px"></td>
-                        <td>{{league.country}}</td>
-                        <td>{{league.name}}</td>
+                        <td style="color:white !important"><img :src="league.logo" width="30px"></td>
+                        <td style="color:white !important">{{league.country}}</td>
+                        <td style="color:white !important">{{league.name}}</td>
                     </tr>
                 </tbody>
             </table>

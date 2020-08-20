@@ -44659,7 +44659,14 @@ var render = function() {
     [
       _c("div", { staticClass: "col-sm-9" }, [
         _c("div", { staticClass: "table-responsive" }, [
-          _c("h2", { staticClass: "text-center" }, [_vm._v("Todays Games")]),
+          _c(
+            "h2",
+            {
+              staticClass: "text-center",
+              staticStyle: { color: "white !important" }
+            },
+            [_vm._v("Todays Games")]
+          ),
           _vm._v(" "),
           _c(
             "table",
@@ -44677,6 +44684,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44693,6 +44701,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44711,6 +44720,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44723,6 +44733,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44735,6 +44746,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44747,6 +44759,7 @@ var render = function() {
                     _c(
                       "td",
                       {
+                        staticStyle: { color: "white !important" },
                         on: {
                           click: function($event) {
                             return _vm.Predict(fixture.fixture_id)
@@ -44765,7 +44778,14 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-3" }, [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("Leagues")]),
+        _c(
+          "h2",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "white !important" }
+          },
+          [_vm._v("Leagues")]
+        ),
         _vm._v(" "),
         _c(
           "table",
@@ -44777,13 +44797,17 @@ var render = function() {
               "tbody",
               _vm._l(_vm.leagues, function(league) {
                 return _c("tr", { key: league.id }, [
-                  _c("td", [
+                  _c("td", { staticStyle: { color: "white !important" } }, [
                     _c("img", { attrs: { src: league.logo, width: "30px" } })
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(league.country))]),
+                  _c("td", { staticStyle: { color: "white !important" } }, [
+                    _vm._v(_vm._s(league.country))
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(league.name))])
+                  _c("td", { staticStyle: { color: "white !important" } }, [
+                    _vm._v(_vm._s(league.name))
+                  ])
                 ])
               }),
               0
@@ -44801,27 +44825,27 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        Flag\n                    ")
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        Teams\n                    ")
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        League\n                    ")
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        Venue\n                    ")
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        Country\n                    ")
         ]),
         _vm._v(" "),
-        _c("th", [
+        _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("\n                        KickOff\n                    ")
         ])
       ])
@@ -44833,11 +44857,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Flag")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Flag")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Country")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Country")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("league")])
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("league")
+        ])
       ])
     ])
   }
@@ -45830,7 +45860,14 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "col-sm-5 table-responsive" }, [
-          _c("h2", { staticClass: "text-center" }, [_vm._v("  Leagues")]),
+          _c(
+            "h2",
+            {
+              staticClass: "text-center",
+              staticStyle: { color: "white !important" }
+            },
+            [_vm._v("  Leagues")]
+          ),
           _vm._v(" "),
           _c(
             "table",
@@ -45842,13 +45879,17 @@ var render = function() {
                 "tbody",
                 _vm._l(_vm.leagues, function(league) {
                   return _c("tr", { key: league.id }, [
-                    _c("td", [
+                    _c("td", { staticStyle: { color: "white !important" } }, [
                       _c("img", { attrs: { src: league.logo, width: "30px" } })
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(league.country))]),
+                    _c("td", { staticStyle: { color: "white !important" } }, [
+                      _vm._v(_vm._s(league.country))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(league.name))])
+                    _c("td", { staticStyle: { color: "white !important" } }, [
+                      _vm._v(_vm._s(league.name))
+                    ])
                   ])
                 }),
                 0
@@ -45874,19 +45915,44 @@ var render = function() {
                       _c("img", { attrs: { src: game.flag, width: "30px" } })
                     ]),
                     _vm._v(" "),
-                    _c("td", { staticStyle: { "font-size": "10px" } }, [
-                      _vm._v(_vm._s(game.home) + " "),
-                      _c("b", [_vm._v("Vs")]),
-                      _vm._v(" " + _vm._s(game.away))
-                    ]),
+                    _c(
+                      "td",
+                      {
+                        staticStyle: {
+                          "font-size": "10px",
+                          color: "white !important"
+                        }
+                      },
+                      [
+                        _vm._v(_vm._s(game.home) + " "),
+                        _c("b", { staticStyle: { color: "white" } }, [
+                          _vm._v("Vs")
+                        ]),
+                        _vm._v(" " + _vm._s(game.away))
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("td", { staticStyle: { "font-size": "10px" } }, [
-                      _vm._v(_vm._s(game.league))
-                    ]),
+                    _c(
+                      "td",
+                      {
+                        staticStyle: {
+                          "font-size": "10px",
+                          color: "white !important"
+                        }
+                      },
+                      [_vm._v(_vm._s(game.league))]
+                    ),
                     _vm._v(" "),
-                    _c("td", { staticStyle: { "font-size": "10px" } }, [
-                      _vm._v(_vm._s(game.date))
-                    ])
+                    _c(
+                      "td",
+                      {
+                        staticStyle: {
+                          "font-size": "10px",
+                          color: "white !important"
+                        }
+                      },
+                      [_vm._v(_vm._s(game.date))]
+                    )
                   ])
                 }),
                 0
@@ -45905,11 +45971,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Flag")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Flag")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Country")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Country")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("LeagueName")])
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("LeagueName")
+        ])
       ])
     ])
   },
@@ -45919,13 +45991,21 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Flag")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Flag")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Teams")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Teams")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("League")]),
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("League")
+        ]),
         _vm._v(" "),
-        _c("th", [_vm._v("Time")])
+        _c("th", { staticStyle: { color: "white !important" } }, [
+          _vm._v("Time")
+        ])
       ])
     ])
   }
