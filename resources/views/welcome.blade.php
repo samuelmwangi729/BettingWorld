@@ -1,77 +1,70 @@
 @extends('layouts.app')
 @section('content')
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="{{ asset('Slider/1.jpg') }}" alt="First slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Feel the Warmth</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:50%">Enjoy the Match. We Got You!!</p>
-            <p class="text-left">
-            <button class="btn btn-lg" style="background-color:gold;color:purple;font-weight:bold">Join Us Today &rarr;</button>
-            </p>
+    <!-- Start: Swipe Slider 7 --><!-- Paradise Slider -->
+    <div id="fw_al_001" class="carousel slide ps_slide_y ps_indicators_y swipe_y ps_easeOutQuint" data-ride="carousel"  data-interval="3000" data-duration="200" style="margin-top:70px">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#fw_al_001" data-slide-to="0" class="active"></li>
+        <li data-target="#fw_al_001" data-slide-to="1"></li>
+        <li data-target="#fw_al_001" data-slide-to="2"></li>
+      </ol>
+  
+      <!-- Wrapper For Slides -->
+      <div class="carousel-inner" role="listbox">
+  
+        <!-- First Slide -->
+        <div class="carousel-item active">
+  
+          <!-- Slide Background -->
+          <img src="img/car0.jpg?h=95f69fdb4c01677dc1a6d87aa23e35cd" alt="fw_al_001_01">
+  
+          <!-- Slide Text Layer -->
+          <div class="fw_al_001_slide">
+            <h3 data-animation="animated fadeInUp">Welcome To the Betting World</h3>
+            <h1 data-animation="animated fadeInUp">Let Us Win With You</h1>
+            <p data-animation="animated fadeInUp">Check Out Our Todays Games</p>
+            <a href="/register" data-animation="animated fadeInUp">Join Us</a>
           </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('Slider/2.jpg') }}" alt="Second slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Follow Us.</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:100%">Dont Be scared to make the Move!!</p>
-            <p class="text-left">
-            <button class="btn btn-lg" style="background-color:gold;color:purple;font-weight:bold">Login and Upgrade for VIP &rarr;</button>
-            </p>
+        </div>
+        <!-- End of Slide -->
+  
+        <!-- Second Slide -->
+        <div class="carousel-item">
+  
+          <!-- Slide Background -->
+          <img src="img/5.jpg" alt="fw_al_001_02">
+  
+          <!-- Slide Text Layer -->
+          <div class="fw_al_001_slide">
+            <h3 data-animation="animated fadeInUp" style="color:white !important">We Provide</h3>
+            <h1 data-animation="animated fadeInUp" style="color:white !important">Free Analysed Matches</h1>
+            <p data-animation="animated fadeInUp" style="color:white !important">Check Them Out</p>
+            <a href="/top/Games" data-animation="animated fadeInUp">View Matches</a>
           </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('Slider/3.jpg') }}" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Join the World</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:100%">Make a Fortune With Us</p>
-            <p class="text-left">
-            <button class="btn btn-lg" style="background-color:gold;color:purple;font-weight:bold">
-            Sign Up today
-            </button>
-            </p>
+        </div>
+        <!-- End of Slide -->
+  
+        <!-- Third Slide -->
+        <div class="carousel-item">
+  
+          <!-- Slide Background -->
+          <img src="img/car2.jpg?h=9a104c8eda7214854e673cd2ea0f9bc3" alt="fw_al_001_03">
+  
+          <!-- Slide Text Layer -->
+          <div class="fw_al_001_slide">
+            <h3 data-animation="animated fadeInUp">For Timely Updates</h3>
+            <h1 data-animation="animated fadeInUp">Join Us</h1>
+            <p data-animation="animated fadeInUp">Enroll For VIP Section</p>
+            <a href="/login" data-animation="animated fadeInUp">Login</a>
           </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('Slider/4.jpg') }}" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">We are Here.</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:100%">To help You Make the Dive</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('Slider/5.jpg') }}" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">Hit'em Hard.</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:100%">Feel Confident to walk on your Own</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('Slider/6.jpg') }}" alt="Third slide">
-        <div class="carousel-caption d-none d-md-block">
-            <h1 style="font-size:100px;background-color:black;opacity:.5" class="text-right">We are Accurate.</h1>
-            <p style="font-size:2em;background-color:black;opacity:.5;width:100%">No matter the time, We got you!!!</p>
-          </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+        </div>
+        <!-- End of Slide -->
+  
+      </div><!-- End of Wrapper For Slides -->
+  
+    </div> <!-- End Paradise Slider -->
+  
+    
 <welcome-component></welcome-component>
 @endsection

@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+}
+
+.carousel-control {
+  left: -12px;
+  height: 40px;
+  width: 40px;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  margin-top: 90px;
+}
+
+.carousel-control.right {
+  right: -12px;
+}
+
+.carousel-indicators {
+  right: 50%;
+  top: auto;
+  bottom: -10px;
+  margin-right: -19px;
+}
+
+.carousel-indicators li {
+  background: #cecece;
+}
+
+.carousel-indicators .active {
+  background: #428bca;
+}
+
+.site-media-slider {
+  width: 100%;
+  height: 100%;
+  background-color: #002d47;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+

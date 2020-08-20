@@ -1,0 +1,14 @@
+.container-fluid.spriteMovement {
+  background: url(../../assets/img/SpritesLow.jpg?h=4ba70447b76e7e96ca5d7302a2156649);
+  width: 500px;
+  height: 500px;
+  -webkit-animation: movement 2.5s steps(24) infinite;
+  animation: movement 2.5s steps(24) infinite;
+}
+
+@keyframes movement {
+}
+
+@keyframes movement {
+}
+

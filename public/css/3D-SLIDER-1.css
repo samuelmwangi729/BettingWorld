@@ -1,0 +1,90 @@
+#slider {
+  width: 1000px;
+  height: 450px;
+}
+
+#slider {
+  position: relative;
+  background: #fff url(../loading.gif) center center no-repeat;
+  z-index: 10;
+}
+
+#slider img {
+  visibility: hidden;
+}
+
+a.slider-nav {
+  width: 35px;
+  height: 34px;
+  top: 50%;
+  margin-top: -17px;
+}
+
+.slider-nav.prev {
+  background: url(../left-arrow.png) no-repeat;
+  left: -17px;
+}
+
+.slider-nav.next {
+  background: url(../right-arrow.png) no-repeat;
+  right: -17px;
+}
+
+.slider-timer {
+  width: 20px;
+  height: 30px;
+}
+
+.slider-timer.play {
+  background: url(../slider-play.png) center center no-repeat;
+}
+
+.slider-timer.pause {
+  background: url(../slider-pause.png) center center no-repeat;
+}
+
+.control-links li {
+  visibility: hidden;
+  margin-left: 5px;
+  cursor: pointer;
+  background: url(../link-bg.png) no-repeat;
+  width: 15px;
+  height: 15px;
+  text-indent: -99999px;
+}
+
+.control-links li.active {
+  background: url(../link-active.png) no-repeat;
+}
+
+a.slider-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 200;
+  cursor: pointer;
+  display: none;
+}
+
+.ccslider:hover .slider-nav {
+  display: block;
+}
+
+.slider-timer {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 200;
+  cursor: pointer;
+  display: none;
+}
+
+.ccslider:hover .slider-timer {
+  display: block;
+}
+
+.ccslider canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
