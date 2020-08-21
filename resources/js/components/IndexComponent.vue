@@ -146,7 +146,6 @@
                                                 <th style="color:white !important">Game</th>
                                                 <th style="color:white !important">League</th>
                                                 <th style="color:white !important">Time</th>
-                                                <th style="color:white !important">Pick</th>
                                                 <th style="color:white !important">Status</th>
                                             </tr>
                                     </thead>
@@ -155,7 +154,6 @@
                                                 <td>{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
-                                                <td>{{game.Pick}}</td>
                                                 <td class="text-center"><span style="font-size:20px;color:green !important">&check;</span></td>
                                             </tr>
                                     </tbody>

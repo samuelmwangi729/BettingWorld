@@ -2844,8 +2844,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3191,7 +3189,7 @@ __webpack_require__.r(__webpack_exports__);
     loadLive: function loadLive() {
       var _this2 = this;
 
-      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-18?timezone=Europe/Amsterdam', {
+      axios.get('https://api-football-v1.p.rapidapi.com/v2/fixtures/date/2020-08-22?timezone=Europe/Amsterdam', {
         headers: {
           "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
           "x-rapidapi-key": "ba38e4e931msh8cbd07b515ed9a0p15c2c5jsn87707fbad3c8"
@@ -45115,8 +45113,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(game.KickOff))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(game.Pick))]),
-                      _vm._v(" "),
                       _vm._m(7, true)
                     ])
                   }),
@@ -45495,10 +45491,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticStyle: { color: "white !important" } }, [
           _vm._v("Time")
-        ]),
-        _vm._v(" "),
-        _c("th", { staticStyle: { color: "white !important" } }, [
-          _vm._v("Pick")
         ]),
         _vm._v(" "),
         _c("th", { staticStyle: { color: "white !important" } }, [
