@@ -17,12 +17,12 @@
                                     <tbody>
                 <tr v-for="fixture in fixtures" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
-                    <td style="color:white !important" @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
-                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.home}} <b style="color:red">VS</b>  {{fixture.away}}</td>
-                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.league}}</td>
-                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.venue}}</td>
-                    <td  style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.country}}</td>
-                    <td style="color:white !important" @click="Predict(fixture.fixture_id)">{{fixture.date}}</td>
+                    <td  @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
+                    <td  @click="Predict(fixture.fixture_id)">{{fixture.home}} <b style="color:red">VS</b>  {{fixture.away}}</td>
+                    <td  @click="Predict(fixture.fixture_id)">{{fixture.league}}</td>
+                    <td  @click="Predict(fixture.fixture_id)">{{fixture.venue}}</td>
+                    <td   @click="Predict(fixture.fixture_id)">{{fixture.country}}</td>
+                    <td  @click="Predict(fixture.fixture_id)">{{fixture.date}}</td>
                 </tr>
             </tbody>
         </table>
