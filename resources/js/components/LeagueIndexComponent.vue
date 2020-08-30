@@ -37,10 +37,10 @@
                 <tbody>
                     <tr v-for="game in games" :key="game.id">
                         <td><img :src="game.flag" width="30px"></td>
-                        <td style="font-size:10px;color:white !important">{{game.home}}
-                         <b style="color:white">Vs</b> {{game.away}}</td>
-                        <td style="font-size:10px;color:white !important">{{game.league}}</td>
-                        <td style="font-size:10px;color:white !important">{{game.date}}</td>
+                        <td style="font-size:10px!important">{{game.home}}
+                         <b>Vs</b> {{game.away}}</td>
+                        <td style="font-size:10px!important">{{game.league}}</td>
+                        <td style="font-size:10px !important">{{game.date}}</td>
                     </tr>
                 </tbody>
             </table>
