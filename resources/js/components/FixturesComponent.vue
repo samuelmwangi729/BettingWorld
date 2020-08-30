@@ -41,9 +41,9 @@
                 </thead>
                 <tbody>
                 <tr v-for="league in leagues" :key="league.id">
-                    <td style="color:white !important"><img :src="league.logo" width="30px"></td>
-                    <td style="color:white !important">{{league.country}}</td>
-                    <td style="color:white !important">{{league.name}}</td>
+                    <td ><img :src="league.logo" width="30px"></td>
+                    <td >{{league.country}}</td>
+                    <td >{{league.name}}</td>
                 </tr>
             </tbody>
             </table>
