@@ -1,31 +1,20 @@
 <template>
 <div class="row">
    <div class="col-sm-8 table-responsive">
-       <h2>Predicted Games</h2>
-                 <table class="table table-condensed table-hover table-bordered">
-              <thead>
-                  <tr>
-                     <th>
-                        Flag
-                    </th>
-                    <th>
-                        Teams
-                    </th>
-                    <th>
-                        League
-                    </th>
-                    <th>
-                        Venue
-                    </th>
-                     <th>
-                        Country
-                    </th>
-                    <th>
-                        KickOff
-                    </th>
-                </tr>
-              </thead>
-               <tbody>
+       <h2 class="text-center">Predicted Games</h2>
+   <div class="datagrid">
+            <table class="table">
+                <thead>
+                    <tr>
+                            <th style="color:white !important">Flag</th>
+                            <th style="color:white !important">Teams</th>
+                            <th style="color:white !important">league</th>
+                            <th style="color:white !important">Venue</th>
+                            <th style="color:white !important">Country</th>
+                            <th style="color:white !important">KickOff</th>
+                        </tr>
+                </thead>
+                <tbody>
                 <tr v-for="fixture in games" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
                     <td @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
@@ -37,25 +26,28 @@
                 </tr>
             </tbody>
           </table>
+          </DIV>
    </div>
    <div class="col-sm-4">
        <h2 class="text-center">  Leagues</h2>
-        <table  class="table table-hover table-condensed table-bordered">
-            <thead>
-                <tr>
-                    <th>Flag</th>
-                    <th>Country</th>
-                    <th>LeagueName</th>
-                </tr>
-            </thead>
-            <tbody>
+       <div class="table-responsive datagrid">
+            <table class="table">
+                <thead>
+                    <tr>
+                            <th style="color:white !important">Flag</th>
+                            <th style="color:white !important">Country</th>
+                            <th style="color:white !important">League</th>
+                        </tr>
+                </thead>
+                <tbody>
                 <tr v-for="league in leagues" :key="league.id">
-                    <td><img :src="league.logo" width="30px"></td>
-                    <td>{{league.country}}</td>
-                    <td>{{league.name}}</td>
+                    <td style="color:white !important"><img :src="league.logo" width="30px"></td>
+                    <td style="color:white !important">{{league.country}}</td>
+                    <td style="color:white !important">{{league.name}}</td>
                 </tr>
             </tbody>
-        </table>
+            </table>
+            </div>
    </div>
 </div>
 </template>

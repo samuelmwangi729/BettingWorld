@@ -50,25 +50,25 @@
         <div class="col-12 col-sm-6 col-md-3 col-lg-3">
             <h3 class="text-center">HTFT</h3>
             <div class="login-card"><img class="profile-img-card" src="img/fw_al_007_03.jpg?h=51ea7112b8f13b934e05cd1caaf83ea3">
-               
+
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-3 col-lg-3">
             <h3 class="text-center">GG(BTTS)</h3>
             <div class="login-card"><img class="profile-img-card" src="img/deus-ex2.jpg?h=783a6546ad552913ce2bfa04a86b6d11">
-               
+
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-3 col-lg-3">
             <h3 class="text-center">1X2</h3>
             <div class="login-card"><img class="profile-img-card" src="img/asset%2031.png?h=bf7f7e41b17ad0416c20662bc492b720">
-               
+
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-3 col-lg-3">
             <h3 class="text-center">JackPots</h3>
             <div class="login-card"><img class="profile-img-card" src="img/asset%2030.png?h=83eeb84411e9f54a0383f75daf12dfdd">
-               
+
             </div>
         </div>
     </div>
@@ -219,7 +219,7 @@
                                 </table>
                             </div>
                         <!-- End: Pretty Table -->
-               <div class="text-center">                   
+               <div class="text-center">
                     <span>
                        Kindly Register <a href="/register">Here</a> To access vip tips
                    </span>
@@ -228,7 +228,7 @@
             <div class="container text-center">
                <img class="card-img-top" src="https://bettingworld.co.ke/dist/img/logo.jpg" alt="BettingWorld" style="width:150px;float:center;border-radius:70px">
             </div>
-            We offer the 
+            We offer the
             most well known football wagering tips day by day  giving you motivation to come back to
            Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
            <h6 class="text-center">We Give Premium Tips In</h6>
@@ -237,12 +237,12 @@
                 <li class="list-item">HT/FT</li>
                 <li class="list-item">Correct Score</li>
                 <li class="list-item">Combos</li>
-                <li class="list-item">Jackpots 
+                <li class="list-item">Jackpots
                 <sup>  <div class="badge badge-success">New</div></sup>
                 </li>
             </ul>
            </div>
-           <!--right ar-->  
+           <!--right ar-->
        </div>
            <!-- Start: Pretty Footer -->
     <footer>
@@ -319,7 +319,7 @@
                     })=>(this.games=data)
                 )
             },
-            //end load the games 
+            //end load the games
             loadPremium(){
                 axios.get('Premium/Games').then(({data})=>(this.premium=data))
             },

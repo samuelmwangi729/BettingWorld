@@ -1,31 +1,21 @@
 <template>
-    <div class="row" style="background:linear-gradient(90deg, #1a2a6c 0%,#b21f1f 50%,#fdbb2d 100% );color:white">
+    <div class="row">
         <div class="col-sm-9 table-responsive">
-          <h2 class="text-center">1X2 Highly Analysed Games(Tap on the game to view Prediction)</h2>
-          <table class="table table-condensed table-hover table-bordered">
-              <thead>
-                  <tr>
-                     <th>
-                        Flag
-                    </th>
-                    <th>
-                        Teams
-                    </th>
-                    <th>
-                        League
-                    </th>
-                    <th>
-                        Venue
-                    </th>
-                     <th>
-                        Country
-                    </th>
-                    <th>
-                        KickOff
-                    </th>
-                </tr>
-              </thead>
-               <tbody>
+         <div class=" datagrid">
+                <h2 class="text-center">Today Highly Analysed Predicted Games Games</h2>
+                <marquee style="color:red !important">(click On the Game to view Predictions)</marquee>
+            <table class="table">
+                <thead>
+                    <tr>
+                            <th style="color:white !important">Flag</th>
+                            <th style="color:white !important">Teams</th>
+                            <th style="color:white !important">League</th>
+                            <th style="color:white !important">venue</th>
+                            <th style="color:white !important">Time</th>
+                            <th style="color:white !important">Date</th>
+                        </tr>
+                </thead>
+                <tbody>
                 <tr v-for="fixture in games" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
                     <td @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
@@ -37,26 +27,29 @@
                 </tr>
             </tbody>
           </table>
+          </div>
         </div>
         <div class="col-sm-3">
-         <h2 class="text-center">Leagues</h2>
-    <table  class="table table-hover table-condensed table-bordered">
+                <div class="table-responsive datagrid">
+                <h2 class="text-center">Leagues</h2>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Flag</th>
-                        <th>Country</th>
-                        <th>league</th>
-                    </tr>
+                            <th style="color:white !important">Flag</th>
+                            <th style="color:white !important">Country</th>
+                            <th style="color:white !important">League</th>
+                        </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="league in leagues" :key="league.id">
-                        <td><img :src="league.logo" width="30px"></td>
-                        <td>{{league.country}}</td>
-                        <td>{{league.name}}</td>
-                    </tr>
-                </tbody>
+                <tr v-for="league in leagues" :key="league.id">
+                    <td style="color:white !important"><img :src="league.logo" width="30px"></td>
+                    <td style="color:white !important">{{league.country}}</td>
+                    <td style="color:white !important">{{league.name}}</td>
+                </tr>
+            </tbody>
             </table>
-        </div>
+            </div>
+            </div>
     </div>
 </template>
 <script>
@@ -78,7 +71,7 @@ export default{
         loadLeagues(){
              axios.get('/All/Leagues').then((data)=>{
              this.leagues=data.data.data
-             
+
              //if the fetch is successful
          })
         },

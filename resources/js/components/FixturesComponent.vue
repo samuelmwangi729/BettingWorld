@@ -1,32 +1,20 @@
 <template>
     <div class="row" style="margin-top:70px">
 <div class="col-sm-9">
-    <div class="table-responsive">
-        <h2 class="text-center" style="color:white !important">Todays Games</h2>
-        <table class="table table-condensed table-active table-hover" style="font-size:12px">
-            <thead>
-                <tr >
-                     <th style="color:white !important">
-                        Flag
-                    </th>
-                    <th style="color:white !important">
-                        Teams
-                    </th>
-                    <th style="color:white !important">
-                        League
-                    </th>
-                    <th style="color:white !important">
-                        Venue
-                    </th>
-                     <th style="color:white !important">
-                        Country
-                    </th>
-                    <th style="color:white !important">
-                        KickOff
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
+            <div class="table-responsive datagrid">
+          <h2 class="text-center">  Todays Games</h2>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                                <th style="color:white !important">Flag</th>
+                                                <th style="color:white !important">Teams</th>
+                                                <th style="color:white !important">League</th>
+                                                <th style="color:white !important">Venue</th>
+                                                <th style="color:white !important">Country</th>
+                                                <th style="color:white !important">KickOff</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
                 <tr v-for="fixture in fixtures" :key="fixture.id">
                     <!-- <td><img :src="fixture.homeFlag" width="30px"> {{fixture.home}} vs </td> -->
                     <td style="color:white !important" @click="Predict(fixture.fixture_id)"> <img :src="fixture.flag" width="30px"> </td>
@@ -41,23 +29,25 @@
     </div>
 </div>
 <div class="col-sm-3">
-    <h2 class="text-center" style="color:white !important">Leagues</h2>
-    <table  class="table table-hover table-condensed table-bordered">
+    <div class="table-responsive datagrid">
+                <h2 class="text-center">Leagues</h2>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th style="color:white !important">Flag</th>
-                        <th style="color:white !important">Country</th>
-                        <th style="color:white !important">league</th>
-                    </tr>
+                            <th style="color:white !important">Flag</th>
+                            <th style="color:white !important">Country</th>
+                            <th style="color:white !important">League</th>
+                        </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="league in leagues" :key="league.id">
-                        <td style="color:white !important"><img :src="league.logo" width="30px"></td>
-                        <td style="color:white !important">{{league.country}}</td>
-                        <td style="color:white !important">{{league.name}}</td>
-                    </tr>
-                </tbody>
+                <tr v-for="league in leagues" :key="league.id">
+                    <td style="color:white !important"><img :src="league.logo" width="30px"></td>
+                    <td style="color:white !important">{{league.country}}</td>
+                    <td style="color:white !important">{{league.name}}</td>
+                </tr>
+            </tbody>
             </table>
+            </div>
 </div>
     </div>
 </template>
@@ -86,7 +76,7 @@ export default{
          loadLeagues(){
          axios.get('/All/Leagues').then((data)=>{
              this.leagues=data.data.data
-             
+
              //if the fetch is successful
          })
        },
