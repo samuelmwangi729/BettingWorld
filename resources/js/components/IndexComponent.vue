@@ -76,8 +76,8 @@
        <div class="row">
            <div class="col-sm-9">
                <div class="row">
-                   <div class="col-sm-6">
-                         <h3 class="text-center" style="color:white;font-weight:bold;font-size:10px;padding-top:10px">Todays Free  (Over 1.5) Games</h3>
+                   <div class="col-sm-6 offset-sm-3">
+                         <h3 class="text-center">Todays Over/Under Predictions</h3>
                       <!--StartFree Games Table-->
                         <!-- Start: Pretty Table -->
                             <div class="datagrid">
@@ -92,7 +92,7 @@
                                     </thead>
                                     <tbody>
                                     <tr v-for="game in games" :key="game.id">
-                                                <td>{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
+                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
                                                 <td>{{game.Pick}}</td>
@@ -104,9 +104,11 @@
                             </div>
                         <!-- End: Pretty Table -->
                    </div>
-                   <div class="col-sm-6">
-                        <h3 class="text-center" style="color:white;font-weight:bold;font-size:10px;padding-top:10px">Todays Free  (under 1.5) Games</h3>
- <!-- Start: Pretty Table -->
+               </div>
+               <div class="row">
+                    <div class="col-sm-6 offset-sm-3">
+                        <h3 class="text-center">Today GG(BTTS)</h3>
+                            <!-- Start: Pretty Table -->
                             <div class="datagrid">
                                 <table class="table">
                                     <thead>
@@ -118,8 +120,8 @@
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="game in games" :key="game.id">
-                                                <td>{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
+                                    <tr v-for="game in under" :key="game.id">
+                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
                                                 <td>{{game.Pick}}</td>
@@ -133,6 +135,36 @@
                         <!-- End under 1.5 table -->
                    </div>
                    <!--end table-->
+               </div>
+               <div class="row">
+                   <div class="col-sm-6 offset-sm-3">
+                         <h3 class="text-center">Today's Combos</h3>
+                      <!--StartFree Games Table-->
+                        <!-- Start: Pretty Table -->
+                            <div class="datagrid">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                                <th style="color:white !important">Game</th>
+                                                <!-- <th style="color:white !important">League</th> -->
+                                                <th style="color:white !important">Time</th>
+                                                <th style="color:white !important">Pick</th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="game in overs" :key="game.id">
+                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
+                                                <!-- <td>{{game.League}}</td> -->
+                                                <td>{{game.KickOff}}</td>
+                                                <td>{{game.Pick}}</td>
+                                            </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        <!-- End: Pretty Table -->
+                   </div>
                </div>
                <div class="row">
                        <!--End col-6-->
@@ -151,7 +183,7 @@
                                     </thead>
                                     <tbody>
                                     <tr v-for="game in yesterdays" :key="game.id">
-                                                <td>{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
+                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
                                                 <td class="text-center"><span style="font-size:20px;color:green !important">&check;</span></td>
@@ -180,7 +212,7 @@
                                     </thead>
                                     <tbody>
                                     <tr v-for="game in completedGames" :key="game.id">
-                                                <td>{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
+                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
                                                 <td>{{game.Pick}}</td>
@@ -232,15 +264,37 @@
             most well known football wagering tips day by day  giving you motivation to come back to
            Us. Gain admittance to our free improvement score tips, best HT/FT expectations and combo tips.
            <h6 class="text-center">We Give Premium Tips In</h6>
-            <ul style="list-style:none;color:purple;background:linear-gradient(90deg, #ffdb00 30%,#ff0303 75% );">
-                <li class="list-item">Sure Bets</li>
-                <li class="list-item">HT/FT</li>
-                <li class="list-item">Correct Score</li>
-                <li class="list-item">Combos</li>
-                <li class="list-item">Jackpots
+            <ul class="list-group text-center">
+                <li class="list-group-item">Sure Bets</li>
+                <li class="list-group-item">HT/FT</li>
+                <li class="list-group-item">Correct Score</li>
+                <li class="list-group-item">Combos</li>
+                <li class="list-group-item">Jackpots
                 <sup>  <div class="badge badge-success">New</div></sup>
                 </li>
             </ul>
+            <div class="datagrid mt-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="color:white; font-size:20px !important">
+                               <h3 class="text-white text-center"> We Design Websites</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <span class="h4">
+                                We are always here at your Servcie. Get in touch with our teams of developers to make sure you get an online presence.
+                                It does not matter the type of website.We do it for a pocket friendly price.
+                               <div class="text-center">
+                                    <a href="mailto:samuelmwangi729@gmail.com" class="btn btn-danger" style="color:white !important">Get In touch</a>
+                               </div>
+                            </span>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
            </div>
            <!--right ar-->
        </div>

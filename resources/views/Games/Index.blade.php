@@ -47,11 +47,8 @@
                                <select class="form-control" name="TipType">
                                    <option label="Select Tip Type"></option>
                                    <option value="GG">GG</option>
-                                   <option value="DRAW">HTFT DRAW</option>
-                                   <option value="OV1.5">Over 1.5</option>
-                                   <option value="UD1.5">Under 1.5</option>
-                                   <option value="OV2.5">Over 2.5</option>
-                                   <option value="Other">Other</option>
+                                   <option value="Over">Over/Under</option>
+                                   <option value="Combo">Combo</option>
                                </select>
                                 @include('alerts.feedback', ['field' => 'TipType'])
                               </div>

@@ -39,7 +39,7 @@ class IndexController extends Controller
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
             ['OutCome','=',null],
-            ['TipType','=','Ov1.5']
+            ['TipType','=','Over']
         ])->get();
         return $todays;
     }
@@ -65,7 +65,7 @@ class IndexController extends Controller
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
             ['OutCome','=',null],
-            ['TipType','=','UD1.5']
+            ['TipType','=','GG']
         ])->get();
         return $under;
     }
@@ -74,7 +74,7 @@ class IndexController extends Controller
             ['DatePosted','=',date('Y-m-d')],
             ['Type','=',0],
             ['OutCome','=',null],
-            ['TipType','=','Other']
+            ['TipType','=','Combo']
         ])->get();
         return $over;
     }

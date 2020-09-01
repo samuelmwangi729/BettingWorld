@@ -50,4 +50,3 @@ class UsersTableSeeder extends Seeder
         }
     }
 }
- 
