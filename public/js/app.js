@@ -44910,6 +44910,17 @@ var render = function() {
       }
     }),
     _vm._v(" "),
+    _c("ins", {
+      staticClass: "adsbygoogle",
+      staticStyle: { display: "block" },
+      attrs: {
+        "data-ad-client": "ca-pub-6177716716878978",
+        "data-ad-slot": "2161762392",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-sm-5 offset-sm-3" }, [
         _c(
@@ -45133,18 +45144,7 @@ var render = function() {
               ])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("ins", {
-          staticClass: "adsbygoogle",
-          staticStyle: { display: "block" },
-          attrs: {
-            "data-ad-client": "ca-pub-6177716716878978",
-            "data-ad-slot": "5164697236",
-            "data-ad-format": "auto",
-            "data-full-width-responsive": "true"
-          }
-        })
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-3" }, [
