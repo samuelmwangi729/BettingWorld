@@ -72,6 +72,7 @@
     </style>
     <!--End of Tawk.to Script-->
     <script data-ad-client="ca-pub-6177716716878978" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
     <div id="app">
@@ -145,8 +146,22 @@
         </main>
     </div>
 
-	<!-- ./Footer -->
+    <!-- ./Footer -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- hor -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="5164697236"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dfd935ad1993c93"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </body>
 </html>

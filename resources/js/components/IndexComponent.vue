@@ -1,5 +1,11 @@
 <template>
     <div class="container-fluid">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="5164697236"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         <div class="row">
           <div class="col-sm-5 offset-sm-3">
                 <h1 class="text-center" style="color:red">The Big Game</h1>
@@ -168,7 +174,7 @@
                </div>
                <div class="row">
                        <!--End col-6-->
-                       <div class="col-sm-6">
+                       <div class="col-sm-6 offset-sm-3">
                         <h3 class="text-center" style="color:white;font-weight:bold;font-size:10px;padding-top:10px">Yesterday Games</h3>
                         <!-- Start: Pretty Table -->
                             <div class="datagrid">
@@ -186,36 +192,6 @@
                                                 <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
                                                 <td>{{game.League}}</td>
                                                 <td>{{game.KickOff}}</td>
-                                                <td class="text-center"><span style="font-size:20px;color:green !important">&check;</span></td>
-                                            </tr>
-                                    </tbody>
-                                    <tfoot>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        <!-- End: Pretty Table -->
-                   </div>
-                   <!-- End of completed Games -->
-                    <div class="col-sm-6">
-                        <h3 class="text-center" style="color:white;font-weight:bold;font-size:10px;padding-top:10px">Completed Games</h3>
-                         <!-- Start: Pretty Table -->
-                            <div class="datagrid">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                                <th style="color:white !important">Game</th>
-                                                <th style="color:white !important">League</th>
-                                                <th style="color:white !important">Time</th>
-                                                <th style="color:white !important">Pick</th>
-                                                <th style="color:white !important">Status</th>
-                                            </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr v-for="game in completedGames" :key="game.id">
-                                                <td style="font-size:15px">{{game.HomeTeam}} <span style="color:red">vs</span> {{game.AwayTeam}}</td>
-                                                <td>{{game.League}}</td>
-                                                <td>{{game.KickOff}}</td>
-                                                <td>{{game.Pick}}</td>
                                                 <td class="text-center"><span style="font-size:20px;color:green !important">&check;</span></td>
                                             </tr>
                                     </tbody>
