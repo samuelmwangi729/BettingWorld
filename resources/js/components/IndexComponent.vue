@@ -6,12 +6,6 @@
      data-ad-slot="5164697236"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-     <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-6177716716878978"
-     data-ad-slot="2161762392"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
         <div class="row">
           <div class="col-sm-5 offset-sm-3">
                 <h1 class="text-center" style="color:red">The Big Game</h1>

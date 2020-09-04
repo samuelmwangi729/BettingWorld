@@ -2856,12 +2856,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -44905,17 +44899,6 @@ var render = function() {
       attrs: {
         "data-ad-client": "ca-pub-6177716716878978",
         "data-ad-slot": "5164697236",
-        "data-ad-format": "auto",
-        "data-full-width-responsive": "true"
-      }
-    }),
-    _vm._v(" "),
-    _c("ins", {
-      staticClass: "adsbygoogle",
-      staticStyle: { display: "block" },
-      attrs: {
-        "data-ad-client": "ca-pub-6177716716878978",
-        "data-ad-slot": "2161762392",
         "data-ad-format": "auto",
         "data-full-width-responsive": "true"
       }
