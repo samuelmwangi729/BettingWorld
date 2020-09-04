@@ -112,7 +112,13 @@
                    </div>
                </div>
                <div class="row">
-                    <div class="col-sm-6 offset-sm-3">
+                    <div class="col-sm-6">
+                        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="9491595680"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
                         <h3 class="text-center">Today GG(BTTS)</h3>
                             <!-- Start: Pretty Table -->
                             <div class="datagrid">
@@ -143,7 +149,13 @@
                    <!--end table-->
                </div>
                <div class="row">
-                   <div class="col-sm-6 offset-sm-3">
+                   <div class="col-sm-6">
+                       <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="9491595680"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
                          <h3 class="text-center">Today's Combos</h3>
                       <!--StartFree Games Table-->
                         <!-- Start: Pretty Table -->
@@ -174,7 +186,13 @@
                </div>
                <div class="row">
                        <!--End col-6-->
-                       <div class="col-sm-6 offset-sm-3">
+                       <div class="col-sm-6">
+                           <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="9491595680"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
                         <h3 class="text-center" style="color:white;font-weight:bold;font-size:10px;padding-top:10px">Yesterday Games</h3>
                         <!-- Start: Pretty Table -->
                             <div class="datagrid">
