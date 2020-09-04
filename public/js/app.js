@@ -2313,6 +2313,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2403,6 +2409,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2997,6 +3009,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3060,6 +3078,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3319,6 +3343,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3475,6 +3505,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3736,6 +3772,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3777,6 +3819,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44420,6 +44468,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
+    _c("ins", {
+      staticClass: "adsbygoogle",
+      staticStyle: { display: "block" },
+      attrs: {
+        "data-ad-client": "ca-pub-6177716716878978",
+        "data-ad-slot": "2161762392",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "col-sm-8 table-responsive" }, [
       _c("h2", { staticClass: "text-center" }, [_vm._v("Predicted Games")]),
       _vm._v(" "),
@@ -44667,6 +44726,17 @@ var render = function() {
     "div",
     { staticClass: "row", staticStyle: { "margin-top": "70px" } },
     [
+      _c("ins", {
+        staticClass: "adsbygoogle",
+        staticStyle: { display: "block" },
+        attrs: {
+          "data-ad-client": "ca-pub-6177716716878978",
+          "data-ad-slot": "2161762392",
+          "data-ad-format": "auto",
+          "data-full-width-responsive": "true"
+        }
+      }),
+      _vm._v(" "),
       _c("div", { staticClass: "col-sm-9" }, [
         _c("div", { staticClass: "table-responsive datagrid" }, [
           _c("h2", { staticClass: "text-center" }, [_vm._v("  Todays Games")]),
@@ -45773,6 +45843,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
+      _c("ins", {
+        staticClass: "adsbygoogle",
+        staticStyle: { display: "block" },
+        attrs: {
+          "data-ad-client": "ca-pub-6177716716878978",
+          "data-ad-slot": "2161762392",
+          "data-ad-format": "auto",
+          "data-full-width-responsive": "true"
+        }
+      }),
+      _vm._v(" "),
       _c("table", { staticClass: "table table-hover table-condensed" }, [
         _c("thead", [
           _c("tr", [
@@ -45813,6 +45894,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid table-responsive" }, [
+    _c("ins", {
+      staticClass: "adsbygoogle",
+      staticStyle: { display: "block" },
+      attrs: {
+        "data-ad-client": "ca-pub-6177716716878978",
+        "data-ad-slot": "2161762392",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-sm-5 table-responsive" }, [
         _c("div", { staticClass: "table-responsive datagrid" }, [
@@ -46036,6 +46128,17 @@ var render = function() {
     "div",
     { staticClass: "container", staticStyle: { "margin-top": "100px" } },
     [
+      _c("ins", {
+        staticClass: "adsbygoogle",
+        staticStyle: { display: "block" },
+        attrs: {
+          "data-ad-client": "ca-pub-6177716716878978",
+          "data-ad-slot": "2161762392",
+          "data-ad-format": "auto",
+          "data-full-width-responsive": "true"
+        }
+      }),
+      _vm._v(" "),
       _c("div", { staticClass: "col-sm-6 offset-sm-3" }, [
         _c(
           "div",
@@ -46375,6 +46478,17 @@ var render = function() {
     "div",
     { staticClass: "container", staticStyle: { "margin-top": "100px" } },
     [
+      _c("ins", {
+        staticClass: "adsbygoogle",
+        staticStyle: { display: "block" },
+        attrs: {
+          "data-ad-client": "ca-pub-6177716716878978",
+          "data-ad-slot": "2161762392",
+          "data-ad-format": "auto",
+          "data-full-width-responsive": "true"
+        }
+      }),
+      _vm._v(" "),
       _c("div", { staticClass: "col-sm-6 offset-sm-3" }, [
         _c(
           "div",
@@ -46715,6 +46829,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
+    _c("ins", {
+      staticClass: "adsbygoogle",
+      staticStyle: { display: "block" },
+      attrs: {
+        "data-ad-client": "ca-pub-6177716716878978",
+        "data-ad-slot": "2161762392",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }
+    }),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "col-sm-8" },
@@ -47338,6 +47463,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
+    _c("ins", {
+      staticClass: "adsbygoogle",
+      staticStyle: { display: "block" },
+      attrs: {
+        "data-ad-client": "ca-pub-6177716716878978",
+        "data-ad-slot": "2161762392",
+        "data-ad-format": "auto",
+        "data-full-width-responsive": "true"
+      }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "col-sm-9 table-responsive" }, [
       _c(
         "div",

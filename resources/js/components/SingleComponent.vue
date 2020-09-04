@@ -1,5 +1,11 @@
 <template>
     <div class="row">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         <div class="col-sm-8">
             <h2 class="text-center">Match Analytics</h2>
             <div v-for="detail in details" :key="detail.id" style="background-color:whitesmoke">
@@ -130,7 +136,7 @@
                              <td>{{detail.teams.away.all_last_matches.matchs.wins.total }}  </td>
                          </tr>
                      </table>
-                          
+
                      <!-- {{ detail.teams.home.all_last_matches }} -->
                   </div>
                   <div class="col-sm-6">
@@ -148,8 +154,8 @@
                      </div>
                      <h4 class="text-center" style="color:red">Prediction: <u>{{detail.advice}}</u></h4>
                    </div>
-                      <!-- {{ detail.h2h[0].awayTeam }} -->        
-                             
+                      <!-- {{ detail.h2h[0].awayTeam }} -->
+
                   </div>
               </div>
             </div>
@@ -187,7 +193,7 @@ export default{
          loadLeagues(){
          axios.get('/All/Leagues').then((data)=>{
              this.leagues=data.data.data
-             
+
              //if the fetch is successful
          })
        },

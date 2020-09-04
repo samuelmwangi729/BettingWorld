@@ -1,5 +1,11 @@
 <template>
     <div class="container">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         <table class="table table-hover table-condensed">
        <thead>
            <tr>
@@ -32,9 +38,9 @@ export default{
                 }
                 }).then(({data})=>(
                     this.leagues=data.api.leagues,
-                      this.PostData(this.leagues,data.api.results)              
+                      this.PostData(this.leagues,data.api.results)
                 ));
-                 
+
         },
         PostData(games,length){
             for(let i=1;i<=length;i++){

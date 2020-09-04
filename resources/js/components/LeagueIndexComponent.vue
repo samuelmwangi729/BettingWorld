@@ -1,5 +1,11 @@
 <template>
 <div class="container-fluid table-responsive">
+    <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         <div class="row">
         <div class="col-sm-5 table-responsive">
          <div class="table-responsive datagrid">

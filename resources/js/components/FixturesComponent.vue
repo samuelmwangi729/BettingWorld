@@ -1,5 +1,11 @@
 <template>
     <div class="row" style="margin-top:70px">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <div class="col-sm-9">
             <div class="table-responsive datagrid">
           <h2 class="text-center">  Todays Games</h2>

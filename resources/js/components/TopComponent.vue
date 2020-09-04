@@ -1,5 +1,11 @@
 <template>
     <div class="row">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
         <div class="col-sm-9 table-responsive">
          <div class=" datagrid">
                 <h2 class="text-center">Today Highly Analysed Predicted Games Games</h2>

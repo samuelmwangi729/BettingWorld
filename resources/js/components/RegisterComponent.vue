@@ -1,5 +1,11 @@
 <template>
     <div class="container" style="margin-top:100px;">
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6177716716878978"
+     data-ad-slot="2161762392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
     <div class="col-sm-6 offset-sm-3">
        <div class="card" style="elevation:0 !important;backfround-color:#f8f9fb !important">
            <div class="card-body">
