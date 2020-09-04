@@ -2862,18 +2862,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -45026,18 +45014,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ins", {
-              staticClass: "adsbygoogle",
-              staticStyle: { display: "block" },
-              attrs: {
-                "data-ad-client": "ca-pub-6177716716878978",
-                "data-ad-slot": "9491595680",
-                "data-ad-format": "auto",
-                "data-full-width-responsive": "true"
-              }
-            }),
-            _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 offset-sm-3" }, [
             _c("h3", { staticClass: "text-center" }, [
               _vm._v("Today GG(BTTS)")
             ]),
@@ -45075,18 +45052,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ins", {
-              staticClass: "adsbygoogle",
-              staticStyle: { display: "block" },
-              attrs: {
-                "data-ad-client": "ca-pub-6177716716878978",
-                "data-ad-slot": "9491595680",
-                "data-ad-format": "auto",
-                "data-full-width-responsive": "true"
-              }
-            }),
-            _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 offset-sm-3" }, [
             _c("h3", { staticClass: "text-center" }, [
               _vm._v("Today's Combos")
             ]),
@@ -45122,18 +45088,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ins", {
-              staticClass: "adsbygoogle",
-              staticStyle: { display: "block" },
-              attrs: {
-                "data-ad-client": "ca-pub-6177716716878978",
-                "data-ad-slot": "9491595680",
-                "data-ad-format": "auto",
-                "data-full-width-responsive": "true"
-              }
-            }),
-            _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 offset-sm-3" }, [
             _c(
               "h3",
               {
@@ -45178,7 +45133,18 @@ var render = function() {
               ])
             ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("ins", {
+          staticClass: "adsbygoogle",
+          staticStyle: { display: "block" },
+          attrs: {
+            "data-ad-client": "ca-pub-6177716716878978",
+            "data-ad-slot": "5164697236",
+            "data-ad-format": "auto",
+            "data-full-width-responsive": "true"
+          }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-3" }, [
