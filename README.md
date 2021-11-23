@@ -63,6 +63,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - [Steadfast Collective](https://steadfastcollective.com/)
 - [We Are The Robots Inc.](https://watr.mx/)
 - [Understand.io](https://www.understand.io/)
+- Feelfree to use either in commercial or for personal use. 
 - [Abdel Elrafa](https://abdelelrafa.com)
 - [Hyper Host](https://hyper.host)
 - [Appoly](https://www.appoly.co.uk)
